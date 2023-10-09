@@ -15,4 +15,13 @@ public class HelloWorld : MonoBehaviour
     {
 
     }
+    public void BeforeLoadUI()
+    {
+        Debug.Log("Before load ui");
+    }
+
+    public void AfterLoadUI()
+    {
+        Debug.Log("After load ui");
+    }
 }

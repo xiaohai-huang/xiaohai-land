@@ -1,0 +1,11 @@
+Scroller {
+  background-color: red;
+}
+
+.unity-repeat-button {
+  background-color: lightblue;
+}
+
+.unity-base-slider__dragger {
+  background-color: lightblue;
+}

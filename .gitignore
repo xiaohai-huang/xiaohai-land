@@ -70,3 +70,6 @@ crashlytics-build.properties
 
 # JetBrains Rider
 .idea/
+
+# React Output
+/[Aa]ssets/Resources/react/
