@@ -64,7 +64,6 @@ function App() {
         Increase
       </button>
       <text>count: {count}</text>
-      {/* @ts-expect-error */}
       <scroll className="items" direction="horizontal">
         {Array(count)
           .fill(0)

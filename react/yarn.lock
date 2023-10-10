@@ -1490,10 +1490,10 @@
   resolved "https://registry.yarnpkg.com/@reactunity/previewer/-/previewer-0.15.0.tgz#54fa45ccbe69b11965d27998b1f74a8701b5c9b4"
   integrity sha512-WRpaXE5ZubpFtmyWbicFaO7E0eVmQwiStLeKU1WZJ7APeTkjBOVzTD/CihyhwgySpao6glf4ntRcHM1mduYeJg==
 
-"@reactunity/renderer@^0.16.1":
-  version "0.16.1"
-  resolved "https://registry.yarnpkg.com/@reactunity/renderer/-/renderer-0.16.1.tgz#a2372330cf7c44d8a6675848ba6295b65719e0e0"
-  integrity sha512-u+pCWiKw/9Pc4WYMVPPO6LUBQAI+iSTZKfZeqv5snZ0fvmOyi76W970nTXXqWGzYbJ96V7UOvM33z6hKNH+Dng==
+"@reactunity/renderer@^0.16.2":
+  version "0.16.2"
+  resolved "https://registry.yarnpkg.com/@reactunity/renderer/-/renderer-0.16.2.tgz#3a2838c0d614ee372a54b900801fd7ad813a5fc4"
+  integrity sha512-sOWlycNpPtIOViT3JHmLl2grkmRnf8O6p/dtYTzng7MESsQFG6zO/DEnxeJYlK/8ZMVDiSzx/nM19Y3KvQtMeg==
   dependencies:
     react-reconciler "^0.29.0"
     use-sync-external-store "^1.2.0"
