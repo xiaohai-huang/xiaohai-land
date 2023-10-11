@@ -1,13 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class HelloWorld : MonoBehaviour
 {
+    public UIDocument uIDocument;
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("hall");
+        Application.targetFrameRate = (int)Screen.currentResolution.refreshRateRatio.value;
     }
 
     // Update is called once per frame

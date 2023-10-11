@@ -1,4 +1,4 @@
-Scroller {
+/* Scroller {
   background-color: red;
 }
 
@@ -8,4 +8,4 @@ Scroller {
 
 .unity-base-slider__dragger {
   background-color: lightblue;
-}
+} */

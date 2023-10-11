@@ -3,32 +3,3 @@
     flex-shrink: 0;
   }
 }
-
-.items {
-  scroller {
-    display: none;
-  }
-}
-
-.items > view {
-  width: 100px;
-  height: 100px;
-  margin: 20px;
-  background-color: coral;
-}
-
-.items > view {
-  background-color: coral;
-}
-
-.items > view:nth-child(2) {
-  background-color: slategray;
-}
-
-.items > view:nth-child(3) {
-  background-color: aqua;
-}
-
-.items > view:nth-child(4) {
-  background-color: dodgerblue;
-}
