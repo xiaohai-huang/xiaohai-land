@@ -1,0 +1,17 @@
+.container {
+  height: 100%;
+  --left-pad: 1rem;
+  .top {
+    padding-left: var(--left-pad);
+    .avatar {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 10px;
+    }
+  }
+  .socialContainer {
+    padding-left: var(--left-pad);
+  }
+}
