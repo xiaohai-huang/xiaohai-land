@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router";
 
-import bgImage from "./ShangGuanWanEr.jpg";
 import defaultAvatar from "../../assets/images/default-avatar.jpg";
 
 import styles from "./index.module.scss";
@@ -207,9 +206,9 @@ function Hero() {
       }}
     >
       <image
-        src={bgImage}
+        src="url(res:ReactAssets/ShangGuanWanEr.jpg)"
         style={{
-          objectFit: "fill",
+          objectFit: "contain",
           objectPosition: "0px -50px",
         }}
       />
