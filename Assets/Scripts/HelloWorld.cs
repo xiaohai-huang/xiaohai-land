@@ -1,11 +1,10 @@
-using ReactUnity.UIToolkit;
+using ReactUnity.UGUI;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.Scripting;
 
 public class HelloWorld : MonoBehaviour
 {
-    public UIDocument uIDocument;
-    public ReactRendererUIToolkit UI;
+    public ReactRendererUGUI UGUI;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,5 +24,11 @@ public class HelloWorld : MonoBehaviour
     public void AfterLoadUI()
     {
         Debug.Log("After load ui");
+    }
+
+    [Preserve]
+    private void DontStripGetComponentWithString()
+    {
+        GameObject.Find("").GetComponent("");
     }
 }
