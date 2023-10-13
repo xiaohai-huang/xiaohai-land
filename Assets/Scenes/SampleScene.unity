@@ -805,14 +805,18 @@ MonoBehaviour:
     Language: 0
     SourceAsset: {fileID: 0}
     Watch: 1
-    SourcePath: https://storage.xiaohai-huang.net/unity-demo/react-unity-playground/react/index.js
+    SourcePath: https://react-unity-playground.netlify.app/index.js
     SourceText: 
     ResourcesPath: 
-    UseDevServer: 0
+    UseDevServer: 1
     DevServer: http://localhost:3000
   EngineType: 3
   Globals:
-    Entries: []
+    Entries:
+    - Key: Renderer
+      Value: {fileID: 906512999}
+    - Key: FPSCounter
+      Value: {fileID: 2147299047}
   AdvancedOptions:
     Pooling: 1
     MediaUpdateInterval: 0.5
