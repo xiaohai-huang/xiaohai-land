@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useNavigate } from "react-router";
 
 import defaultAvatar from "../../assets/images/default-avatar.jpg";
@@ -5,6 +6,7 @@ import bgImage from "./ShangGuanWanEr.jpg";
 
 import styles from "./index.module.scss";
 import Avatar from "src/components/Avatar";
+import ScriptSource from "src/components/ScriptSource";
 
 function Page() {
   return (
@@ -40,6 +42,7 @@ function Top() {
     level: 30,
     avatar: defaultAvatar,
   };
+  const [show, setShow] = useState(false);
   return (
     <>
       <view
@@ -47,9 +50,16 @@ function Top() {
         style={{
           color: "white",
           backgroundColor: "rgba(0,0,0,0.4)",
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "space-between",
         }}
       >
         <Avatar {...user} size={64} />
+        <view onClick={() => setShow((prev) => !prev)}>
+          {show ? <ScriptSource /> : <text>Script Source</text>}
+        </view>
       </view>
     </>
   );
