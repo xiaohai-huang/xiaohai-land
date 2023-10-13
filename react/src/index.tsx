@@ -29,9 +29,7 @@ function FPS() {
   const [fps, setFPS] = useState(0);
 
   useEffect(() => {
-    const counter = Interop.UnityEngine.GameObject.Find(
-      "FPS Counter"
-    ).GetComponent("FPSCounter") as FPSCounter;
+    const counter = Globals.FPSCounter as FPSCounter;
     const timer = setInterval(() => {
       setFPS(counter.FramesPerSec);
     }, 100);
@@ -40,7 +38,7 @@ function FPS() {
       clearInterval(timer);
     };
   }, []);
-  return <text>FPS: {fps}</text>;
+  return <text style={{ color: "white" }}>FPS: {fps}</text>;
 }
 
 render(<App />);
