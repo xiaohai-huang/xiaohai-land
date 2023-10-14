@@ -13,5 +13,10 @@
   }
   .socialContainer {
     padding-left: var(--left-pad);
+    .social {
+      scroll::scrollbar {
+        visibility: hidden;
+      }
+    }
   }
 }

@@ -1,9 +1,22 @@
+import { useState } from "react";
 import { useNavigate } from "react-router";
+
+import myImage1 from "src/assets/images/backgrounds/bg-01.jpg";
+import myImage2 from "src/assets/images/backgrounds/bg-02.jpg";
 
 function Page() {
   const navigate = useNavigate();
+  const [show, setShow] = useState(false);
+
   return (
-    <div>
+    <view
+      className="champion-select"
+      style={{
+        width: "100%",
+        height: "100%",
+        backgroundImage: `url(${myImage1})`,
+      }}
+    >
       '/champion-select' page
       <button
         onClick={() => {
@@ -13,7 +26,11 @@ function Page() {
         Go back to /
       </button>
       <Test />
-    </div>
+      <view>
+        <button onClick={() => setShow((prev) => !prev)}>Show</button>
+        {show && <image src={myImage2} />}
+      </view>
+    </view>
   );
 }
 

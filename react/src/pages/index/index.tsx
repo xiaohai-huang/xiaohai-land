@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router";
 
 import defaultAvatar from "../../assets/images/default-avatar.jpg";
-import bgImage from "./ShangGuanWanEr.jpg";
+import bgImage from "src/assets/images/backgrounds/bg-00.jpg";
 
 import styles from "./index.module.scss";
 import Avatar from "src/components/Avatar";
@@ -209,24 +209,19 @@ function Tabs() {
 function Hero() {
   return (
     <view
+      className="hero-section"
       style={{
         position: "absolute",
-        left: 0,
-        top: 0,
+        width: "100%",
+        height: "100%",
         zIndex: -1,
+        backgroundImage: `url(${bgImage})`,
+        backgroundSize: "cover",
+        backgroundPosition: "50% 20%",
+        backgroundRepeat: "no-repeat",
       }}
-    >
-      <image
-        src={bgImage}
-        style={{
-          objectFit: "contain",
-          objectPosition: "0px -50px",
-        }}
-      />
-    </view>
+    ></view>
   );
 }
-
-// test
 
 export default Page;
