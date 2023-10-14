@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router";
+import { useNavigate } from "src/components/MiniRouter/index";
 
 import defaultAvatar from "../../assets/images/default-avatar.jpg";
 import bgImage from "src/assets/images/backgrounds/bg-00.jpg";

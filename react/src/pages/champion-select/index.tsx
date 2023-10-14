@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router";
+import { useNavigate } from "src/components/MiniRouter/index";
 
 import myImage1 from "src/assets/images/backgrounds/bg-01.jpg";
 import myImage2 from "src/assets/images/backgrounds/bg-02.jpg";
