@@ -138,7 +138,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &158915603
 Transform:
   m_ObjectHideFlags: 0
@@ -178,7 +178,11 @@ MonoBehaviour:
     DevServer: http://localhost:3000
   EngineType: 0
   Globals:
-    Entries: []
+    Entries:
+    - Key: FPSCounter
+      Value: {fileID: 2147299047}
+    - Key: Renderer
+      Value: {fileID: 158915604}
   AdvancedOptions:
     Pooling: 1
     MediaUpdateInterval: 0.5
@@ -787,7 +791,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &906512999
 MonoBehaviour:
   m_ObjectHideFlags: 0

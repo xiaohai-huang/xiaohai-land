@@ -12,15 +12,15 @@ import "./index.scss";
 function App() {
   return (
     <view className="app-container">
-      <view style={{ position: "absolute", right: "2%" }}>
-        <FPS />
-      </view>
       <MemoryRouter>
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/champion-select" element={<ChampionSelect />} />
         </Routes>
       </MemoryRouter>
+      <view style={{ position: "absolute", right: "3%", zIndex: 10 }}>
+        <FPS />
+      </view>
     </view>
   );
 }
