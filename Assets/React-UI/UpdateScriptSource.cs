@@ -17,12 +17,25 @@ public class UpdateScriptSource : MonoBehaviour
     void Awake()
     {
         _rendererBase = GetComponent<ReactRendererBase>();
-        _rendererBase.enabled = false;
-        _rendererBase.AdvancedOptions.AutoRender = false;
+        if (_rendererBase.Source.ShouldUseDevServer)
+        {
+            _rendererBase.enabled = true;
+            _rendererBase.Source.SourcePath = "Dev Server | " + _rendererBase.Source.DevServer;
+            _rendererBase.Render();
+        }
+        else
+        {
+            _rendererBase.enabled = false;
+            _rendererBase.AdvancedOptions.AutoRender = false;
+        }
     }
 
     async void OnEnable()
     {
+        if (_rendererBase.Source.ShouldUseDevServer)
+        {
+            return;
+        }
         OnStartDownloadScript?.Invoke();
         string sourcePath = await GetScriptUrl();
         OnFinishDownloadScript?.Invoke();
