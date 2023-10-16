@@ -1,10 +1,11 @@
 import { useNavigate } from "src/components/MiniRouter";
+import Editor from "src/components/JsEditor";
+import useSafeArea from "src/hooks/useSafeArea";
 
 function Page() {
   const navigate = useNavigate();
   return (
-    <view style={{ "--my-color": "lightblue" }}>
-      Ranking
+    <view style={{ "--my-color": "lightblue", marginLeft: "var(--safe-left)" }}>
       <button
         onClick={() => {
           navigate("/");
@@ -12,13 +13,19 @@ function Page() {
       >
         Go to /
       </button>
-      <view
-        style={{
-          width: "100%",
-          height: "300px",
-          backgroundColor: "var(--my-color)",
-        }}
-      />
+      Ranking page
+      <Editor />
+      <Safe />
+    </view>
+  );
+}
+function Safe() {
+  const area = useSafeArea();
+
+  return (
+    <view style={{ background: "lightblue" }}>
+      <text richText={true}>{`<b>useSafeArea</b>`}</text>
+      <text richText={true}>{`${JSON.stringify(area, null, 2)}`}</text>
     </view>
   );
 }
