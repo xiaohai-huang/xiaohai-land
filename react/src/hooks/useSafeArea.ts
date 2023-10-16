@@ -14,10 +14,10 @@ export default function useSafeArea() {
     const height = screen.height;
     const area = Interop.UnityEngine.Screen.safeArea;
     const output = {
-      left: (area.left / width) * 100,
-      right: (1 - area.right / width) * 100,
-      top: (area.top / height) * 100,
-      bottom: (1 - area.bottom / height) * 100,
+      left: (area.xMin / width) * 100,
+      right: (1 - area.xMax / width) * 100,
+      top: (area.yMin / height) * 100,
+      bottom: (1 - area.yMax / height) * 100,
     };
     setSafeArea(output);
     // console.log(JSON.stringify(output));
