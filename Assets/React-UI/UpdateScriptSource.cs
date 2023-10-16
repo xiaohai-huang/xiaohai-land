@@ -16,32 +16,26 @@ public class UpdateScriptSource : MonoBehaviour
 
     void Awake()
     {
+        // Important: The renderer should disable AutoRender
         _rendererBase = GetComponent<ReactRendererBase>();
-        if (_rendererBase.Source.ShouldUseDevServer)
-        {
-            _rendererBase.enabled = true;
-            _rendererBase.Source.SourcePath = "Dev Server | " + _rendererBase.Source.DevServer;
-            _rendererBase.Render();
-        }
-        else
-        {
-            _rendererBase.enabled = false;
-            _rendererBase.AdvancedOptions.AutoRender = false;
-        }
     }
 
     async void OnEnable()
     {
         if (_rendererBase.Source.ShouldUseDevServer)
         {
-            return;
+            _rendererBase.Source.SourcePath = "Dev Server | " + _rendererBase.Source.DevServer;
+            _rendererBase.Render();
         }
-        OnStartDownloadScript?.Invoke();
-        string sourcePath = await GetScriptUrl();
-        OnFinishDownloadScript?.Invoke();
-        _rendererBase.Source = new ScriptSource() { Type = ScriptSourceType.Url, SourcePath = sourcePath, UseDevServer = ScriptSource.DevServerType.Never };
-        _rendererBase.enabled = true;
-        _rendererBase.Render();
+        else
+        {
+            // Populate the SourcePath using the config file
+            OnStartDownloadScript?.Invoke();
+            string sourcePath = await GetScriptUrl();
+            OnFinishDownloadScript?.Invoke();
+            _rendererBase.Source = new ScriptSource() { Type = ScriptSourceType.Url, SourcePath = sourcePath, UseDevServer = ScriptSource.DevServerType.Never };
+            _rendererBase.Render();
+        }
     }
 
     async Task<string> GetScriptUrl()
