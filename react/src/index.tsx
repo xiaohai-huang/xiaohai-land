@@ -5,17 +5,33 @@ import MiniRouter, { Route } from "./components/MiniRouter";
 import { FPSCounter } from "./unity-types/types";
 import Index from "./pages/index";
 import ChampionSelect from "./pages/champion-select";
+import Ranking from "./pages/ranking";
+import useSafeArea from "src/hooks/useSafeArea";
 
 import "./index.scss";
 
 function App() {
+  const area = useSafeArea();
+
   return (
-    <view className="app-container">
+    <view
+      className="app-container"
+      style={{
+        "--safe-top": `${area.top}vh`,
+        "--safe-bottom": `${area.bottom}vh`,
+        "--safe-left": `${area.left}vw`,
+        "--safe-right": `${area.right}vw`,
+      }}
+    >
       <MiniRouter>
         <Route path="/" element={<Index />} />
         <Route path="/champion-select" element={<ChampionSelect />} />
+        <Route path="/ranking" element={<Ranking />} />
       </MiniRouter>
-      <view style={{ position: "absolute", right: "3%", zIndex: 10 }}>
+      <view
+        className="fps-container"
+        style={{ position: "absolute", right: `var(--safe-right)`, zIndex: 10 }}
+      >
         <FPS />
       </view>
     </view>

@@ -1,8 +1,8 @@
 .container {
   height: 100%;
-  --left-pad: 3rem;
   .top {
-    padding-left: var(--left-pad);
+    padding-left: var(--safe-left);
+    padding-right: var(--safe-right);
     .avatar {
       display: flex;
       flex-direction: row;
@@ -12,7 +12,7 @@
     }
   }
   .socialContainer {
-    padding-left: var(--left-pad);
+    padding-left: var(--safe-left);
     .social {
       scroll::scrollbar {
         visibility: hidden;

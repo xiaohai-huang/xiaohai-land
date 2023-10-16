@@ -9,7 +9,7 @@ function ScriptSource() {
   }, []);
   return (
     <view>
-      <text>{`<b>ScriptSource</b>: ${source}`}</text>
+      <text>{`<b>Source</b>: ${source}`}</text>
     </view>
   );
 }

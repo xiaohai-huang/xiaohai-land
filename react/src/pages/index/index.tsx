@@ -174,6 +174,9 @@ function Entries() {
             paddingRight: "2rem",
             paddingLeft: "1rem",
           }}
+          onClick={() => {
+            navigate("/ranking");
+          }}
         >
           排位
         </button>
