@@ -20,13 +20,9 @@ export default function Editor() {
     console.log(`var output =  (()=>{
         ${modifiedSourceCode}
       })() `);
-
-    const {
-      results: outputLines,
-      err,
-    }: { results: string[]; err: Error | undefined } = new Function(
-      modifiedSourceCode
-    )();
+    const { results: outputLines, err }: Output =
+      // eslint-disable-next-line
+      new Function(modifiedSourceCode)();
 
     console.log(outputLines);
     if (err) {
@@ -65,3 +61,5 @@ const formatOutput = (outputLines: any[]) => {
   });
   return result;
 };
+
+type Output = { results: string[]; err: Error | undefined };
