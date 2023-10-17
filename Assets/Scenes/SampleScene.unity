@@ -907,6 +907,7 @@ GameObject:
   - component: {fileID: 906513002}
   - component: {fileID: 906513001}
   - component: {fileID: 906513000}
+  - component: {fileID: 906513005}
   - component: {fileID: 906513004}
   - component: {fileID: 906512999}
   m_Layer: 5
@@ -945,6 +946,8 @@ MonoBehaviour:
       Value: {fileID: 906512999}
     - Key: FPSCounter
       Value: {fileID: 2147299047}
+    - Key: OrientationManager
+      Value: {fileID: 906513005}
   AdvancedOptions:
     Pooling: 1
     MediaUpdateInterval: 0.5
@@ -1098,6 +1101,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &906513005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 906512998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2a0ef58614ee2348b0ac3b1ad928823, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _debugMode: 0
 --- !u!1 &939210712
 GameObject:
   m_ObjectHideFlags: 0
