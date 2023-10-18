@@ -132,12 +132,6 @@ function Social() {
           {`·>`}
         </text>
       </view>
-      <style
-        content={`
-      scroll::scrollbar { visibility: hidden; }
-      `}
-        scope="parent"
-      />
     </view>
   );
 }
@@ -187,7 +181,12 @@ function Entries() {
 
 function Tabs() {
   return (
-    <view style={{ backgroundColor: "#203148" }}>
+    <view
+      style={{
+        backgroundColor: "#203148",
+        paddingBottom: "var(--bottom-margin)",
+      }}
+    >
       <view
         style={{
           display: "flex",

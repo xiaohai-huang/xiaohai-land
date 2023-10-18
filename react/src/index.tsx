@@ -21,6 +21,10 @@ function App() {
         "--safe-bottom": `${area.bottom}vh`,
         "--safe-left": `${area.left}vw`,
         "--safe-right": `${area.right}vw`,
+        "--top-margin": `${area.top + 1}vh`,
+        "--bottom-margin": `${area.bottom + 1}vh`,
+        "--left-margin": `${Math.max(5, area.left + 2)}vw`,
+        "--right-margin": `${Math.max(5, area.right + 2)}vw`,
       }}
     >
       <MiniRouter>
@@ -30,7 +34,12 @@ function App() {
       </MiniRouter>
       <view
         className="fps-container"
-        style={{ position: "absolute", right: `var(--safe-right)`, zIndex: 10 }}
+        style={{
+          position: "absolute",
+          right: "var(--right-margin)",
+          top: "var(--top-margin)",
+          zIndex: 10,
+        }}
       >
         <FPS />
       </view>

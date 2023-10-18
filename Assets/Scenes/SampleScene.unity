@@ -910,6 +910,7 @@ GameObject:
   - component: {fileID: 906513005}
   - component: {fileID: 906513004}
   - component: {fileID: 906512999}
+  - component: {fileID: 906513006}
   m_Layer: 5
   m_Name: React UGUI Canvas
   m_TagString: Untagged
@@ -1114,6 +1115,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _debugMode: 0
+--- !u!114 &906513006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 906512998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dbe1ec66e6fd2d45b20d3ae706d1ff0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &939210712
 GameObject:
   m_ObjectHideFlags: 0
