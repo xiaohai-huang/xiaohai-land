@@ -36,7 +36,7 @@ public class OrientationManager : MonoBehaviour
     public Action AddListener(object callback)
     {
         var cb = ReactUnity.Helpers.Callback.From(callback);
-        Action<ScreenOrientation> listener = (val) => cb.Call(val);
+        Action<ScreenOrientation> listener = (val) => cb?.Call(val);
         OrientationChangedEvent += listener;
 
         return () => OrientationChangedEvent -= listener;
