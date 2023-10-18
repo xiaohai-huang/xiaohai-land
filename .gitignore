@@ -75,3 +75,5 @@ crashlytics-build.properties
 /[Aa]ssets/Resources/react/
 
 # com.reactunity.core@0.16.0
+
+.utmp
