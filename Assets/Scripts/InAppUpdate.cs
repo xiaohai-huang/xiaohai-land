@@ -4,35 +4,69 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Networking;
+using BsDiff;
 
 public class InAppUpdate : MonoBehaviour
 {
-    public string ApkUrl;
+    public string UpdateServer;
     public UnityEvent<UnityWebRequest> OnStartDownload;
-
+    private string _patchFilePath;
     // Start is called before the first frame update
-    async void Start()
+    void Start()
     {
-        var apkPath = await DownloadApk(ApkUrl);
-        if (apkPath != null)
+        Debug.Log($"Application.dataPath: {Application.dataPath}");
+        Debug.Log("Game version: " + Application.version);
+    }
+
+    public async void CheckUpdates()
+    {
+        var endpoint = $"{UpdateServer}/current-version";
+        var data = JsonUtility.FromJson<VersionInfo>(await Fetch(endpoint));
+        if (Application.version == data.version)
         {
-            InstallApp(apkPath);
+            Debug.Log("The app is already up to date");
         }
         else
         {
-            Debug.Log("APK download failed.");
+            Debug.Log($"Need to update the app. Current version: {Application.version}. Latest version: {data.version}");
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    struct VersionInfo
     {
-
+        public string version;
     }
-    async Task<string> DownloadApk(string url)
+
+    public async void OnDownloadPatchClick()
     {
-        string savePath = Path.Combine(Application.persistentDataPath, "apkFolder");
-        savePath = Path.Combine(savePath, "myReact.apk");
+        _patchFilePath = await DownloadPatch();
+        Debug.Log("Patch File Path: " + _patchFilePath);
+    }
+
+    async Task<string> DownloadPatch()
+    {
+        var endpoint = $"{UpdateServer}/get-patch?version={Application.version}";
+        var data = JsonUtility.FromJson<PatchInfo>(await Fetch(endpoint));
+        return await DownloadFile(data.patch, "patches", $"{data.from}-{data.to}.patch");
+    }
+
+    public void PerformUpdate()
+    {
+        if (string.IsNullOrEmpty(_patchFilePath))
+        {
+            Debug.Log("Patch does not exist");
+        }
+        else
+        {
+            string apkFilePath = ApplyPatch(Application.dataPath, _patchFilePath, Path.Combine(Application.persistentDataPath, "patches", "merged.apk"));
+            InstallApp(apkFilePath);
+        }
+    }
+
+    async Task<string> DownloadFile(string url, string folder, string saveFileName)
+    {
+        string savePath = Path.Combine(Application.persistentDataPath, folder);
+        savePath = Path.Combine(savePath, saveFileName);
         UnityWebRequest www = UnityWebRequest.Get(url);
         OnStartDownload?.Invoke(www);
         await www.SendWebRequest();
@@ -40,7 +74,7 @@ public class InAppUpdate : MonoBehaviour
         if (www.result != UnityWebRequest.Result.Success)
         {
             Debug.Log(www.error);
-            return null;
+            throw new Exception(www.error);
         }
         else
         {
@@ -54,6 +88,14 @@ public class InAppUpdate : MonoBehaviour
             File.WriteAllBytes(savePath, www.downloadHandler.data);
         }
         return savePath;
+    }
+
+    string ApplyPatch(string oldFilePath, string patchFilePath, string saveFilePath)
+    {
+        using var oldFile = File.OpenRead(oldFilePath);
+        using var newFile = File.Create(saveFilePath);
+        BinaryPatch.Apply(oldFile, () => File.OpenRead(patchFilePath), newFile);
+        return saveFilePath;
     }
 
     public bool InstallApp(string apkPath)
@@ -103,5 +145,28 @@ public class InAppUpdate : MonoBehaviour
         }
 
         return success;
+    }
+
+    struct PatchInfo
+    {
+        public string from;
+        public string to;
+        public string patch;
+        public string latestVersion;
+    }
+
+    public async Task<string> Fetch(string url)
+    {
+        using UnityWebRequest request = UnityWebRequest.Get(url);
+        await request.SendWebRequest();
+
+        if (request.result == UnityWebRequest.Result.ConnectionError || request.result == UnityWebRequest.Result.ProtocolError)
+        {
+            throw new Exception(request.error);
+        }
+        else
+        {
+            return request.downloadHandler.text;
+        }
     }
 }
