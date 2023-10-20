@@ -77,3 +77,8 @@ crashlytics-build.properties
 # com.reactunity.core@0.16.0
 
 .utmp
+
+# Packages folder to be ignored by your version control software to prevent NuGet packages from being versioned in your repository
+# https://github.com/GlitchEnzo/NuGetForUnity
+Assets/Packages
+Assets/Packages.meta

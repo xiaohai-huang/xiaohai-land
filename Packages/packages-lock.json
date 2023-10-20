@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.github-glitchenzo.nugetforunity": {
+      "version": "https://github.com/GlitchEnzo/NuGetForUnity.git?path=/src/NuGetForUnity",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "a3b045905d9c3ca30776096e07fb288421a3041b"
+    },
     "com.reactunity.core": {
       "version": "0.16.0",
       "depth": 0,
