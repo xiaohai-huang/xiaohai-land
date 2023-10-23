@@ -1,11 +1,11 @@
+using AppUpdate;
 using UnityEngine;
-using UnityEngine.Networking;
 using UnityEngine.UI;
 
 public class Progress : MonoBehaviour
 {
     private Image _image;
-    private UnityWebRequest _request;
+    private AppUpdateInfo _appUpdateInfo;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,14 +15,14 @@ public class Progress : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_request != null)
+        if (_appUpdateInfo != null)
         {
-            _image.fillAmount = _request.downloadProgress;
+            _image.fillAmount = _appUpdateInfo.BytesDownloaded / _appUpdateInfo.TotalBytesToDownload;
         }
     }
 
-    public void HandleOnStartDownload(UnityWebRequest request)
+    public void HandleOnStartDownload(AppUpdateInfo appUpdateInfo)
     {
-        _request = request;
+        _appUpdateInfo = appUpdateInfo;
     }
 }
