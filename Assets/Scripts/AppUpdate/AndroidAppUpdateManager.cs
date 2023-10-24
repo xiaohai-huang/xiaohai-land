@@ -74,7 +74,8 @@ namespace AppUpdate
             // Merge the patch with the apk on device to create the updated apk
             Debug.Log("Start to apply patch");
             string apkPath = Path.Combine(WORKING_DIR, "merged.apk");
-            bool patchCreated = await DiffToolFactory.Create(Tool.YZQBSDiff).ApplyPatch(Application.dataPath, patchFilePath, apkPath);
+            string oldApkPath = Application.dataPath;
+            bool patchCreated = await DiffToolFactory.Create(Tool.YZQBSDiff).ApplyPatch(oldApkPath, patchFilePath, apkPath);
             if (!patchCreated)
             {
                 Debug.LogError("Failed to create the merged apk");
