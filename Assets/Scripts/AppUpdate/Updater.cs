@@ -1,6 +1,6 @@
 using UnityEngine;
-using AppUpdate;
 using UnityEngine.Events;
+using AppUpdate;
 
 public class Updater : MonoBehaviour
 {

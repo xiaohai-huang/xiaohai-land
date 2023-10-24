@@ -3,8 +3,8 @@ using System.IO;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Networking;
-using BsDiff;
 using System.Security.Cryptography;
+using DiffTool;
 
 namespace AppUpdate
 {
@@ -73,7 +73,14 @@ namespace AppUpdate
 
             // Merge the patch with the apk on device to create the updated apk
             Debug.Log("Start to apply patch");
-            string apkPath = await ApplyPatch(Application.dataPath, patchFilePath, Path.Combine(WORKING_DIR, "merged.apk"));
+            string apkPath = Path.Combine(WORKING_DIR, "merged.apk");
+            bool patchCreated = await DiffToolFactory.Create(Tool.YZQBSDiff).ApplyPatch(Application.dataPath, patchFilePath, apkPath);
+            if (!patchCreated)
+            {
+                Debug.LogError("Failed to create the merged apk");
+                updateInfo.InstallStatus = InstallStatus.FAILED;
+                return;
+            }
             bool matched = hash == ComputeSha256Hash(apkPath);
             if (!matched)
             {
@@ -103,22 +110,6 @@ namespace AppUpdate
                         appUpdateInfo.SetBytesDownloadedGetter(() => request.downloadedBytes);
                         appUpdateInfo.InstallStatus = InstallStatus.DOWNLOADING;
                     }), patchInfo.hash);
-        }
-
-        private async Task<string> ApplyPatch(string oldFilePath, string patchFilePath, string saveFilePath)
-        {
-            return await Task.Run(() =>
-            {
-                using var oldFile = File.OpenRead(oldFilePath);
-                using var newFile = File.Create(saveFilePath);
-                var stopwatch = new System.Diagnostics.Stopwatch();
-                stopwatch.Start();
-                BinaryPatch.Apply(oldFile, () => File.OpenRead(patchFilePath), newFile);
-                stopwatch.Stop();
-                Debug.Log($"Time spent in ApplyPatch: {stopwatch.ElapsedMilliseconds} ms");
-
-                return saveFilePath;
-            });
         }
 
         private bool InstallApp(string apkPath)
