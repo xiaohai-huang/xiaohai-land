@@ -82,13 +82,14 @@ namespace AppUpdate
                 updateInfo.InstallStatus = InstallStatus.FAILED;
                 return;
             }
-            bool matched = hash == ComputeSha256Hash(apkPath);
+            string computedHash = await ComputeSha256Hash(apkPath);
+            bool matched = hash == computedHash;
             if (!matched)
             {
                 updateInfo.InstallStatus = InstallStatus.FAILED;
                 Debug.LogError("hash does not match!");
                 Debug.LogError($"hash: {hash}");
-                Debug.LogError($"computed hash: {ComputeSha256Hash(apkPath)}");
+                Debug.LogError($"computed hash: {computedHash}");
             }
             else
             {
@@ -271,12 +272,15 @@ namespace AppUpdate
             }
         }
 
-        public string ComputeSha256Hash(string filename)
+        private static Task<string> ComputeSha256Hash(string filename)
         {
-            using SHA256 sha256 = SHA256.Create();
-            using FileStream stream = File.OpenRead(filename);
-            byte[] hash = sha256.ComputeHash(stream);
-            return BitConverter.ToString(hash).Replace("-", "").ToLowerInvariant();
+            return Task.Run(() =>
+            {
+                using SHA256 sha256 = SHA256.Create();
+                using FileStream stream = File.OpenRead(filename);
+                byte[] hash = sha256.ComputeHash(stream);
+                return BitConverter.ToString(hash).Replace("-", "").ToLowerInvariant();
+            });
         }
     }
 }
