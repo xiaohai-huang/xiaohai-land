@@ -73,30 +73,36 @@ namespace AppUpdate
 
             // Merge the patch with the apk on device to create the updated apk
             Debug.Log("Start to apply patch");
-            string apkPath = Path.Combine(WORKING_DIR, "merged.apk");
+            string patchedApkPath = Path.Combine(WORKING_DIR, "merged.apk");
+            if (File.Exists(patchedApkPath))
+            {
+                File.Delete(patchedApkPath);
+            }
             string oldApkPath = Application.dataPath;
-            bool patchCreated = await DiffToolFactory.Create(Tool.YZQBSDiff).ApplyPatch(oldApkPath, patchFilePath, apkPath);
+            bool patchCreated = await DiffToolFactory.Create(Tool.YZQBSDiff).ApplyPatch(oldApkPath, patchFilePath, patchedApkPath);
             if (!patchCreated)
             {
                 Debug.LogError("Failed to create the merged apk");
                 updateInfo.InstallStatus = InstallStatus.FAILED;
                 return;
             }
-            string computedHash = await ComputeSha256Hash(apkPath);
+            string computedHash = await ComputeSha256Hash(patchedApkPath);
             bool matched = hash == computedHash;
             if (!matched)
             {
                 updateInfo.InstallStatus = InstallStatus.FAILED;
-                Debug.LogError("hash does not match!");
-                Debug.LogError($"hash: {hash}");
-                Debug.LogError($"computed hash: {computedHash}");
+                Debug.LogError("================ hash does not match! ================");
+                Debug.LogError($"[{Application.version}] old apk hash: {await ComputeSha256Hash(oldApkPath)}");
+                Debug.LogError($"[{updateInfo.AvailableVersion}] new apk hash: {hash}");
+                Debug.LogError($"[{updateInfo.AvailableVersion}] patched apk hash: {computedHash}");
+                Debug.LogError("================ hash does not match! ================");
             }
             else
             {
                 Debug.Log("hash matched: " + hash);
                 // Install the update
                 updateInfo.InstallStatus = InstallStatus.INSTALLING;
-                bool success = InstallApp(apkPath);
+                bool success = InstallApp(patchedApkPath);
                 updateInfo.InstallStatus = success ? InstallStatus.INSTALLED : InstallStatus.FAILED;
             }
         }
