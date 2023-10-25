@@ -3,12 +3,19 @@ package com.example.myappupdatemanager;
 import com.yzq.bsdiff.BsDiffTool;
 
 public class DiffTool {
-    public int Patch(String oldFilePath, String patchFilePath, String outputFilePath){
-        System.out.println(BsDiffTool.INSTANCE.getClass().getName());
+    public void Patch(String oldFilePath, String patchFilePath, String outputFilePath, OnFinishListener callback) {
         System.out.println("Before run patch");
-        int success = BsDiffTool.INSTANCE.patch(oldFilePath, patchFilePath,outputFilePath);
-        System.out.println("After run patch");
 
-        return  success;
+        Runnable patchRunnable = new Runnable() {
+            @Override
+            public void run() {
+                int success = BsDiffTool.INSTANCE.patch(oldFilePath, patchFilePath, outputFilePath);
+                System.out.println("After run patch");
+                callback.OnFinish(success == 0);
+            }
+        };
+
+        Thread thread = new Thread(patchRunnable);
+        thread.start();
     }
 }
