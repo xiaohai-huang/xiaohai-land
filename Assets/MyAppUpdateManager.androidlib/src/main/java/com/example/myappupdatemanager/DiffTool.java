@@ -18,4 +18,11 @@ public class DiffTool {
         Thread thread = new Thread(patchRunnable);
         thread.start();
     }
+
+    public boolean PatchSync(String oldFilePath, String patchFilePath, String outputFilePath) {
+        System.out.println("[PatchSync] Before run patch");
+        int success = BsDiffTool.INSTANCE.patch(oldFilePath, patchFilePath, outputFilePath);
+        System.out.println("[PatchSync] After run patch");
+        return success == 0;
+    }
 }

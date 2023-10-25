@@ -1,7 +1,5 @@
-using System;
 using System.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.Scripting;
 
 namespace DiffTool
 {
@@ -11,26 +9,17 @@ namespace DiffTool
         {
             var tcs = new TaskCompletionSource<bool>();
 
-            using AndroidJavaObject diffTool = new AndroidJavaObject("com.example.myappupdatemanager.DiffTool");
-            // Debug.Log("Before call Patch");
-            diffTool.Call("Patch", oldFilePath, patchFilePath, outputFilePath,
-            new OnFinishCallback((success) =>
-            {
-                tcs.SetResult(success);
-            }));
-            // Debug.Log("After call Patch");
-            return tcs.Task;
-        }
-    }
+            var callback = new AndroidJavaRunnable(() =>
+           {
+               using AndroidJavaObject diffTool = new AndroidJavaObject("com.example.myappupdatemanager.DiffTool");
+               bool success = diffTool.Call<bool>("PatchSync", oldFilePath, patchFilePath, outputFilePath);
+               tcs.SetResult(success);
+           });
 
-    class OnFinishCallback : AndroidJavaProxy
-    {
-        private readonly Action<bool> _cb;
-        public OnFinishCallback(Action<bool> cb) : base("com.example.myappupdatemanager.OnFinishListener") { _cb = cb; }
-        [Preserve]
-        void OnFinish(bool success)
-        {
-            _cb?.Invoke(success);
+            using var thread = new AndroidJavaObject("java.lang.Thread", callback);
+            thread.Call("start");
+
+            return tcs.Task;
         }
     }
 }
