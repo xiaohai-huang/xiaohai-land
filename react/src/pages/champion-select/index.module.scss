@@ -4,11 +4,13 @@
   display: flex;
   flex-direction: row;
   .leftSection {
-    background-color: rgb(33, 41, 60, 0.8);
+    background-color: rgb(33, 41, 60, 0.95);
     width: calc(var(--left-margin) + 150px);
-    height: 100%;
-
+    display: flex;
+    flex-direction: column;
+    --tabs-height: 38px;
     .tabs {
+      height: var(--tabs-height);
       display: flex;
       flex-direction: row;
       border-bottom: 1px solid #2c394a;
@@ -19,7 +21,6 @@
         justify-content: center;
         align-items: center;
         color: #829fc9;
-        height: 38px;
         background-color: rgba(0, 0, 0, 0.01);
         &.selected {
           background-color: rgba(31, 125, 215, 0.2);
@@ -27,25 +28,34 @@
         }
       }
     }
-
-    .listScroll {
+    .listConatiner {
+      height: calc(100vh - var(--tabs-height));
       padding-left: var(--left-margin);
       padding-top: 0.5rem;
       padding-bottom: 0.5rem;
-      ::scrollbar {
-        visibility: hidden;
-      }
-      .list {
-        gap: 0.7rem;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
+      position: absolute;
+      left: 0;
+      top: var(--tabs-height);
+      .listScroll {
+        ::scrollbar {
+          visibility: hidden;
+        }
+        .list {
+          gap: 0.7rem;
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+        }
       }
     }
   }
   .previewSection {
     flex: 1;
-    background-color: azure;
+    background-color: rgba(0, 0, 0, 0.8);
+    .container {
+      height: 100%;
+      margin: 0 1rem;
+    }
   }
   .rightSection {
     margin-right: var(--right-margin);

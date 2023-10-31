@@ -21,6 +21,7 @@ export type ChampionData = {
    */
   classes: string;
   img: string;
+  skins: ChampionSkinData[];
 };
 
 // enum ChampionClass {
@@ -38,6 +39,31 @@ export async function getChampions(): Promise<ChampionData[]> {
       new Date().getTime()
   ).then((res) => res.json());
 
+  const skinData: { [id: string]: ChampionSkinData[] } = {};
+  (
+    await fetch("https://pvp.qq.com/web201605/js/herolist.json").then((res) =>
+      res.json()
+    )
+  ).forEach((item) => {
+    const names =
+      item.skin_name === undefined
+        ? []
+        : (item.skin_name.split("|") as string[]);
+    const championId = item.ename;
+    const skins: ChampionSkinData[] = ["原画", ...names].map((name, i) => {
+      return {
+        name,
+        smallImage: `https://game.gtimg.cn/images/yxzj/img201606/heroimg/${championId}/${championId}-smallskin-${
+          i + 1
+        }.jpg`,
+        largeImage: `https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/${championId}/${championId}-bigskin-${
+          i + 1
+        }.jpg`,
+      };
+    });
+    skinData[championId] = skins;
+  });
+
   return data.yzzyxs_4880.map((item) => {
     const champion: ChampionData = {
       id: item.yzzyxi_2602,
@@ -47,8 +73,15 @@ export async function getChampions(): Promise<ChampionData[]> {
       region: item.yxqy_9100,
       pinyin: item.yxpy_7753,
       classes: item.yzzyxz_1918,
+      skins: skinData[item.yzzyxi_2602],
     };
 
     return champion;
   });
 }
+
+export type ChampionSkinData = {
+  name: string;
+  smallImage: string;
+  largeImage: string;
+};

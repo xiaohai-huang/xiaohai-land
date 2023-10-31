@@ -1,22 +1,22 @@
-type ChampionIconProps = {
-  id: number;
+type ChampionIconProps<T> = {
+  id: T;
   name: string;
   img: string;
   size: number;
   selected: boolean;
-  onClick: (id: number) => void;
+  onClick: (id: T) => void;
 };
 
 const borderRadius = "10%";
 
-function ChampionIcon({
+function ChampionIcon<T>({
   id,
   name,
   img,
   size,
   selected,
   onClick = () => {},
-}: ChampionIconProps) {
+}: ChampionIconProps<T>) {
   const selectedEffect = (
     <view
       style={{
