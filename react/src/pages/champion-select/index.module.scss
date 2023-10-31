@@ -3,20 +3,44 @@
   height: 100%;
   display: flex;
   flex-direction: row;
-  .listScroll {
-    ::scrollbar {
-      visibility: hidden;
-    }
-    background-color: lightcoral;
-    width: 150px;
+  .leftSection {
+    background-color: rgb(33, 41, 60, 0.8);
+    width: 20%;
     height: 100%;
-    margin-left: var(--left-margin);
-    .list {
-      gap: 0.5rem;
+
+    .tabs {
       display: flex;
       flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: center;
+      border-bottom: 1px solid #2c394a;
+      padding-left: var(--left-margin);
+      .button {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #829fc9;
+        height: 50px;
+        background-color: rgba(0, 0, 0, 0.01);
+        &.selected {
+          background-color: rgba(31, 125, 215, 0.2);
+          color: #c2d0dd;
+        }
+      }
+    }
+
+    .listScroll {
+      padding-left: var(--left-margin);
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+      ::scrollbar {
+        visibility: hidden;
+      }
+      .list {
+        gap: 0.7rem;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
     }
   }
   .previewSection {

@@ -1,11 +1,122 @@
 //
 // Types in assemblies: Assembly-CSharp
-// Generated 10/31/2023 9:58:04 AM
+// Generated 10/31/2023 9:41:15 AM
 //
 /* eslint-disable */
 
-import { ReactUnity, System, UnityEngine } from '@reactunity/renderer';
+import { ReactUnity, System, UnityEngine } from "@reactunity/renderer";
 
+export declare class OrientationManager {
+  constructor();
+  destroyCancellationToken: System.Threading.CancellationToken;
+  useGUILayout: boolean;
+  didStart: boolean;
+  didAwake: boolean;
+  runInEditMode: boolean;
+  enabled: boolean;
+  isActiveAndEnabled: boolean;
+  transform: UnityEngine.Transform;
+  gameObject: UnityEngine.GameObject;
+  tag: string;
+  rigidbody: UnityEngine.Component;
+  rigidbody2D: UnityEngine.Component;
+  camera: UnityEngine.Component;
+  light: UnityEngine.Component;
+  animation: UnityEngine.Component;
+  constantForce: UnityEngine.Component;
+  renderer: UnityEngine.Component;
+  audio: UnityEngine.Component;
+  networkView: UnityEngine.Component;
+  collider: UnityEngine.Component;
+  collider2D: UnityEngine.Component;
+  hingeJoint: UnityEngine.Component;
+  particleSystem: UnityEngine.Component;
+  name: string;
+  hideFlags: UnityEngine.HideFlags;
+  AddListener(callback: any): () => void;
+  static AddListenerStatic(callback: any): () => void;
+  IsInvoking(): boolean;
+  CancelInvoke(): void;
+  Invoke(methodName: string, time: number): void;
+  InvokeRepeating(methodName: string, time: number, repeatRate: number): void;
+  CancelInvoke(methodName: string): void;
+  IsInvoking(methodName: string): boolean;
+  StartCoroutine(methodName: string): UnityEngine.Coroutine;
+  StartCoroutine(methodName: string, value: any): UnityEngine.Coroutine;
+  StartCoroutine(
+    routine: System.Collections.IEnumerator
+  ): UnityEngine.Coroutine;
+  StartCoroutine_Auto(
+    routine: System.Collections.IEnumerator
+  ): UnityEngine.Coroutine;
+  StopCoroutine(routine: System.Collections.IEnumerator): void;
+  StopCoroutine(routine: UnityEngine.Coroutine): void;
+  StopCoroutine(methodName: string): void;
+  StopAllCoroutines(): void;
+  GetComponent(type: System.Type): UnityEngine.Component;
+  GetComponent(type: string): UnityEngine.Component;
+  GetComponentInChildren(
+    t: System.Type,
+    includeInactive: boolean
+  ): UnityEngine.Component;
+  GetComponentInChildren(t: System.Type): UnityEngine.Component;
+  GetComponentsInChildren(
+    t: System.Type,
+    includeInactive: boolean
+  ): UnityEngine.Component[];
+  GetComponentsInChildren(t: System.Type): UnityEngine.Component[];
+  GetComponentInParent(
+    t: System.Type,
+    includeInactive: boolean
+  ): UnityEngine.Component;
+  GetComponentInParent(t: System.Type): UnityEngine.Component;
+  GetComponentsInParent(
+    t: System.Type,
+    includeInactive: boolean
+  ): UnityEngine.Component[];
+  GetComponentsInParent(t: System.Type): UnityEngine.Component[];
+  GetComponents(type: System.Type): UnityEngine.Component[];
+  GetComponents(type: System.Type, results: UnityEngine.Component[]): void;
+  CompareTag(tag: string): boolean;
+  SendMessageUpwards(
+    methodName: string,
+    value: any,
+    options: UnityEngine.SendMessageOptions
+  ): void;
+  SendMessageUpwards(methodName: string, value: any): void;
+  SendMessageUpwards(methodName: string): void;
+  SendMessageUpwards(
+    methodName: string,
+    options: UnityEngine.SendMessageOptions
+  ): void;
+  SendMessage(methodName: string, value: any): void;
+  SendMessage(methodName: string): void;
+  SendMessage(
+    methodName: string,
+    value: any,
+    options: UnityEngine.SendMessageOptions
+  ): void;
+  SendMessage(
+    methodName: string,
+    options: UnityEngine.SendMessageOptions
+  ): void;
+  BroadcastMessage(
+    methodName: string,
+    parameter: any,
+    options: UnityEngine.SendMessageOptions
+  ): void;
+  BroadcastMessage(methodName: string, parameter: any): void;
+  BroadcastMessage(methodName: string): void;
+  BroadcastMessage(
+    methodName: string,
+    options: UnityEngine.SendMessageOptions
+  ): void;
+  GetInstanceID(): number;
+  GetHashCode(): number;
+  Equals(other: any): boolean;
+  ToString(): string;
+  GetType(): System.Type;
+}
 export declare class UpdateScriptSource {
   constructor();
   destroyCancellationToken: System.Threading.CancellationToken;
@@ -44,37 +155,74 @@ export declare class UpdateScriptSource {
   IsInvoking(methodName: string): boolean;
   StartCoroutine(methodName: string): UnityEngine.Coroutine;
   StartCoroutine(methodName: string, value: any): UnityEngine.Coroutine;
-  StartCoroutine(routine: System.Collections.IEnumerator): UnityEngine.Coroutine;
-  StartCoroutine_Auto(routine: System.Collections.IEnumerator): UnityEngine.Coroutine;
+  StartCoroutine(
+    routine: System.Collections.IEnumerator
+  ): UnityEngine.Coroutine;
+  StartCoroutine_Auto(
+    routine: System.Collections.IEnumerator
+  ): UnityEngine.Coroutine;
   StopCoroutine(routine: System.Collections.IEnumerator): void;
   StopCoroutine(routine: UnityEngine.Coroutine): void;
   StopCoroutine(methodName: string): void;
   StopAllCoroutines(): void;
   GetComponent(type: System.Type): UnityEngine.Component;
   GetComponent(type: string): UnityEngine.Component;
-  GetComponentInChildren(t: System.Type, includeInactive: boolean): UnityEngine.Component;
+  GetComponentInChildren(
+    t: System.Type,
+    includeInactive: boolean
+  ): UnityEngine.Component;
   GetComponentInChildren(t: System.Type): UnityEngine.Component;
-  GetComponentsInChildren(t: System.Type, includeInactive: boolean): UnityEngine.Component[];
+  GetComponentsInChildren(
+    t: System.Type,
+    includeInactive: boolean
+  ): UnityEngine.Component[];
   GetComponentsInChildren(t: System.Type): UnityEngine.Component[];
-  GetComponentInParent(t: System.Type, includeInactive: boolean): UnityEngine.Component;
+  GetComponentInParent(
+    t: System.Type,
+    includeInactive: boolean
+  ): UnityEngine.Component;
   GetComponentInParent(t: System.Type): UnityEngine.Component;
-  GetComponentsInParent(t: System.Type, includeInactive: boolean): UnityEngine.Component[];
+  GetComponentsInParent(
+    t: System.Type,
+    includeInactive: boolean
+  ): UnityEngine.Component[];
   GetComponentsInParent(t: System.Type): UnityEngine.Component[];
   GetComponents(type: System.Type): UnityEngine.Component[];
   GetComponents(type: System.Type, results: UnityEngine.Component[]): void;
   CompareTag(tag: string): boolean;
-  SendMessageUpwards(methodName: string, value: any, options: UnityEngine.SendMessageOptions): void;
+  SendMessageUpwards(
+    methodName: string,
+    value: any,
+    options: UnityEngine.SendMessageOptions
+  ): void;
   SendMessageUpwards(methodName: string, value: any): void;
   SendMessageUpwards(methodName: string): void;
-  SendMessageUpwards(methodName: string, options: UnityEngine.SendMessageOptions): void;
+  SendMessageUpwards(
+    methodName: string,
+    options: UnityEngine.SendMessageOptions
+  ): void;
   SendMessage(methodName: string, value: any): void;
   SendMessage(methodName: string): void;
-  SendMessage(methodName: string, value: any, options: UnityEngine.SendMessageOptions): void;
-  SendMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
-  BroadcastMessage(methodName: string, parameter: any, options: UnityEngine.SendMessageOptions): void;
+  SendMessage(
+    methodName: string,
+    value: any,
+    options: UnityEngine.SendMessageOptions
+  ): void;
+  SendMessage(
+    methodName: string,
+    options: UnityEngine.SendMessageOptions
+  ): void;
+  BroadcastMessage(
+    methodName: string,
+    parameter: any,
+    options: UnityEngine.SendMessageOptions
+  ): void;
   BroadcastMessage(methodName: string, parameter: any): void;
   BroadcastMessage(methodName: string): void;
-  BroadcastMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
+  BroadcastMessage(
+    methodName: string,
+    options: UnityEngine.SendMessageOptions
+  ): void;
   GetInstanceID(): number;
   GetHashCode(): number;
   Equals(other: any): boolean;
@@ -116,37 +264,74 @@ export declare class AndroidCodeRunner {
   IsInvoking(methodName: string): boolean;
   StartCoroutine(methodName: string): UnityEngine.Coroutine;
   StartCoroutine(methodName: string, value: any): UnityEngine.Coroutine;
-  StartCoroutine(routine: System.Collections.IEnumerator): UnityEngine.Coroutine;
-  StartCoroutine_Auto(routine: System.Collections.IEnumerator): UnityEngine.Coroutine;
+  StartCoroutine(
+    routine: System.Collections.IEnumerator
+  ): UnityEngine.Coroutine;
+  StartCoroutine_Auto(
+    routine: System.Collections.IEnumerator
+  ): UnityEngine.Coroutine;
   StopCoroutine(routine: System.Collections.IEnumerator): void;
   StopCoroutine(routine: UnityEngine.Coroutine): void;
   StopCoroutine(methodName: string): void;
   StopAllCoroutines(): void;
   GetComponent(type: System.Type): UnityEngine.Component;
   GetComponent(type: string): UnityEngine.Component;
-  GetComponentInChildren(t: System.Type, includeInactive: boolean): UnityEngine.Component;
+  GetComponentInChildren(
+    t: System.Type,
+    includeInactive: boolean
+  ): UnityEngine.Component;
   GetComponentInChildren(t: System.Type): UnityEngine.Component;
-  GetComponentsInChildren(t: System.Type, includeInactive: boolean): UnityEngine.Component[];
+  GetComponentsInChildren(
+    t: System.Type,
+    includeInactive: boolean
+  ): UnityEngine.Component[];
   GetComponentsInChildren(t: System.Type): UnityEngine.Component[];
-  GetComponentInParent(t: System.Type, includeInactive: boolean): UnityEngine.Component;
+  GetComponentInParent(
+    t: System.Type,
+    includeInactive: boolean
+  ): UnityEngine.Component;
   GetComponentInParent(t: System.Type): UnityEngine.Component;
-  GetComponentsInParent(t: System.Type, includeInactive: boolean): UnityEngine.Component[];
+  GetComponentsInParent(
+    t: System.Type,
+    includeInactive: boolean
+  ): UnityEngine.Component[];
   GetComponentsInParent(t: System.Type): UnityEngine.Component[];
   GetComponents(type: System.Type): UnityEngine.Component[];
   GetComponents(type: System.Type, results: UnityEngine.Component[]): void;
   CompareTag(tag: string): boolean;
-  SendMessageUpwards(methodName: string, value: any, options: UnityEngine.SendMessageOptions): void;
+  SendMessageUpwards(
+    methodName: string,
+    value: any,
+    options: UnityEngine.SendMessageOptions
+  ): void;
   SendMessageUpwards(methodName: string, value: any): void;
   SendMessageUpwards(methodName: string): void;
-  SendMessageUpwards(methodName: string, options: UnityEngine.SendMessageOptions): void;
+  SendMessageUpwards(
+    methodName: string,
+    options: UnityEngine.SendMessageOptions
+  ): void;
   SendMessage(methodName: string, value: any): void;
   SendMessage(methodName: string): void;
-  SendMessage(methodName: string, value: any, options: UnityEngine.SendMessageOptions): void;
-  SendMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
-  BroadcastMessage(methodName: string, parameter: any, options: UnityEngine.SendMessageOptions): void;
+  SendMessage(
+    methodName: string,
+    value: any,
+    options: UnityEngine.SendMessageOptions
+  ): void;
+  SendMessage(
+    methodName: string,
+    options: UnityEngine.SendMessageOptions
+  ): void;
+  BroadcastMessage(
+    methodName: string,
+    parameter: any,
+    options: UnityEngine.SendMessageOptions
+  ): void;
   BroadcastMessage(methodName: string, parameter: any): void;
   BroadcastMessage(methodName: string): void;
-  BroadcastMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
+  BroadcastMessage(
+    methodName: string,
+    options: UnityEngine.SendMessageOptions
+  ): void;
   GetInstanceID(): number;
   GetHashCode(): number;
   Equals(other: any): boolean;
@@ -190,37 +375,74 @@ export declare class Updater {
   IsInvoking(methodName: string): boolean;
   StartCoroutine(methodName: string): UnityEngine.Coroutine;
   StartCoroutine(methodName: string, value: any): UnityEngine.Coroutine;
-  StartCoroutine(routine: System.Collections.IEnumerator): UnityEngine.Coroutine;
-  StartCoroutine_Auto(routine: System.Collections.IEnumerator): UnityEngine.Coroutine;
+  StartCoroutine(
+    routine: System.Collections.IEnumerator
+  ): UnityEngine.Coroutine;
+  StartCoroutine_Auto(
+    routine: System.Collections.IEnumerator
+  ): UnityEngine.Coroutine;
   StopCoroutine(routine: System.Collections.IEnumerator): void;
   StopCoroutine(routine: UnityEngine.Coroutine): void;
   StopCoroutine(methodName: string): void;
   StopAllCoroutines(): void;
   GetComponent(type: System.Type): UnityEngine.Component;
   GetComponent(type: string): UnityEngine.Component;
-  GetComponentInChildren(t: System.Type, includeInactive: boolean): UnityEngine.Component;
+  GetComponentInChildren(
+    t: System.Type,
+    includeInactive: boolean
+  ): UnityEngine.Component;
   GetComponentInChildren(t: System.Type): UnityEngine.Component;
-  GetComponentsInChildren(t: System.Type, includeInactive: boolean): UnityEngine.Component[];
+  GetComponentsInChildren(
+    t: System.Type,
+    includeInactive: boolean
+  ): UnityEngine.Component[];
   GetComponentsInChildren(t: System.Type): UnityEngine.Component[];
-  GetComponentInParent(t: System.Type, includeInactive: boolean): UnityEngine.Component;
+  GetComponentInParent(
+    t: System.Type,
+    includeInactive: boolean
+  ): UnityEngine.Component;
   GetComponentInParent(t: System.Type): UnityEngine.Component;
-  GetComponentsInParent(t: System.Type, includeInactive: boolean): UnityEngine.Component[];
+  GetComponentsInParent(
+    t: System.Type,
+    includeInactive: boolean
+  ): UnityEngine.Component[];
   GetComponentsInParent(t: System.Type): UnityEngine.Component[];
   GetComponents(type: System.Type): UnityEngine.Component[];
   GetComponents(type: System.Type, results: UnityEngine.Component[]): void;
   CompareTag(tag: string): boolean;
-  SendMessageUpwards(methodName: string, value: any, options: UnityEngine.SendMessageOptions): void;
+  SendMessageUpwards(
+    methodName: string,
+    value: any,
+    options: UnityEngine.SendMessageOptions
+  ): void;
   SendMessageUpwards(methodName: string, value: any): void;
   SendMessageUpwards(methodName: string): void;
-  SendMessageUpwards(methodName: string, options: UnityEngine.SendMessageOptions): void;
+  SendMessageUpwards(
+    methodName: string,
+    options: UnityEngine.SendMessageOptions
+  ): void;
   SendMessage(methodName: string, value: any): void;
   SendMessage(methodName: string): void;
-  SendMessage(methodName: string, value: any, options: UnityEngine.SendMessageOptions): void;
-  SendMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
-  BroadcastMessage(methodName: string, parameter: any, options: UnityEngine.SendMessageOptions): void;
+  SendMessage(
+    methodName: string,
+    value: any,
+    options: UnityEngine.SendMessageOptions
+  ): void;
+  SendMessage(
+    methodName: string,
+    options: UnityEngine.SendMessageOptions
+  ): void;
+  BroadcastMessage(
+    methodName: string,
+    parameter: any,
+    options: UnityEngine.SendMessageOptions
+  ): void;
   BroadcastMessage(methodName: string, parameter: any): void;
   BroadcastMessage(methodName: string): void;
-  BroadcastMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
+  BroadcastMessage(
+    methodName: string,
+    options: UnityEngine.SendMessageOptions
+  ): void;
   GetInstanceID(): number;
   GetHashCode(): number;
   Equals(other: any): boolean;
@@ -264,37 +486,74 @@ export declare class ConsoleToScreen {
   IsInvoking(methodName: string): boolean;
   StartCoroutine(methodName: string): UnityEngine.Coroutine;
   StartCoroutine(methodName: string, value: any): UnityEngine.Coroutine;
-  StartCoroutine(routine: System.Collections.IEnumerator): UnityEngine.Coroutine;
-  StartCoroutine_Auto(routine: System.Collections.IEnumerator): UnityEngine.Coroutine;
+  StartCoroutine(
+    routine: System.Collections.IEnumerator
+  ): UnityEngine.Coroutine;
+  StartCoroutine_Auto(
+    routine: System.Collections.IEnumerator
+  ): UnityEngine.Coroutine;
   StopCoroutine(routine: System.Collections.IEnumerator): void;
   StopCoroutine(routine: UnityEngine.Coroutine): void;
   StopCoroutine(methodName: string): void;
   StopAllCoroutines(): void;
   GetComponent(type: System.Type): UnityEngine.Component;
   GetComponent(type: string): UnityEngine.Component;
-  GetComponentInChildren(t: System.Type, includeInactive: boolean): UnityEngine.Component;
+  GetComponentInChildren(
+    t: System.Type,
+    includeInactive: boolean
+  ): UnityEngine.Component;
   GetComponentInChildren(t: System.Type): UnityEngine.Component;
-  GetComponentsInChildren(t: System.Type, includeInactive: boolean): UnityEngine.Component[];
+  GetComponentsInChildren(
+    t: System.Type,
+    includeInactive: boolean
+  ): UnityEngine.Component[];
   GetComponentsInChildren(t: System.Type): UnityEngine.Component[];
-  GetComponentInParent(t: System.Type, includeInactive: boolean): UnityEngine.Component;
+  GetComponentInParent(
+    t: System.Type,
+    includeInactive: boolean
+  ): UnityEngine.Component;
   GetComponentInParent(t: System.Type): UnityEngine.Component;
-  GetComponentsInParent(t: System.Type, includeInactive: boolean): UnityEngine.Component[];
+  GetComponentsInParent(
+    t: System.Type,
+    includeInactive: boolean
+  ): UnityEngine.Component[];
   GetComponentsInParent(t: System.Type): UnityEngine.Component[];
   GetComponents(type: System.Type): UnityEngine.Component[];
   GetComponents(type: System.Type, results: UnityEngine.Component[]): void;
   CompareTag(tag: string): boolean;
-  SendMessageUpwards(methodName: string, value: any, options: UnityEngine.SendMessageOptions): void;
+  SendMessageUpwards(
+    methodName: string,
+    value: any,
+    options: UnityEngine.SendMessageOptions
+  ): void;
   SendMessageUpwards(methodName: string, value: any): void;
   SendMessageUpwards(methodName: string): void;
-  SendMessageUpwards(methodName: string, options: UnityEngine.SendMessageOptions): void;
+  SendMessageUpwards(
+    methodName: string,
+    options: UnityEngine.SendMessageOptions
+  ): void;
   SendMessage(methodName: string, value: any): void;
   SendMessage(methodName: string): void;
-  SendMessage(methodName: string, value: any, options: UnityEngine.SendMessageOptions): void;
-  SendMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
-  BroadcastMessage(methodName: string, parameter: any, options: UnityEngine.SendMessageOptions): void;
+  SendMessage(
+    methodName: string,
+    value: any,
+    options: UnityEngine.SendMessageOptions
+  ): void;
+  SendMessage(
+    methodName: string,
+    options: UnityEngine.SendMessageOptions
+  ): void;
+  BroadcastMessage(
+    methodName: string,
+    parameter: any,
+    options: UnityEngine.SendMessageOptions
+  ): void;
   BroadcastMessage(methodName: string, parameter: any): void;
   BroadcastMessage(methodName: string): void;
-  BroadcastMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
+  BroadcastMessage(
+    methodName: string,
+    options: UnityEngine.SendMessageOptions
+  ): void;
   GetInstanceID(): number;
   GetHashCode(): number;
   Equals(other: any): boolean;
@@ -337,37 +596,74 @@ export declare class FPSCounter {
   IsInvoking(methodName: string): boolean;
   StartCoroutine(methodName: string): UnityEngine.Coroutine;
   StartCoroutine(methodName: string, value: any): UnityEngine.Coroutine;
-  StartCoroutine(routine: System.Collections.IEnumerator): UnityEngine.Coroutine;
-  StartCoroutine_Auto(routine: System.Collections.IEnumerator): UnityEngine.Coroutine;
+  StartCoroutine(
+    routine: System.Collections.IEnumerator
+  ): UnityEngine.Coroutine;
+  StartCoroutine_Auto(
+    routine: System.Collections.IEnumerator
+  ): UnityEngine.Coroutine;
   StopCoroutine(routine: System.Collections.IEnumerator): void;
   StopCoroutine(routine: UnityEngine.Coroutine): void;
   StopCoroutine(methodName: string): void;
   StopAllCoroutines(): void;
   GetComponent(type: System.Type): UnityEngine.Component;
   GetComponent(type: string): UnityEngine.Component;
-  GetComponentInChildren(t: System.Type, includeInactive: boolean): UnityEngine.Component;
+  GetComponentInChildren(
+    t: System.Type,
+    includeInactive: boolean
+  ): UnityEngine.Component;
   GetComponentInChildren(t: System.Type): UnityEngine.Component;
-  GetComponentsInChildren(t: System.Type, includeInactive: boolean): UnityEngine.Component[];
+  GetComponentsInChildren(
+    t: System.Type,
+    includeInactive: boolean
+  ): UnityEngine.Component[];
   GetComponentsInChildren(t: System.Type): UnityEngine.Component[];
-  GetComponentInParent(t: System.Type, includeInactive: boolean): UnityEngine.Component;
+  GetComponentInParent(
+    t: System.Type,
+    includeInactive: boolean
+  ): UnityEngine.Component;
   GetComponentInParent(t: System.Type): UnityEngine.Component;
-  GetComponentsInParent(t: System.Type, includeInactive: boolean): UnityEngine.Component[];
+  GetComponentsInParent(
+    t: System.Type,
+    includeInactive: boolean
+  ): UnityEngine.Component[];
   GetComponentsInParent(t: System.Type): UnityEngine.Component[];
   GetComponents(type: System.Type): UnityEngine.Component[];
   GetComponents(type: System.Type, results: UnityEngine.Component[]): void;
   CompareTag(tag: string): boolean;
-  SendMessageUpwards(methodName: string, value: any, options: UnityEngine.SendMessageOptions): void;
+  SendMessageUpwards(
+    methodName: string,
+    value: any,
+    options: UnityEngine.SendMessageOptions
+  ): void;
   SendMessageUpwards(methodName: string, value: any): void;
   SendMessageUpwards(methodName: string): void;
-  SendMessageUpwards(methodName: string, options: UnityEngine.SendMessageOptions): void;
+  SendMessageUpwards(
+    methodName: string,
+    options: UnityEngine.SendMessageOptions
+  ): void;
   SendMessage(methodName: string, value: any): void;
   SendMessage(methodName: string): void;
-  SendMessage(methodName: string, value: any, options: UnityEngine.SendMessageOptions): void;
-  SendMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
-  BroadcastMessage(methodName: string, parameter: any, options: UnityEngine.SendMessageOptions): void;
+  SendMessage(
+    methodName: string,
+    value: any,
+    options: UnityEngine.SendMessageOptions
+  ): void;
+  SendMessage(
+    methodName: string,
+    options: UnityEngine.SendMessageOptions
+  ): void;
+  BroadcastMessage(
+    methodName: string,
+    parameter: any,
+    options: UnityEngine.SendMessageOptions
+  ): void;
   BroadcastMessage(methodName: string, parameter: any): void;
   BroadcastMessage(methodName: string): void;
-  BroadcastMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
+  BroadcastMessage(
+    methodName: string,
+    options: UnityEngine.SendMessageOptions
+  ): void;
   GetInstanceID(): number;
   GetHashCode(): number;
   Equals(other: any): boolean;
@@ -412,37 +708,74 @@ export declare class HelloWorld {
   IsInvoking(methodName: string): boolean;
   StartCoroutine(methodName: string): UnityEngine.Coroutine;
   StartCoroutine(methodName: string, value: any): UnityEngine.Coroutine;
-  StartCoroutine(routine: System.Collections.IEnumerator): UnityEngine.Coroutine;
-  StartCoroutine_Auto(routine: System.Collections.IEnumerator): UnityEngine.Coroutine;
+  StartCoroutine(
+    routine: System.Collections.IEnumerator
+  ): UnityEngine.Coroutine;
+  StartCoroutine_Auto(
+    routine: System.Collections.IEnumerator
+  ): UnityEngine.Coroutine;
   StopCoroutine(routine: System.Collections.IEnumerator): void;
   StopCoroutine(routine: UnityEngine.Coroutine): void;
   StopCoroutine(methodName: string): void;
   StopAllCoroutines(): void;
   GetComponent(type: System.Type): UnityEngine.Component;
   GetComponent(type: string): UnityEngine.Component;
-  GetComponentInChildren(t: System.Type, includeInactive: boolean): UnityEngine.Component;
+  GetComponentInChildren(
+    t: System.Type,
+    includeInactive: boolean
+  ): UnityEngine.Component;
   GetComponentInChildren(t: System.Type): UnityEngine.Component;
-  GetComponentsInChildren(t: System.Type, includeInactive: boolean): UnityEngine.Component[];
+  GetComponentsInChildren(
+    t: System.Type,
+    includeInactive: boolean
+  ): UnityEngine.Component[];
   GetComponentsInChildren(t: System.Type): UnityEngine.Component[];
-  GetComponentInParent(t: System.Type, includeInactive: boolean): UnityEngine.Component;
+  GetComponentInParent(
+    t: System.Type,
+    includeInactive: boolean
+  ): UnityEngine.Component;
   GetComponentInParent(t: System.Type): UnityEngine.Component;
-  GetComponentsInParent(t: System.Type, includeInactive: boolean): UnityEngine.Component[];
+  GetComponentsInParent(
+    t: System.Type,
+    includeInactive: boolean
+  ): UnityEngine.Component[];
   GetComponentsInParent(t: System.Type): UnityEngine.Component[];
   GetComponents(type: System.Type): UnityEngine.Component[];
   GetComponents(type: System.Type, results: UnityEngine.Component[]): void;
   CompareTag(tag: string): boolean;
-  SendMessageUpwards(methodName: string, value: any, options: UnityEngine.SendMessageOptions): void;
+  SendMessageUpwards(
+    methodName: string,
+    value: any,
+    options: UnityEngine.SendMessageOptions
+  ): void;
   SendMessageUpwards(methodName: string, value: any): void;
   SendMessageUpwards(methodName: string): void;
-  SendMessageUpwards(methodName: string, options: UnityEngine.SendMessageOptions): void;
+  SendMessageUpwards(
+    methodName: string,
+    options: UnityEngine.SendMessageOptions
+  ): void;
   SendMessage(methodName: string, value: any): void;
   SendMessage(methodName: string): void;
-  SendMessage(methodName: string, value: any, options: UnityEngine.SendMessageOptions): void;
-  SendMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
-  BroadcastMessage(methodName: string, parameter: any, options: UnityEngine.SendMessageOptions): void;
+  SendMessage(
+    methodName: string,
+    value: any,
+    options: UnityEngine.SendMessageOptions
+  ): void;
+  SendMessage(
+    methodName: string,
+    options: UnityEngine.SendMessageOptions
+  ): void;
+  BroadcastMessage(
+    methodName: string,
+    parameter: any,
+    options: UnityEngine.SendMessageOptions
+  ): void;
   BroadcastMessage(methodName: string, parameter: any): void;
   BroadcastMessage(methodName: string): void;
-  BroadcastMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
+  BroadcastMessage(
+    methodName: string,
+    options: UnityEngine.SendMessageOptions
+  ): void;
   GetInstanceID(): number;
   GetHashCode(): number;
   Equals(other: any): boolean;
@@ -477,6 +810,7 @@ export declare class InAppUpdate {
   name: string;
   hideFlags: UnityEngine.HideFlags;
   UpdateServer: string;
+  // @ts-expect-error
   OnStartDownload: UnityEngine.Events.UnityEvent<UnityEngine.Networking.UnityWebRequest>;
   CheckUpdates(): void;
   OnDownloadPatchClick(): void;
@@ -491,37 +825,74 @@ export declare class InAppUpdate {
   IsInvoking(methodName: string): boolean;
   StartCoroutine(methodName: string): UnityEngine.Coroutine;
   StartCoroutine(methodName: string, value: any): UnityEngine.Coroutine;
-  StartCoroutine(routine: System.Collections.IEnumerator): UnityEngine.Coroutine;
-  StartCoroutine_Auto(routine: System.Collections.IEnumerator): UnityEngine.Coroutine;
+  StartCoroutine(
+    routine: System.Collections.IEnumerator
+  ): UnityEngine.Coroutine;
+  StartCoroutine_Auto(
+    routine: System.Collections.IEnumerator
+  ): UnityEngine.Coroutine;
   StopCoroutine(routine: System.Collections.IEnumerator): void;
   StopCoroutine(routine: UnityEngine.Coroutine): void;
   StopCoroutine(methodName: string): void;
   StopAllCoroutines(): void;
   GetComponent(type: System.Type): UnityEngine.Component;
   GetComponent(type: string): UnityEngine.Component;
-  GetComponentInChildren(t: System.Type, includeInactive: boolean): UnityEngine.Component;
+  GetComponentInChildren(
+    t: System.Type,
+    includeInactive: boolean
+  ): UnityEngine.Component;
   GetComponentInChildren(t: System.Type): UnityEngine.Component;
-  GetComponentsInChildren(t: System.Type, includeInactive: boolean): UnityEngine.Component[];
+  GetComponentsInChildren(
+    t: System.Type,
+    includeInactive: boolean
+  ): UnityEngine.Component[];
   GetComponentsInChildren(t: System.Type): UnityEngine.Component[];
-  GetComponentInParent(t: System.Type, includeInactive: boolean): UnityEngine.Component;
+  GetComponentInParent(
+    t: System.Type,
+    includeInactive: boolean
+  ): UnityEngine.Component;
   GetComponentInParent(t: System.Type): UnityEngine.Component;
-  GetComponentsInParent(t: System.Type, includeInactive: boolean): UnityEngine.Component[];
+  GetComponentsInParent(
+    t: System.Type,
+    includeInactive: boolean
+  ): UnityEngine.Component[];
   GetComponentsInParent(t: System.Type): UnityEngine.Component[];
   GetComponents(type: System.Type): UnityEngine.Component[];
   GetComponents(type: System.Type, results: UnityEngine.Component[]): void;
   CompareTag(tag: string): boolean;
-  SendMessageUpwards(methodName: string, value: any, options: UnityEngine.SendMessageOptions): void;
+  SendMessageUpwards(
+    methodName: string,
+    value: any,
+    options: UnityEngine.SendMessageOptions
+  ): void;
   SendMessageUpwards(methodName: string, value: any): void;
   SendMessageUpwards(methodName: string): void;
-  SendMessageUpwards(methodName: string, options: UnityEngine.SendMessageOptions): void;
+  SendMessageUpwards(
+    methodName: string,
+    options: UnityEngine.SendMessageOptions
+  ): void;
   SendMessage(methodName: string, value: any): void;
   SendMessage(methodName: string): void;
-  SendMessage(methodName: string, value: any, options: UnityEngine.SendMessageOptions): void;
-  SendMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
-  BroadcastMessage(methodName: string, parameter: any, options: UnityEngine.SendMessageOptions): void;
+  SendMessage(
+    methodName: string,
+    value: any,
+    options: UnityEngine.SendMessageOptions
+  ): void;
+  SendMessage(
+    methodName: string,
+    options: UnityEngine.SendMessageOptions
+  ): void;
+  BroadcastMessage(
+    methodName: string,
+    parameter: any,
+    options: UnityEngine.SendMessageOptions
+  ): void;
   BroadcastMessage(methodName: string, parameter: any): void;
   BroadcastMessage(methodName: string): void;
-  BroadcastMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
+  BroadcastMessage(
+    methodName: string,
+    options: UnityEngine.SendMessageOptions
+  ): void;
   GetInstanceID(): number;
   GetHashCode(): number;
   Equals(other: any): boolean;
@@ -564,37 +935,74 @@ export declare class IncrementButton {
   IsInvoking(methodName: string): boolean;
   StartCoroutine(methodName: string): UnityEngine.Coroutine;
   StartCoroutine(methodName: string, value: any): UnityEngine.Coroutine;
-  StartCoroutine(routine: System.Collections.IEnumerator): UnityEngine.Coroutine;
-  StartCoroutine_Auto(routine: System.Collections.IEnumerator): UnityEngine.Coroutine;
+  StartCoroutine(
+    routine: System.Collections.IEnumerator
+  ): UnityEngine.Coroutine;
+  StartCoroutine_Auto(
+    routine: System.Collections.IEnumerator
+  ): UnityEngine.Coroutine;
   StopCoroutine(routine: System.Collections.IEnumerator): void;
   StopCoroutine(routine: UnityEngine.Coroutine): void;
   StopCoroutine(methodName: string): void;
   StopAllCoroutines(): void;
   GetComponent(type: System.Type): UnityEngine.Component;
   GetComponent(type: string): UnityEngine.Component;
-  GetComponentInChildren(t: System.Type, includeInactive: boolean): UnityEngine.Component;
+  GetComponentInChildren(
+    t: System.Type,
+    includeInactive: boolean
+  ): UnityEngine.Component;
   GetComponentInChildren(t: System.Type): UnityEngine.Component;
-  GetComponentsInChildren(t: System.Type, includeInactive: boolean): UnityEngine.Component[];
+  GetComponentsInChildren(
+    t: System.Type,
+    includeInactive: boolean
+  ): UnityEngine.Component[];
   GetComponentsInChildren(t: System.Type): UnityEngine.Component[];
-  GetComponentInParent(t: System.Type, includeInactive: boolean): UnityEngine.Component;
+  GetComponentInParent(
+    t: System.Type,
+    includeInactive: boolean
+  ): UnityEngine.Component;
   GetComponentInParent(t: System.Type): UnityEngine.Component;
-  GetComponentsInParent(t: System.Type, includeInactive: boolean): UnityEngine.Component[];
+  GetComponentsInParent(
+    t: System.Type,
+    includeInactive: boolean
+  ): UnityEngine.Component[];
   GetComponentsInParent(t: System.Type): UnityEngine.Component[];
   GetComponents(type: System.Type): UnityEngine.Component[];
   GetComponents(type: System.Type, results: UnityEngine.Component[]): void;
   CompareTag(tag: string): boolean;
-  SendMessageUpwards(methodName: string, value: any, options: UnityEngine.SendMessageOptions): void;
+  SendMessageUpwards(
+    methodName: string,
+    value: any,
+    options: UnityEngine.SendMessageOptions
+  ): void;
   SendMessageUpwards(methodName: string, value: any): void;
   SendMessageUpwards(methodName: string): void;
-  SendMessageUpwards(methodName: string, options: UnityEngine.SendMessageOptions): void;
+  SendMessageUpwards(
+    methodName: string,
+    options: UnityEngine.SendMessageOptions
+  ): void;
   SendMessage(methodName: string, value: any): void;
   SendMessage(methodName: string): void;
-  SendMessage(methodName: string, value: any, options: UnityEngine.SendMessageOptions): void;
-  SendMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
-  BroadcastMessage(methodName: string, parameter: any, options: UnityEngine.SendMessageOptions): void;
+  SendMessage(
+    methodName: string,
+    value: any,
+    options: UnityEngine.SendMessageOptions
+  ): void;
+  SendMessage(
+    methodName: string,
+    options: UnityEngine.SendMessageOptions
+  ): void;
+  BroadcastMessage(
+    methodName: string,
+    parameter: any,
+    options: UnityEngine.SendMessageOptions
+  ): void;
   BroadcastMessage(methodName: string, parameter: any): void;
   BroadcastMessage(methodName: string): void;
-  BroadcastMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
+  BroadcastMessage(
+    methodName: string,
+    options: UnityEngine.SendMessageOptions
+  ): void;
   GetInstanceID(): number;
   GetHashCode(): number;
   Equals(other: any): boolean;
@@ -638,37 +1046,74 @@ export declare class MainUI {
   IsInvoking(methodName: string): boolean;
   StartCoroutine(methodName: string): UnityEngine.Coroutine;
   StartCoroutine(methodName: string, value: any): UnityEngine.Coroutine;
-  StartCoroutine(routine: System.Collections.IEnumerator): UnityEngine.Coroutine;
-  StartCoroutine_Auto(routine: System.Collections.IEnumerator): UnityEngine.Coroutine;
+  StartCoroutine(
+    routine: System.Collections.IEnumerator
+  ): UnityEngine.Coroutine;
+  StartCoroutine_Auto(
+    routine: System.Collections.IEnumerator
+  ): UnityEngine.Coroutine;
   StopCoroutine(routine: System.Collections.IEnumerator): void;
   StopCoroutine(routine: UnityEngine.Coroutine): void;
   StopCoroutine(methodName: string): void;
   StopAllCoroutines(): void;
   GetComponent(type: System.Type): UnityEngine.Component;
   GetComponent(type: string): UnityEngine.Component;
-  GetComponentInChildren(t: System.Type, includeInactive: boolean): UnityEngine.Component;
+  GetComponentInChildren(
+    t: System.Type,
+    includeInactive: boolean
+  ): UnityEngine.Component;
   GetComponentInChildren(t: System.Type): UnityEngine.Component;
-  GetComponentsInChildren(t: System.Type, includeInactive: boolean): UnityEngine.Component[];
+  GetComponentsInChildren(
+    t: System.Type,
+    includeInactive: boolean
+  ): UnityEngine.Component[];
   GetComponentsInChildren(t: System.Type): UnityEngine.Component[];
-  GetComponentInParent(t: System.Type, includeInactive: boolean): UnityEngine.Component;
+  GetComponentInParent(
+    t: System.Type,
+    includeInactive: boolean
+  ): UnityEngine.Component;
   GetComponentInParent(t: System.Type): UnityEngine.Component;
-  GetComponentsInParent(t: System.Type, includeInactive: boolean): UnityEngine.Component[];
+  GetComponentsInParent(
+    t: System.Type,
+    includeInactive: boolean
+  ): UnityEngine.Component[];
   GetComponentsInParent(t: System.Type): UnityEngine.Component[];
   GetComponents(type: System.Type): UnityEngine.Component[];
   GetComponents(type: System.Type, results: UnityEngine.Component[]): void;
   CompareTag(tag: string): boolean;
-  SendMessageUpwards(methodName: string, value: any, options: UnityEngine.SendMessageOptions): void;
+  SendMessageUpwards(
+    methodName: string,
+    value: any,
+    options: UnityEngine.SendMessageOptions
+  ): void;
   SendMessageUpwards(methodName: string, value: any): void;
   SendMessageUpwards(methodName: string): void;
-  SendMessageUpwards(methodName: string, options: UnityEngine.SendMessageOptions): void;
+  SendMessageUpwards(
+    methodName: string,
+    options: UnityEngine.SendMessageOptions
+  ): void;
   SendMessage(methodName: string, value: any): void;
   SendMessage(methodName: string): void;
-  SendMessage(methodName: string, value: any, options: UnityEngine.SendMessageOptions): void;
-  SendMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
-  BroadcastMessage(methodName: string, parameter: any, options: UnityEngine.SendMessageOptions): void;
+  SendMessage(
+    methodName: string,
+    value: any,
+    options: UnityEngine.SendMessageOptions
+  ): void;
+  SendMessage(
+    methodName: string,
+    options: UnityEngine.SendMessageOptions
+  ): void;
+  BroadcastMessage(
+    methodName: string,
+    parameter: any,
+    options: UnityEngine.SendMessageOptions
+  ): void;
   BroadcastMessage(methodName: string, parameter: any): void;
   BroadcastMessage(methodName: string): void;
-  BroadcastMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
+  BroadcastMessage(
+    methodName: string,
+    options: UnityEngine.SendMessageOptions
+  ): void;
   GetInstanceID(): number;
   GetHashCode(): number;
   Equals(other: any): boolean;
@@ -711,37 +1156,74 @@ export declare class Progress {
   IsInvoking(methodName: string): boolean;
   StartCoroutine(methodName: string): UnityEngine.Coroutine;
   StartCoroutine(methodName: string, value: any): UnityEngine.Coroutine;
-  StartCoroutine(routine: System.Collections.IEnumerator): UnityEngine.Coroutine;
-  StartCoroutine_Auto(routine: System.Collections.IEnumerator): UnityEngine.Coroutine;
+  StartCoroutine(
+    routine: System.Collections.IEnumerator
+  ): UnityEngine.Coroutine;
+  StartCoroutine_Auto(
+    routine: System.Collections.IEnumerator
+  ): UnityEngine.Coroutine;
   StopCoroutine(routine: System.Collections.IEnumerator): void;
   StopCoroutine(routine: UnityEngine.Coroutine): void;
   StopCoroutine(methodName: string): void;
   StopAllCoroutines(): void;
   GetComponent(type: System.Type): UnityEngine.Component;
   GetComponent(type: string): UnityEngine.Component;
-  GetComponentInChildren(t: System.Type, includeInactive: boolean): UnityEngine.Component;
+  GetComponentInChildren(
+    t: System.Type,
+    includeInactive: boolean
+  ): UnityEngine.Component;
   GetComponentInChildren(t: System.Type): UnityEngine.Component;
-  GetComponentsInChildren(t: System.Type, includeInactive: boolean): UnityEngine.Component[];
+  GetComponentsInChildren(
+    t: System.Type,
+    includeInactive: boolean
+  ): UnityEngine.Component[];
   GetComponentsInChildren(t: System.Type): UnityEngine.Component[];
-  GetComponentInParent(t: System.Type, includeInactive: boolean): UnityEngine.Component;
+  GetComponentInParent(
+    t: System.Type,
+    includeInactive: boolean
+  ): UnityEngine.Component;
   GetComponentInParent(t: System.Type): UnityEngine.Component;
-  GetComponentsInParent(t: System.Type, includeInactive: boolean): UnityEngine.Component[];
+  GetComponentsInParent(
+    t: System.Type,
+    includeInactive: boolean
+  ): UnityEngine.Component[];
   GetComponentsInParent(t: System.Type): UnityEngine.Component[];
   GetComponents(type: System.Type): UnityEngine.Component[];
   GetComponents(type: System.Type, results: UnityEngine.Component[]): void;
   CompareTag(tag: string): boolean;
-  SendMessageUpwards(methodName: string, value: any, options: UnityEngine.SendMessageOptions): void;
+  SendMessageUpwards(
+    methodName: string,
+    value: any,
+    options: UnityEngine.SendMessageOptions
+  ): void;
   SendMessageUpwards(methodName: string, value: any): void;
   SendMessageUpwards(methodName: string): void;
-  SendMessageUpwards(methodName: string, options: UnityEngine.SendMessageOptions): void;
+  SendMessageUpwards(
+    methodName: string,
+    options: UnityEngine.SendMessageOptions
+  ): void;
   SendMessage(methodName: string, value: any): void;
   SendMessage(methodName: string): void;
-  SendMessage(methodName: string, value: any, options: UnityEngine.SendMessageOptions): void;
-  SendMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
-  BroadcastMessage(methodName: string, parameter: any, options: UnityEngine.SendMessageOptions): void;
+  SendMessage(
+    methodName: string,
+    value: any,
+    options: UnityEngine.SendMessageOptions
+  ): void;
+  SendMessage(
+    methodName: string,
+    options: UnityEngine.SendMessageOptions
+  ): void;
+  BroadcastMessage(
+    methodName: string,
+    parameter: any,
+    options: UnityEngine.SendMessageOptions
+  ): void;
   BroadcastMessage(methodName: string, parameter: any): void;
   BroadcastMessage(methodName: string): void;
-  BroadcastMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
+  BroadcastMessage(
+    methodName: string,
+    options: UnityEngine.SendMessageOptions
+  ): void;
   GetInstanceID(): number;
   GetHashCode(): number;
   Equals(other: any): boolean;
@@ -783,37 +1265,74 @@ export declare class TimeUI {
   IsInvoking(methodName: string): boolean;
   StartCoroutine(methodName: string): UnityEngine.Coroutine;
   StartCoroutine(methodName: string, value: any): UnityEngine.Coroutine;
-  StartCoroutine(routine: System.Collections.IEnumerator): UnityEngine.Coroutine;
-  StartCoroutine_Auto(routine: System.Collections.IEnumerator): UnityEngine.Coroutine;
+  StartCoroutine(
+    routine: System.Collections.IEnumerator
+  ): UnityEngine.Coroutine;
+  StartCoroutine_Auto(
+    routine: System.Collections.IEnumerator
+  ): UnityEngine.Coroutine;
   StopCoroutine(routine: System.Collections.IEnumerator): void;
   StopCoroutine(routine: UnityEngine.Coroutine): void;
   StopCoroutine(methodName: string): void;
   StopAllCoroutines(): void;
   GetComponent(type: System.Type): UnityEngine.Component;
   GetComponent(type: string): UnityEngine.Component;
-  GetComponentInChildren(t: System.Type, includeInactive: boolean): UnityEngine.Component;
+  GetComponentInChildren(
+    t: System.Type,
+    includeInactive: boolean
+  ): UnityEngine.Component;
   GetComponentInChildren(t: System.Type): UnityEngine.Component;
-  GetComponentsInChildren(t: System.Type, includeInactive: boolean): UnityEngine.Component[];
+  GetComponentsInChildren(
+    t: System.Type,
+    includeInactive: boolean
+  ): UnityEngine.Component[];
   GetComponentsInChildren(t: System.Type): UnityEngine.Component[];
-  GetComponentInParent(t: System.Type, includeInactive: boolean): UnityEngine.Component;
+  GetComponentInParent(
+    t: System.Type,
+    includeInactive: boolean
+  ): UnityEngine.Component;
   GetComponentInParent(t: System.Type): UnityEngine.Component;
-  GetComponentsInParent(t: System.Type, includeInactive: boolean): UnityEngine.Component[];
+  GetComponentsInParent(
+    t: System.Type,
+    includeInactive: boolean
+  ): UnityEngine.Component[];
   GetComponentsInParent(t: System.Type): UnityEngine.Component[];
   GetComponents(type: System.Type): UnityEngine.Component[];
   GetComponents(type: System.Type, results: UnityEngine.Component[]): void;
   CompareTag(tag: string): boolean;
-  SendMessageUpwards(methodName: string, value: any, options: UnityEngine.SendMessageOptions): void;
+  SendMessageUpwards(
+    methodName: string,
+    value: any,
+    options: UnityEngine.SendMessageOptions
+  ): void;
   SendMessageUpwards(methodName: string, value: any): void;
   SendMessageUpwards(methodName: string): void;
-  SendMessageUpwards(methodName: string, options: UnityEngine.SendMessageOptions): void;
+  SendMessageUpwards(
+    methodName: string,
+    options: UnityEngine.SendMessageOptions
+  ): void;
   SendMessage(methodName: string, value: any): void;
   SendMessage(methodName: string): void;
-  SendMessage(methodName: string, value: any, options: UnityEngine.SendMessageOptions): void;
-  SendMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
-  BroadcastMessage(methodName: string, parameter: any, options: UnityEngine.SendMessageOptions): void;
+  SendMessage(
+    methodName: string,
+    value: any,
+    options: UnityEngine.SendMessageOptions
+  ): void;
+  SendMessage(
+    methodName: string,
+    options: UnityEngine.SendMessageOptions
+  ): void;
+  BroadcastMessage(
+    methodName: string,
+    parameter: any,
+    options: UnityEngine.SendMessageOptions
+  ): void;
   BroadcastMessage(methodName: string, parameter: any): void;
   BroadcastMessage(methodName: string): void;
-  BroadcastMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
+  BroadcastMessage(
+    methodName: string,
+    options: UnityEngine.SendMessageOptions
+  ): void;
   GetInstanceID(): number;
   GetHashCode(): number;
   Equals(other: any): boolean;
@@ -856,37 +1375,74 @@ export declare class UITimer {
   IsInvoking(methodName: string): boolean;
   StartCoroutine(methodName: string): UnityEngine.Coroutine;
   StartCoroutine(methodName: string, value: any): UnityEngine.Coroutine;
-  StartCoroutine(routine: System.Collections.IEnumerator): UnityEngine.Coroutine;
-  StartCoroutine_Auto(routine: System.Collections.IEnumerator): UnityEngine.Coroutine;
+  StartCoroutine(
+    routine: System.Collections.IEnumerator
+  ): UnityEngine.Coroutine;
+  StartCoroutine_Auto(
+    routine: System.Collections.IEnumerator
+  ): UnityEngine.Coroutine;
   StopCoroutine(routine: System.Collections.IEnumerator): void;
   StopCoroutine(routine: UnityEngine.Coroutine): void;
   StopCoroutine(methodName: string): void;
   StopAllCoroutines(): void;
   GetComponent(type: System.Type): UnityEngine.Component;
   GetComponent(type: string): UnityEngine.Component;
-  GetComponentInChildren(t: System.Type, includeInactive: boolean): UnityEngine.Component;
+  GetComponentInChildren(
+    t: System.Type,
+    includeInactive: boolean
+  ): UnityEngine.Component;
   GetComponentInChildren(t: System.Type): UnityEngine.Component;
-  GetComponentsInChildren(t: System.Type, includeInactive: boolean): UnityEngine.Component[];
+  GetComponentsInChildren(
+    t: System.Type,
+    includeInactive: boolean
+  ): UnityEngine.Component[];
   GetComponentsInChildren(t: System.Type): UnityEngine.Component[];
-  GetComponentInParent(t: System.Type, includeInactive: boolean): UnityEngine.Component;
+  GetComponentInParent(
+    t: System.Type,
+    includeInactive: boolean
+  ): UnityEngine.Component;
   GetComponentInParent(t: System.Type): UnityEngine.Component;
-  GetComponentsInParent(t: System.Type, includeInactive: boolean): UnityEngine.Component[];
+  GetComponentsInParent(
+    t: System.Type,
+    includeInactive: boolean
+  ): UnityEngine.Component[];
   GetComponentsInParent(t: System.Type): UnityEngine.Component[];
   GetComponents(type: System.Type): UnityEngine.Component[];
   GetComponents(type: System.Type, results: UnityEngine.Component[]): void;
   CompareTag(tag: string): boolean;
-  SendMessageUpwards(methodName: string, value: any, options: UnityEngine.SendMessageOptions): void;
+  SendMessageUpwards(
+    methodName: string,
+    value: any,
+    options: UnityEngine.SendMessageOptions
+  ): void;
   SendMessageUpwards(methodName: string, value: any): void;
   SendMessageUpwards(methodName: string): void;
-  SendMessageUpwards(methodName: string, options: UnityEngine.SendMessageOptions): void;
+  SendMessageUpwards(
+    methodName: string,
+    options: UnityEngine.SendMessageOptions
+  ): void;
   SendMessage(methodName: string, value: any): void;
   SendMessage(methodName: string): void;
-  SendMessage(methodName: string, value: any, options: UnityEngine.SendMessageOptions): void;
-  SendMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
-  BroadcastMessage(methodName: string, parameter: any, options: UnityEngine.SendMessageOptions): void;
+  SendMessage(
+    methodName: string,
+    value: any,
+    options: UnityEngine.SendMessageOptions
+  ): void;
+  SendMessage(
+    methodName: string,
+    options: UnityEngine.SendMessageOptions
+  ): void;
+  BroadcastMessage(
+    methodName: string,
+    parameter: any,
+    options: UnityEngine.SendMessageOptions
+  ): void;
   BroadcastMessage(methodName: string, parameter: any): void;
   BroadcastMessage(methodName: string): void;
-  BroadcastMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
+  BroadcastMessage(
+    methodName: string,
+    options: UnityEngine.SendMessageOptions
+  ): void;
   GetInstanceID(): number;
   GetHashCode(): number;
   Equals(other: any): boolean;
@@ -928,37 +1484,74 @@ export declare class VersionText {
   IsInvoking(methodName: string): boolean;
   StartCoroutine(methodName: string): UnityEngine.Coroutine;
   StartCoroutine(methodName: string, value: any): UnityEngine.Coroutine;
-  StartCoroutine(routine: System.Collections.IEnumerator): UnityEngine.Coroutine;
-  StartCoroutine_Auto(routine: System.Collections.IEnumerator): UnityEngine.Coroutine;
+  StartCoroutine(
+    routine: System.Collections.IEnumerator
+  ): UnityEngine.Coroutine;
+  StartCoroutine_Auto(
+    routine: System.Collections.IEnumerator
+  ): UnityEngine.Coroutine;
   StopCoroutine(routine: System.Collections.IEnumerator): void;
   StopCoroutine(routine: UnityEngine.Coroutine): void;
   StopCoroutine(methodName: string): void;
   StopAllCoroutines(): void;
   GetComponent(type: System.Type): UnityEngine.Component;
   GetComponent(type: string): UnityEngine.Component;
-  GetComponentInChildren(t: System.Type, includeInactive: boolean): UnityEngine.Component;
+  GetComponentInChildren(
+    t: System.Type,
+    includeInactive: boolean
+  ): UnityEngine.Component;
   GetComponentInChildren(t: System.Type): UnityEngine.Component;
-  GetComponentsInChildren(t: System.Type, includeInactive: boolean): UnityEngine.Component[];
+  GetComponentsInChildren(
+    t: System.Type,
+    includeInactive: boolean
+  ): UnityEngine.Component[];
   GetComponentsInChildren(t: System.Type): UnityEngine.Component[];
-  GetComponentInParent(t: System.Type, includeInactive: boolean): UnityEngine.Component;
+  GetComponentInParent(
+    t: System.Type,
+    includeInactive: boolean
+  ): UnityEngine.Component;
   GetComponentInParent(t: System.Type): UnityEngine.Component;
-  GetComponentsInParent(t: System.Type, includeInactive: boolean): UnityEngine.Component[];
+  GetComponentsInParent(
+    t: System.Type,
+    includeInactive: boolean
+  ): UnityEngine.Component[];
   GetComponentsInParent(t: System.Type): UnityEngine.Component[];
   GetComponents(type: System.Type): UnityEngine.Component[];
   GetComponents(type: System.Type, results: UnityEngine.Component[]): void;
   CompareTag(tag: string): boolean;
-  SendMessageUpwards(methodName: string, value: any, options: UnityEngine.SendMessageOptions): void;
+  SendMessageUpwards(
+    methodName: string,
+    value: any,
+    options: UnityEngine.SendMessageOptions
+  ): void;
   SendMessageUpwards(methodName: string, value: any): void;
   SendMessageUpwards(methodName: string): void;
-  SendMessageUpwards(methodName: string, options: UnityEngine.SendMessageOptions): void;
+  SendMessageUpwards(
+    methodName: string,
+    options: UnityEngine.SendMessageOptions
+  ): void;
   SendMessage(methodName: string, value: any): void;
   SendMessage(methodName: string): void;
-  SendMessage(methodName: string, value: any, options: UnityEngine.SendMessageOptions): void;
-  SendMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
-  BroadcastMessage(methodName: string, parameter: any, options: UnityEngine.SendMessageOptions): void;
+  SendMessage(
+    methodName: string,
+    value: any,
+    options: UnityEngine.SendMessageOptions
+  ): void;
+  SendMessage(
+    methodName: string,
+    options: UnityEngine.SendMessageOptions
+  ): void;
+  BroadcastMessage(
+    methodName: string,
+    parameter: any,
+    options: UnityEngine.SendMessageOptions
+  ): void;
   BroadcastMessage(methodName: string, parameter: any): void;
   BroadcastMessage(methodName: string): void;
-  BroadcastMessage(methodName: string, options: UnityEngine.SendMessageOptions): void;
+  BroadcastMessage(
+    methodName: string,
+    options: UnityEngine.SendMessageOptions
+  ): void;
   GetInstanceID(): number;
   GetHashCode(): number;
   Equals(other: any): boolean;
@@ -973,7 +1566,7 @@ export declare namespace AppUpdate {
     TotalBytesToDownload: number;
     InstallStatus: AppUpdate.InstallStatus;
     UpdateAvailability: AppUpdate.UpdateAvailability;
-    SetBytesDownloadedGetter(getter: (() => number)): void;
+    SetBytesDownloadedGetter(getter: () => number): void;
     Equals(obj: any): boolean;
     GetHashCode(): number;
     GetType(): System.Type;
@@ -1009,9 +1602,14 @@ export declare namespace AppUpdate {
   }
   export interface IAppUpdateManager {
     GetAppUpdateInfo(): System.Threading.Tasks.Task<AppUpdate.AppUpdateInfo>;
-    AddListener(listener: ((obj: AppUpdate.InstallStatus) => void)): ((obj: AppUpdate.InstallStatus) => void);
-    RemoveListener(listener: ((obj: AppUpdate.InstallStatus) => void)): void;
-    StartUpdateFlow(updateInfo: AppUpdate.AppUpdateInfo, options: AppUpdate.AppUpdateOptions): System.Threading.Tasks.Task;
+    AddListener(
+      listener: (obj: AppUpdate.InstallStatus) => void
+    ): (obj: AppUpdate.InstallStatus) => void;
+    RemoveListener(listener: (obj: AppUpdate.InstallStatus) => void): void;
+    StartUpdateFlow(
+      updateInfo: AppUpdate.AppUpdateInfo,
+      options: AppUpdate.AppUpdateOptions
+    ): System.Threading.Tasks.Task;
   }
 }
 export declare namespace DiffTool {
@@ -1027,6 +1625,10 @@ export declare namespace DiffTool {
     YZQBSDiff = 1,
   }
   export interface IDiffTool {
-    ApplyPatch(oldFilePath: string, patchFilePath: string, outputFilePath: string): System.Threading.Tasks.Task<boolean>;
+    ApplyPatch(
+      oldFilePath: string,
+      patchFilePath: string,
+      outputFilePath: string
+    ): System.Threading.Tasks.Task<boolean>;
   }
 }
