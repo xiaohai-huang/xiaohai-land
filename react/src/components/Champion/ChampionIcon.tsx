@@ -3,8 +3,9 @@ type ChampionIconProps<T> = {
   name: string;
   img: string;
   size: number;
-  selected: boolean;
-  onClick: (id: T) => void;
+  selected?: boolean;
+  showBorder?: boolean;
+  onClick?: (id: T) => void;
 };
 
 const borderRadius = "10%";
@@ -15,6 +16,7 @@ function ChampionIcon<T>({
   img,
   size,
   selected,
+  showBorder = true,
   onClick = () => {},
 }: ChampionIconProps<T>) {
   const selectedEffect = (
@@ -22,12 +24,12 @@ function ChampionIcon<T>({
       style={{
         width: `${size}px`,
         height: `${size}px`,
-        border: "1.5px solid yellow",
+        border: showBorder ? "1.5px solid yellow" : "none",
         position: "absolute",
         left: 0,
         top: 0,
         borderRadius,
-        backgroundColor: "rgba(255,242,0,0.03)",
+        backgroundColor: showBorder ? "rgba(255,242,0,0.03)" : "unset",
       }}
     />
   );
