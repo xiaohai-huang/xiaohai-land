@@ -1,25 +1,21 @@
 import { useEffect, useState } from "react";
 import { type UnityEngine } from "@reactunity/renderer";
-import { type OrientationManager } from "src/unity-types/types";
 
 export default function useSafeArea() {
-  const [safeArea, setSafeArea] = useState({
-    left: 0,
-    right: 1,
-    top: 0,
-    bottom: 1,
-  });
+  const [safeArea, setSafeArea] = useState(() => getSafeArea());
 
   useEffect(() => {
     setSafeArea(getSafeArea());
-    const deviceChange = Globals["OrientationManager"] as OrientationManager;
-    const unsubscribe = deviceChange.AddListener(
-      (orientation: UnityEngine.DeviceOrientation) => {
+    let oldOrientation: UnityEngine.ScreenOrientation = 0;
+    const timer = setInterval(() => {
+      const orientation = Interop.UnityEngine.Screen.orientation;
+      if (oldOrientation !== orientation) {
+        oldOrientation = orientation;
         setSafeArea(getSafeArea());
       }
-    );
+    }, 1000);
 
-    return () => unsubscribe();
+    return () => clearInterval(timer);
   }, []);
   return safeArea;
 }
