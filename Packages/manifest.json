@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "com.github-glitchenzo.nugetforunity": "https://github.com/GlitchEnzo/NuGetForUnity.git?path=/src/NuGetForUnity",
     "com.reactunity.core": "0.16.0",
     "com.reactunity.quickjs": "0.16.0",
     "com.unity.device-simulator.devices": "1.0.0",
@@ -42,13 +41,15 @@
     "com.unity.modules.video": "1.0.0",
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
-    "com.unity.modules.xr": "1.0.0"
+    "com.unity.modules.xr": "1.0.0",
+    "com.github-glitchenzo.nugetforunity": "4.0.1"
   },
   "scopedRegistries": [
     {
       "name": "package.openupm.com",
       "url": "https://package.openupm.com",
       "scopes": [
+        "com.github-glitchenzo.nugetforunity",
         "com.openupm",
         "com.reactunity.core",
         "com.reactunity.quickjs"
