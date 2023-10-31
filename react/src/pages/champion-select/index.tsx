@@ -15,7 +15,7 @@ function Page() {
   const [selectedSkin, setSelectedSkin] = useState("原画");
   const champion = useMemo(
     () => champions.find((champ) => champ.id === selectedChampionId),
-    [selectedChampionId]
+    [champions, selectedChampionId]
   );
 
   return (
