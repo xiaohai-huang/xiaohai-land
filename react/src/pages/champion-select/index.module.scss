@@ -5,7 +5,7 @@
   flex-direction: row;
   .leftSection {
     background-color: rgb(33, 41, 60, 0.8);
-    width: 20%;
+    width: calc(var(--left-margin) + 150px);
     height: 100%;
 
     .tabs {
@@ -19,7 +19,7 @@
         justify-content: center;
         align-items: center;
         color: #829fc9;
-        height: 50px;
+        height: 38px;
         background-color: rgba(0, 0, 0, 0.01);
         &.selected {
           background-color: rgba(31, 125, 215, 0.2);
