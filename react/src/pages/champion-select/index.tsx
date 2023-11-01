@@ -45,19 +45,25 @@ function Page() {
     >
       {/* Champion's Background Image */}
       {champion !== undefined && (
-        <image
+        <view
           style={{
             position: "absolute",
-            objectFit: "contain",
-            width: "115%",
-            height: "115%",
-            left: "-7.5%",
-            top: "-7.5%",
+            left: "-2.5%",
+            top: "-2.5%",
+            width: "105%",
+            height: "105%",
           }}
-          source={
-            champion.skins.find((skin) => skin.id === selectedSkinId).largeImage
-          }
-        />
+        >
+          <image
+            style={{
+              objectFit: "contain",
+            }}
+            source={
+              champion.skins.find((skin) => skin.id === selectedSkinId)
+                ?.largeImage
+            }
+          />
+        </view>
       )}
       <view className={styles.leftSection}>
         {/* 英雄|皮肤 Tabs */}
