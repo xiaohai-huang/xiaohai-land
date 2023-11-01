@@ -28,7 +28,7 @@ function App() {
       }}
     >
       <MiniRouter>
-        <Route path="/" element={<Index />} />
+        <Route path="/" keepAlive element={<Index />} />
         <Route path="/champion-select" element={<ChampionSelect />} />
         <Route path="/ranking" element={<Ranking />} />
       </MiniRouter>

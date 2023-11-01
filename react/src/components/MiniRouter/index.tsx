@@ -32,9 +32,13 @@ export function useLocation() {
 type RouteProps = {
   path: string;
   element: JSX.Element;
+  keepAlive?: boolean;
 };
-export function Route({ path, element }: RouteProps) {
+
+export function Route({ path, element, keepAlive = false }: RouteProps) {
   const location = useLocation();
+  const match = path === location;
+  if (!match && !keepAlive) return null;
   return (
     <view
       style={{
