@@ -122,11 +122,11 @@ function Page() {
         >
           <scroll className={styles.listScroll}>
             <view className={styles.list}>
-              {champion?.skins.map((skin) => (
+              {champion?.skins.map((skin, i) => (
                 <ChampionIcon
                   key={skin.id}
                   id={skin.id}
-                  name={skin.name}
+                  name={i === 0 ? "经典" : skin.name}
                   img={skin.smallImage}
                   size={64}
                   selected={skin.id === selectedSkinId}
