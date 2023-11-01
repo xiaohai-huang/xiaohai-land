@@ -52,6 +52,7 @@ function ChampionIcon<T>({
           marginTop: "0.1rem",
           fontSize: "0.8rem",
           color: selected ? "white" : "gray",
+          whiteSpace: "nowrap",
         }}
       >
         {name}
