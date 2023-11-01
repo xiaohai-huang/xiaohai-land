@@ -48,7 +48,7 @@ function Page() {
           </view>
         </view>
         <view
-          className={styles.listConatiner}
+          className={styles.listContainer}
           style={{
             visibility: tab === "champion" ? "visible" : "hidden",
             zIndex: 2,
@@ -75,7 +75,7 @@ function Page() {
         </view>
 
         <view
-          className={styles.listConatiner}
+          className={styles.listContainer}
           style={{
             visibility: tab === "skin" ? "visible" : "hidden",
             zIndex: 2,
