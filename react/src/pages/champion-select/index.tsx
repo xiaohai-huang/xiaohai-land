@@ -95,7 +95,7 @@ function Page() {
         >
           <scroll className={styles.listScroll}>
             <view className={styles.list}>
-              {champions.map((champion) => (
+              {champions.slice(0, 19).map((champion) => (
                 <ChampionIcon
                   key={champion.id}
                   id={champion.id}
@@ -152,7 +152,7 @@ function Page() {
                 verticalAlign: "middle",
               }}
             >
-              请选择一个英雄
+              请选择您的出战英雄
             </view>
           ) : (
             <>
@@ -194,14 +194,14 @@ function Page() {
         <button
           className={styles.confirm}
           style={{
-            padding: "1rem",
+            padding: "0.5rem",
           }}
           disabled={selectedChampionId === -1}
           onClick={() => {
             console.log("click confirm");
           }}
         >
-          锁定英雄
+          确定
         </button>
       </view>
     </view>
