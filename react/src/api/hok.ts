@@ -50,8 +50,9 @@ export async function getChampions(): Promise<ChampionData[]> {
         ? []
         : (item.skin_name.split("|") as string[]);
     const championId = item.ename;
-    const skins: ChampionSkinData[] = ["原画", ...names].map((name, i) => {
+    const skins: ChampionSkinData[] = names.map((name, i) => {
       return {
+        id: i + 1,
         name,
         smallImage: `https://game.gtimg.cn/images/yxzj/img201606/heroimg/${championId}/${championId}-smallskin-${
           i + 1
@@ -81,6 +82,7 @@ export async function getChampions(): Promise<ChampionData[]> {
 }
 
 export type ChampionSkinData = {
+  id: number;
   name: string;
   smallImage: string;
   largeImage: string;

@@ -13,7 +13,7 @@ function Page() {
   const [tab, setTab] = useState<"champion" | "skin">("champion");
   const { champions } = useChampions();
   const [selectedChampionId, setSelectedChampion] = useState(-1);
-  const [selectedSkin, setSelectedSkin] = useState("原画");
+  const [selectedSkinId, setSelectedSkinId] = useState(1);
   const champion: ChampionData | undefined = useMemo(
     () => champions.find((champ) => champ.id === selectedChampionId),
     [champions, selectedChampionId]
@@ -55,7 +55,7 @@ function Page() {
             top: "-7.5%",
           }}
           source={
-            champion.skins.find((skin) => skin.name === selectedSkin).largeImage
+            champion.skins.find((skin) => skin.id === selectedSkinId).largeImage
           }
         />
       )}
@@ -89,7 +89,7 @@ function Page() {
         >
           <scroll className={styles.listScroll}>
             <view className={styles.list}>
-              {champions.slice(0, 19).map((champion) => (
+              {champions.map((champion) => (
                 <ChampionIcon
                   key={champion.id}
                   id={champion.id}
@@ -99,7 +99,7 @@ function Page() {
                   selected={champion.id === selectedChampionId}
                   onClick={(id) => {
                     setSelectedChampion(id);
-                    setSelectedSkin("原画");
+                    setSelectedSkinId(1);
                   }}
                 />
               ))}
@@ -118,14 +118,14 @@ function Page() {
             <view className={styles.list}>
               {champion?.skins.map((skin) => (
                 <ChampionIcon
-                  key={skin.name}
-                  id={skin.name}
+                  key={skin.id}
+                  id={skin.id}
                   name={skin.name}
                   img={skin.smallImage}
                   size={64}
-                  selected={skin.name === selectedSkin}
+                  selected={skin.id === selectedSkinId}
                   onClick={(id) => {
-                    setSelectedSkin(id);
+                    setSelectedSkinId(id);
                   }}
                 />
               ))}
@@ -167,7 +167,7 @@ function Page() {
           }}
           onClick={() => {
             setSelectedChampion(-1);
-            setSelectedSkin("原画");
+            setSelectedSkinId(1);
             navigate("/");
           }}
         >
