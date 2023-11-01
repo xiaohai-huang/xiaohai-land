@@ -1,3 +1,6 @@
+import herosData from "./data/heros.json";
+import skinsData from "./data/skins.json";
+
 export type ChampionData = {
   id: number;
   /**
@@ -34,17 +37,10 @@ export type ChampionData = {
 // }
 
 export async function getChampions(): Promise<ChampionData[]> {
-  const data = await fetch(
-    "https://pvp.qq.com/zlkdatasys/yuzhouzhan/list/heroList.json?t=" +
-      new Date().getTime()
-  ).then((res) => res.json());
+  const data = herosData;
 
   const skinData: { [id: string]: ChampionSkinData[] } = {};
-  (
-    await fetch("https://pvp.qq.com/web201605/js/herolist.json").then((res) =>
-      res.json()
-    )
-  ).forEach((item) => {
+  skinsData.forEach((item) => {
     const names =
       item.skin_name === undefined
         ? []
@@ -67,10 +63,10 @@ export async function getChampions(): Promise<ChampionData[]> {
 
   return data.yzzyxs_4880.map((item) => {
     const champion: ChampionData = {
-      id: item.yzzyxi_2602,
+      id: Number(item.yzzyxi_2602),
       name: item.yzzyxm_4588,
       alias: item.yzzyxc_4613,
-      img: `https:${item.yxlbfm_9398}`,
+      img: skinData[item.yzzyxi_2602][0]?.smallImage,
       region: item.yxqy_9100,
       pinyin: item.yxpy_7753,
       classes: item.yzzyxz_1918,
