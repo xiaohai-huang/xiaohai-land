@@ -1,11 +1,11 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
+import classNames from "classnames";
 import { useNavigate } from "src/components/MiniRouter/index";
 
 import myImage1 from "src/assets/images/backgrounds/bg-01.jpg";
 import ChampionIcon from "src/components/Champion/ChampionIcon";
 import useChampions from "src/hooks/useChampions";
 import styles from "./index.module.scss";
-import classNames from "classnames";
 
 function Page() {
   const navigate = useNavigate();
@@ -18,6 +18,20 @@ function Page() {
     [champions, selectedChampionId]
   );
 
+  const [readyToShowList, setReadyToShowList] = useState(false);
+  useEffect(() => {
+    let timer: number;
+    if (champions.length !== 0) {
+      timer = setTimeout(() => {
+        setReadyToShowList(true);
+      }, 500);
+    }
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [champions]);
+
   return (
     <view
       className={styles.page}
@@ -29,6 +43,7 @@ function Page() {
       }}
     >
       <view className={styles.leftSection}>
+        {/* 英雄|皮肤 Tabs */}
         <view className={styles.tabs}>
           <view
             className={classNames(styles.button, {
@@ -47,11 +62,12 @@ function Page() {
             皮肤
           </view>
         </view>
+        {/* Champions Tab */}
         <view
           className={styles.listContainer}
           style={{
-            visibility: tab === "champion" ? "visible" : "hidden",
-            zIndex: 2,
+            visibility:
+              readyToShowList && (tab === "champion" ? "visible" : "hidden"),
           }}
         >
           <scroll className={styles.listScroll}>
@@ -74,11 +90,11 @@ function Page() {
           </scroll>
         </view>
 
+        {/* Skin Tab */}
         <view
           className={styles.listContainer}
           style={{
             visibility: tab === "skin" ? "visible" : "hidden",
-            zIndex: 2,
           }}
         >
           <scroll className={styles.listScroll}>
