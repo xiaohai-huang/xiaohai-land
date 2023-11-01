@@ -10,8 +10,16 @@ import ScriptSource from "src/components/ScriptSource";
 
 function Page() {
   return (
-    <>
-      <Hero />
+    <view
+      style={{
+        backgroundImage: `url(${bgImage})`,
+        backgroundSize: "fill",
+        backgroundPosition: "50% 20%",
+        backgroundRepeat: "no-repeat",
+        width: "100%",
+        height: "100%",
+      }}
+    >
       <view className={styles.container}>
         <Top />
         <view
@@ -32,7 +40,7 @@ function Page() {
           <Tabs />
         </view>
       </view>
-    </>
+    </view>
   );
 }
 
@@ -205,24 +213,6 @@ function Tabs() {
         <button>背包</button>
       </view>
     </view>
-  );
-}
-
-function Hero() {
-  return (
-    <view
-      className="hero-section"
-      style={{
-        position: "absolute",
-        width: "100%",
-        height: "100%",
-        zIndex: -1,
-        backgroundImage: `url(${bgImage})`,
-        backgroundSize: "cover",
-        backgroundPosition: "50% 20%",
-        backgroundRepeat: "no-repeat",
-      }}
-    ></view>
   );
 }
 
