@@ -66,7 +66,7 @@ export async function getChampions(): Promise<ChampionData[]> {
       id: Number(item.yzzyxi_2602),
       name: item.yzzyxm_4588,
       alias: item.yzzyxc_4613,
-      img: skinData[item.yzzyxi_2602][0]?.smallImage,
+      img: skinData[item.yzzyxi_2602][0].smallImage,
       region: item.yxqy_9100,
       pinyin: item.yxpy_7753,
       classes: item.yzzyxz_1918,
