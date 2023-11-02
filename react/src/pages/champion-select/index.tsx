@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo } from "react";
 import classNames from "classnames";
 import { useNavigate } from "src/components/MiniRouter/index";
 
@@ -6,6 +6,9 @@ import myImage1 from "src/assets/images/backgrounds/bg-01.jpg";
 import ChampionIcon from "src/components/Champion/ChampionIcon";
 import useChampions from "src/hooks/useChampions";
 import { type ChampionData } from "src/api/hok";
+import { UnityEngine } from "@reactunity/renderer";
+import Scroll from "src/components/Scroll";
+import MyGlobals from "src/unity-types/MyGlobals";
 import styles from "./index.module.scss";
 
 function Page() {
@@ -18,20 +21,12 @@ function Page() {
     () => champions.find((champ) => champ.id === selectedChampionId),
     [champions, selectedChampionId]
   );
-
-  const [readyToShowList, setReadyToShowList] = useState(false);
-  useEffect(() => {
-    let timer: number;
-    if (champions.length !== 0) {
-      timer = setTimeout(() => {
-        setReadyToShowList(true);
-      }, 500);
-    }
-
-    return () => {
-      clearTimeout(timer);
-    };
-  }, [champions]);
+  const championBackgroundImage = useMemo(
+    () =>
+      champion?.skins.find((skin) => skin.id === selectedSkinId)?.largeImage ??
+      "",
+    [champion, selectedSkinId]
+  );
 
   return (
     <view
@@ -43,28 +38,6 @@ function Page() {
         backgroundRepeat: "no-repeat",
       }}
     >
-      {/* Champion's Background Image */}
-      {champion !== undefined && (
-        <view
-          style={{
-            position: "absolute",
-            left: "-2.5%",
-            top: "-2.5%",
-            width: "105%",
-            height: "105%",
-          }}
-        >
-          <image
-            style={{
-              objectFit: "contain",
-            }}
-            source={
-              champion.skins.find((skin) => skin.id === selectedSkinId)
-                ?.largeImage
-            }
-          />
-        </view>
-      )}
       <view className={styles.leftSection}>
         {/* 英雄|皮肤 Tabs */}
         <view className={styles.tabs}>
@@ -86,57 +59,68 @@ function Page() {
           </view>
         </view>
         {/* Champions Tab */}
-        <view
-          className={styles.listContainer}
-          style={{
-            visibility:
-              readyToShowList && (tab === "champion" ? "visible" : "hidden"),
-          }}
-        >
-          <scroll className={styles.listScroll}>
-            <view className={styles.list}>
-              {champions.slice(0, 19).map((champion) => (
-                <ChampionIcon
-                  key={champion.id}
-                  id={champion.id}
-                  name={champion.name}
-                  img={champion.img}
-                  size={64}
-                  selected={champion.id === selectedChampionId}
-                  onClick={(id) => {
-                    setSelectedChampion(id);
-                    setSelectedSkinId(1);
-                  }}
-                />
-              ))}
+        <view className={styles.listContainer}>
+          <view style={{ height: "100%" }}>
+            <view
+              className="champions"
+              style={{
+                position: "absolute",
+                left: 0,
+                top: 0,
+                right: 0,
+                height: "100%",
+                visibility: tab === "champion" ? "visible" : "hidden",
+              }}
+            >
+              <Scroll direction="vertical" style={{ flexShrink: 0 }}>
+                <view className={styles.list}>
+                  {champions.slice(0, 19).map((champion, i) => (
+                    <ChampionIcon
+                      key={champion.id}
+                      id={champion.id}
+                      name={champion.name}
+                      img={champion.img}
+                      size={64}
+                      selected={champion.id === selectedChampionId}
+                      onClick={(id) => {
+                        setSelectedChampion(id);
+                        setSelectedSkinId(1);
+                      }}
+                    />
+                  ))}
+                </view>
+              </Scroll>
             </view>
-          </scroll>
-        </view>
-
-        {/* Skin Tab */}
-        <view
-          className={styles.listContainer}
-          style={{
-            visibility: tab === "skin" ? "visible" : "hidden",
-          }}
-        >
-          <scroll className={styles.listScroll}>
-            <view className={styles.list}>
-              {champion?.skins.map((skin, i) => (
-                <ChampionIcon
-                  key={skin.id}
-                  id={skin.id}
-                  name={i === 0 ? "经典" : skin.name}
-                  img={skin.smallImage}
-                  size={64}
-                  selected={skin.id === selectedSkinId}
-                  onClick={(id) => {
-                    setSelectedSkinId(id);
-                  }}
-                />
-              ))}
+            <view
+              className="skins"
+              style={{
+                position: "absolute",
+                left: 0,
+                top: 0,
+                right: 0,
+                height: "100%",
+                visibility: tab === "skin" ? "visible" : "hidden",
+              }}
+            >
+              <Scroll direction="vertical" style={{ flexShrink: 0 }}>
+                <view className={styles.list}>
+                  {champion?.skins.map((skin, i) => (
+                    <ChampionIcon
+                      key={skin.id}
+                      id={skin.id}
+                      name={i === 0 ? "经典" : skin.name}
+                      img={skin.smallImage}
+                      size={64}
+                      selected={skin.id === selectedSkinId}
+                      onClick={(id) => {
+                        setSelectedSkinId(id);
+                      }}
+                    />
+                  ))}
+                </view>
+              </Scroll>
             </view>
-          </scroll>
+          </view>
         </view>
       </view>
       {/* Middle Section */}
@@ -150,12 +134,38 @@ function Page() {
                 margin: "auto 0",
                 textAlign: "center",
                 verticalAlign: "middle",
+                backgroundColor: "rgba(0,0,0,0.8)",
               }}
             >
               请选择您的出战英雄
             </view>
           ) : (
             <>
+              {/* Champion's Background Image */}
+              {championBackgroundImage !== "" && (
+                <view
+                  key={"champion-bg-img"}
+                  id="champion-bg-img"
+                  onAttachToPanel={(event) => {
+                    // Set object-fit: cover;
+                    const element =
+                      event.currentTarget as UnityEngine.UIElements.VisualElement;
+
+                    MyGlobals.StyleHelper.SetBackgroundSize(
+                      element.name,
+                      Interop.UnityEngine.UIElements.BackgroundSizeType.Cover
+                    );
+                  }}
+                  style={{
+                    position: "absolute",
+                    left: 0,
+                    top: 0,
+                    width: "105%",
+                    height: "100%",
+                    backgroundImage: `url(${championBackgroundImage})`,
+                  }}
+                />
+              )}
               <text style={{ marginTop: "var(--top-margin)", color: "white" }}>
                 {champion.name}
               </text>
