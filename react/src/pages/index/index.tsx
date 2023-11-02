@@ -188,6 +188,7 @@ function Entries() {
 }
 
 function Tabs() {
+  const navigate = useNavigate();
   return (
     <view
       style={{
@@ -207,7 +208,7 @@ function Tabs() {
         }}
       >
         <button>英雄</button>
-        <button>定制</button>
+        <button onClick={() => navigate("/test")}>定制</button>
         <button>备战</button>
         <button>战队</button>
         <button>背包</button>

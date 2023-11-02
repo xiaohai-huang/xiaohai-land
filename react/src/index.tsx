@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { render } from "@reactunity/renderer";
 
+import useSafeArea from "src/hooks/useSafeArea";
 import MiniRouter, { Route } from "./components/MiniRouter";
 import { FPSCounter } from "./unity-types/types";
 import Index from "./pages/index";
 import ChampionSelect from "./pages/champion-select";
 import Ranking from "./pages/ranking";
-import useSafeArea from "src/hooks/useSafeArea";
+import TestPage from "./pages/test";
 
 import "./index.scss";
 
@@ -31,6 +32,7 @@ function App() {
         <Route path="/" keepAlive element={<Index />} />
         <Route path="/champion-select" element={<ChampionSelect />} />
         <Route path="/ranking" element={<Ranking />} />
+        <Route path="/test" element={<TestPage />} />
       </MiniRouter>
       <view
         className="fps-container"
