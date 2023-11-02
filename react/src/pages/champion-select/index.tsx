@@ -6,9 +6,7 @@ import myImage1 from "src/assets/images/backgrounds/bg-01.jpg";
 import ChampionIcon from "src/components/Champion/ChampionIcon";
 import useChampions from "src/hooks/useChampions";
 import { type ChampionData } from "src/api/hok";
-import { UnityEngine } from "@reactunity/renderer";
 import Scroll from "src/components/Scroll";
-import MyGlobals from "src/unity-types/MyGlobals";
 import styles from "./index.module.scss";
 
 function Page() {
@@ -135,27 +133,16 @@ function Page() {
         ) : (
           <>
             {/* Champion's Background Image */}
-            <view
-              key={"champion-bg-img"}
-              id="champion-bg-img"
-              onAttachToPanel={(event) => {
-                // Set object-fit: cover;
-                const element =
-                  event.currentTarget as UnityEngine.UIElements.VisualElement;
-
-                MyGlobals.StyleHelper.SetBackgroundSize(
-                  element.name,
-                  Interop.UnityEngine.UIElements.BackgroundSizeType.Cover
-                );
-              }}
+            <image
+              className="object-fit-cover"
               style={{
                 position: "absolute",
                 left: 0,
                 top: 0,
                 width: "105%",
                 height: "100%",
-                backgroundImage: `url(${championBackgroundImage})`,
               }}
+              source={championBackgroundImage}
             />
             <text style={{ marginTop: "var(--top-margin)", color: "white" }}>
               {champion.name}
