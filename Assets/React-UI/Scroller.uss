@@ -11,5 +11,5 @@
 } */
 
 :root {
-  -unity-font-definition: url("/Assets/Resources/CustomFonts/simhei.ttf");
+  -unity-font-definition: url("/Assets/TextMesh Pro/Fonts/simhei.ttf");
 }
