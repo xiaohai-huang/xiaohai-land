@@ -37,7 +37,7 @@ export default function Editor() {
       <input
         style={{ height: "100px" }}
         value={code}
-        onChange={(v) => setCode(v)}
+        onChange={(v) => setCode(v.newValue)}
       />
       <button onClick={run} style={{ marginTop: "1rem" }}>
         run

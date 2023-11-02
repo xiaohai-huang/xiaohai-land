@@ -2,7 +2,7 @@
   "extends": "@reactunity/scripts",
   "compilerOptions": {
     "baseUrl": "./",
-    "jsxImportSource": "@reactunity/renderer/ugui",
+    "jsxImportSource": "@reactunity/renderer/uitoolkit",
     "types": ["@reactunity/scripts/main"]
   },
   "files": ["./src/index.tsx"],

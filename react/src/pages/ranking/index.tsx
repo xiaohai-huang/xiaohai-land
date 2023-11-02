@@ -24,8 +24,8 @@ function Safe() {
 
   return (
     <view style={{ background: "lightblue" }}>
-      <text richText={true}>{`<b>useSafeArea</b>`}</text>
-      <text richText={true}>{`${JSON.stringify(area, null, 2)}`}</text>
+      <text>{`<b>useSafeArea</b>`}</text>
+      <text>{`${JSON.stringify(area, null, 2)}`}</text>
     </view>
   );
 }

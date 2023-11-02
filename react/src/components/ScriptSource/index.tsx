@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { ReactUnity } from "@reactunity/renderer";
+import MyGlobals from "src/unity-types/MyGlobals";
 
 function ScriptSource() {
   const [source, setSource] = useState("");
   useEffect(() => {
-    const canvas = Globals.Renderer as ReactUnity.UGUI.ReactRendererUGUI;
+    const canvas = MyGlobals.Renderer;
     setSource(canvas.Source.SourcePath);
   }, []);
   return (
