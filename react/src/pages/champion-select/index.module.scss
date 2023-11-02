@@ -5,12 +5,13 @@
   flex-direction: row;
   .leftSection {
     background-color: rgb(33, 41, 60, 0.95);
-    width: calc(var(--left-margin) + 150px);
+    width: calc(var(--left-margin) + 170px);
     display: flex;
     flex-direction: column;
     --tabs-height: 38px;
     .tabs {
       height: var(--tabs-height);
+      flex-shrink: 0;
       display: flex;
       flex-direction: row;
       border-bottom: 1px solid #2c394a;
@@ -29,22 +30,14 @@
       }
     }
     .listContainer {
-      height: calc(100vh - var(--tabs-height));
       padding-left: var(--left-margin);
-      padding-top: 0.5rem;
-      padding-bottom: 0.5rem;
-      position: absolute;
-      left: 0;
-      top: var(--tabs-height);
-      .listScroll {
-        ::scrollbar {
-          visibility: hidden;
-        }
-        .list {
-          gap: 0.7rem;
-          display: flex;
-          flex-direction: row;
-          flex-wrap: wrap;
+      flex: 1;
+      .list {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        & > * {
+          margin: 0.4rem 0.5rem;
         }
       }
     }
@@ -54,7 +47,7 @@
     // background-color: rgba(0, 0, 0, 0.8);
     .container {
       height: 100%;
-      margin: 0 1rem;
+      padding: 0 1rem;
     }
   }
   .rightSection {

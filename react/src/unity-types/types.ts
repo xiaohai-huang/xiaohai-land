@@ -1,122 +1,11 @@
 //
 // Types in assemblies: Assembly-CSharp
-// Generated 10/31/2023 9:41:15 AM
+// Generated 11/2/2023 2:54:18 AM
 //
 /* eslint-disable */
 
-import { ReactUnity, System, UnityEngine } from "@reactunity/renderer";
+import { System, UnityEngine } from "@reactunity/renderer";
 
-export declare class OrientationManager {
-  constructor();
-  destroyCancellationToken: System.Threading.CancellationToken;
-  useGUILayout: boolean;
-  didStart: boolean;
-  didAwake: boolean;
-  runInEditMode: boolean;
-  enabled: boolean;
-  isActiveAndEnabled: boolean;
-  transform: UnityEngine.Transform;
-  gameObject: UnityEngine.GameObject;
-  tag: string;
-  rigidbody: UnityEngine.Component;
-  rigidbody2D: UnityEngine.Component;
-  camera: UnityEngine.Component;
-  light: UnityEngine.Component;
-  animation: UnityEngine.Component;
-  constantForce: UnityEngine.Component;
-  renderer: UnityEngine.Component;
-  audio: UnityEngine.Component;
-  networkView: UnityEngine.Component;
-  collider: UnityEngine.Component;
-  collider2D: UnityEngine.Component;
-  hingeJoint: UnityEngine.Component;
-  particleSystem: UnityEngine.Component;
-  name: string;
-  hideFlags: UnityEngine.HideFlags;
-  AddListener(callback: any): () => void;
-  static AddListenerStatic(callback: any): () => void;
-  IsInvoking(): boolean;
-  CancelInvoke(): void;
-  Invoke(methodName: string, time: number): void;
-  InvokeRepeating(methodName: string, time: number, repeatRate: number): void;
-  CancelInvoke(methodName: string): void;
-  IsInvoking(methodName: string): boolean;
-  StartCoroutine(methodName: string): UnityEngine.Coroutine;
-  StartCoroutine(methodName: string, value: any): UnityEngine.Coroutine;
-  StartCoroutine(
-    routine: System.Collections.IEnumerator
-  ): UnityEngine.Coroutine;
-  StartCoroutine_Auto(
-    routine: System.Collections.IEnumerator
-  ): UnityEngine.Coroutine;
-  StopCoroutine(routine: System.Collections.IEnumerator): void;
-  StopCoroutine(routine: UnityEngine.Coroutine): void;
-  StopCoroutine(methodName: string): void;
-  StopAllCoroutines(): void;
-  GetComponent(type: System.Type): UnityEngine.Component;
-  GetComponent(type: string): UnityEngine.Component;
-  GetComponentInChildren(
-    t: System.Type,
-    includeInactive: boolean
-  ): UnityEngine.Component;
-  GetComponentInChildren(t: System.Type): UnityEngine.Component;
-  GetComponentsInChildren(
-    t: System.Type,
-    includeInactive: boolean
-  ): UnityEngine.Component[];
-  GetComponentsInChildren(t: System.Type): UnityEngine.Component[];
-  GetComponentInParent(
-    t: System.Type,
-    includeInactive: boolean
-  ): UnityEngine.Component;
-  GetComponentInParent(t: System.Type): UnityEngine.Component;
-  GetComponentsInParent(
-    t: System.Type,
-    includeInactive: boolean
-  ): UnityEngine.Component[];
-  GetComponentsInParent(t: System.Type): UnityEngine.Component[];
-  GetComponents(type: System.Type): UnityEngine.Component[];
-  GetComponents(type: System.Type, results: UnityEngine.Component[]): void;
-  CompareTag(tag: string): boolean;
-  SendMessageUpwards(
-    methodName: string,
-    value: any,
-    options: UnityEngine.SendMessageOptions
-  ): void;
-  SendMessageUpwards(methodName: string, value: any): void;
-  SendMessageUpwards(methodName: string): void;
-  SendMessageUpwards(
-    methodName: string,
-    options: UnityEngine.SendMessageOptions
-  ): void;
-  SendMessage(methodName: string, value: any): void;
-  SendMessage(methodName: string): void;
-  SendMessage(
-    methodName: string,
-    value: any,
-    options: UnityEngine.SendMessageOptions
-  ): void;
-  SendMessage(
-    methodName: string,
-    options: UnityEngine.SendMessageOptions
-  ): void;
-  BroadcastMessage(
-    methodName: string,
-    parameter: any,
-    options: UnityEngine.SendMessageOptions
-  ): void;
-  BroadcastMessage(methodName: string, parameter: any): void;
-  BroadcastMessage(methodName: string): void;
-  BroadcastMessage(
-    methodName: string,
-    options: UnityEngine.SendMessageOptions
-  ): void;
-  GetInstanceID(): number;
-  GetHashCode(): number;
-  Equals(other: any): boolean;
-  ToString(): string;
-  GetType(): System.Type;
-}
 export declare class UpdateScriptSource {
   constructor();
   destroyCancellationToken: System.Threading.CancellationToken;
@@ -697,9 +586,10 @@ export declare class HelloWorld {
   particleSystem: UnityEngine.Component;
   name: string;
   hideFlags: UnityEngine.HideFlags;
-  UGUI: ReactUnity.UGUI.ReactRendererUGUI;
+  UI: UnityEngine.UIElements.UIDocument;
   BeforeLoadUI(): void;
   AfterLoadUI(): void;
+  SetBackgroundSize(id: string, value: string): void;
   IsInvoking(): boolean;
   CancelInvoke(): void;
   Invoke(methodName: string, time: number): void;
@@ -1630,5 +1520,126 @@ export declare namespace DiffTool {
       patchFilePath: string,
       outputFilePath: string
     ): System.Threading.Tasks.Task<boolean>;
+  }
+}
+export declare namespace XiaohaiLand {
+  export namespace UI {
+    export class StyleHelper {
+      constructor();
+      destroyCancellationToken: System.Threading.CancellationToken;
+      useGUILayout: boolean;
+      didStart: boolean;
+      didAwake: boolean;
+      runInEditMode: boolean;
+      enabled: boolean;
+      isActiveAndEnabled: boolean;
+      transform: UnityEngine.Transform;
+      gameObject: UnityEngine.GameObject;
+      tag: string;
+      rigidbody: UnityEngine.Component;
+      rigidbody2D: UnityEngine.Component;
+      camera: UnityEngine.Component;
+      light: UnityEngine.Component;
+      animation: UnityEngine.Component;
+      constantForce: UnityEngine.Component;
+      renderer: UnityEngine.Component;
+      audio: UnityEngine.Component;
+      networkView: UnityEngine.Component;
+      collider: UnityEngine.Component;
+      collider2D: UnityEngine.Component;
+      hingeJoint: UnityEngine.Component;
+      particleSystem: UnityEngine.Component;
+      name: string;
+      hideFlags: UnityEngine.HideFlags;
+      SetBackgroundSize(
+        id: string,
+        value: UnityEngine.UIElements.BackgroundSizeType
+      ): void;
+      IsInvoking(): boolean;
+      CancelInvoke(): void;
+      Invoke(methodName: string, time: number): void;
+      InvokeRepeating(
+        methodName: string,
+        time: number,
+        repeatRate: number
+      ): void;
+      CancelInvoke(methodName: string): void;
+      IsInvoking(methodName: string): boolean;
+      StartCoroutine(methodName: string): UnityEngine.Coroutine;
+      StartCoroutine(methodName: string, value: any): UnityEngine.Coroutine;
+      StartCoroutine(
+        routine: System.Collections.IEnumerator
+      ): UnityEngine.Coroutine;
+      StartCoroutine_Auto(
+        routine: System.Collections.IEnumerator
+      ): UnityEngine.Coroutine;
+      StopCoroutine(routine: System.Collections.IEnumerator): void;
+      StopCoroutine(routine: UnityEngine.Coroutine): void;
+      StopCoroutine(methodName: string): void;
+      StopAllCoroutines(): void;
+      GetComponent(type: System.Type): UnityEngine.Component;
+      GetComponent(type: string): UnityEngine.Component;
+      GetComponentInChildren(
+        t: System.Type,
+        includeInactive: boolean
+      ): UnityEngine.Component;
+      GetComponentInChildren(t: System.Type): UnityEngine.Component;
+      GetComponentsInChildren(
+        t: System.Type,
+        includeInactive: boolean
+      ): UnityEngine.Component[];
+      GetComponentsInChildren(t: System.Type): UnityEngine.Component[];
+      GetComponentInParent(
+        t: System.Type,
+        includeInactive: boolean
+      ): UnityEngine.Component;
+      GetComponentInParent(t: System.Type): UnityEngine.Component;
+      GetComponentsInParent(
+        t: System.Type,
+        includeInactive: boolean
+      ): UnityEngine.Component[];
+      GetComponentsInParent(t: System.Type): UnityEngine.Component[];
+      GetComponents(type: System.Type): UnityEngine.Component[];
+      GetComponents(type: System.Type, results: UnityEngine.Component[]): void;
+      CompareTag(tag: string): boolean;
+      SendMessageUpwards(
+        methodName: string,
+        value: any,
+        options: UnityEngine.SendMessageOptions
+      ): void;
+      SendMessageUpwards(methodName: string, value: any): void;
+      SendMessageUpwards(methodName: string): void;
+      SendMessageUpwards(
+        methodName: string,
+        options: UnityEngine.SendMessageOptions
+      ): void;
+      SendMessage(methodName: string, value: any): void;
+      SendMessage(methodName: string): void;
+      SendMessage(
+        methodName: string,
+        value: any,
+        options: UnityEngine.SendMessageOptions
+      ): void;
+      SendMessage(
+        methodName: string,
+        options: UnityEngine.SendMessageOptions
+      ): void;
+      BroadcastMessage(
+        methodName: string,
+        parameter: any,
+        options: UnityEngine.SendMessageOptions
+      ): void;
+      BroadcastMessage(methodName: string, parameter: any): void;
+      BroadcastMessage(methodName: string): void;
+      BroadcastMessage(
+        methodName: string,
+        options: UnityEngine.SendMessageOptions
+      ): void;
+      GetInstanceID(): number;
+      GetHashCode(): number;
+      Equals(other: any): boolean;
+      ToString(): string;
+      GetType(): System.Type;
+    }
   }
 }
