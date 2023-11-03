@@ -140,7 +140,7 @@ function Page() {
                 left: 0,
                 top: 0,
                 width: "105%",
-                height: "100%",
+                height: "105%",
               }}
               source={championBackgroundImage}
             />
@@ -197,15 +197,18 @@ function Page() {
   );
 
   return (
-    <view
-      className={styles.page}
-      style={{
-        backgroundImage: `url(${myImage1})`,
-        backgroundSize: "fill",
-        backgroundPosition: "50% 20%",
-        backgroundRepeat: "no-repeat",
-      }}
-    >
+    <view className={styles.page}>
+      <image
+        className="object-fit-cover"
+        style={{
+          position: "absolute",
+          left: 0,
+          top: 0,
+          width: "100%",
+          height: "100%",
+        }}
+        source={myImage1}
+      />
       {Left}
       {Middle}
       {Right}

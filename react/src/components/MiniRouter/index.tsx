@@ -41,6 +41,7 @@ export function Route({ path, element, keepAlive = false }: RouteProps) {
   if (!match && !keepAlive) return null;
   return (
     <view
+      className="mini-router-route"
       style={{
         visibility: path === location ? "visible" : "hidden",
         position: "absolute",

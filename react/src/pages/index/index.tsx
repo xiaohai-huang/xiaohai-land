@@ -12,14 +12,21 @@ function Page() {
   return (
     <view
       style={{
-        backgroundImage: `url(${bgImage})`,
-        backgroundSize: "fill",
-        backgroundPosition: "50% 20%",
-        backgroundRepeat: "no-repeat",
         width: "100%",
         height: "100%",
       }}
     >
+      <image
+        className="object-fit-cover"
+        style={{
+          position: "absolute",
+          left: 0,
+          top: 0,
+          width: "100%",
+          height: "100%",
+        }}
+        source={bgImage}
+      />
       <view className={styles.container}>
         <Top />
         <view
