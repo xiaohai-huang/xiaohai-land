@@ -10,6 +10,8 @@ type ScrollProps = {
   className?: string;
   children?: JSX.Element;
   style?: View<ReactUnity.UIToolkit.ScrollViewComponent>["style"];
+  smoothness?: number;
+  elasticity?: number;
   direction?: ScrollDirection;
   showVerticalScroller?: boolean;
   showHorizontalScroller?: boolean;
@@ -19,6 +21,8 @@ function Scroll({
   className,
   children,
   style,
+  smoothness = 0,
+  elasticity = 0.05,
   direction,
   showHorizontalScroller = false,
   showVerticalScroller = false,
@@ -26,6 +30,8 @@ function Scroll({
   return (
     <scroll
       className={classNames(className, "my-scroll-component")}
+      smoothness={smoothness}
+      elasticity={elasticity}
       style={
         typeof style === "string"
           ? style
