@@ -64,7 +64,7 @@ function Top() {
           justifyContent: "space-between",
         }}
       >
-        <Avatar {...user} size={64} />
+        <Avatar {...user} size={48} />
         <view onClick={() => setShow((prev) => !prev)}>
           {show ? <ScriptSource /> : <text>Script Source</text>}
         </view>
