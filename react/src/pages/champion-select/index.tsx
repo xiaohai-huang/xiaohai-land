@@ -7,6 +7,7 @@ import ChampionIcon from "src/components/Champion/ChampionIcon";
 import useChampions from "src/hooks/useChampions";
 import { type ChampionData } from "src/api/hok";
 import Scroll from "src/components/Scroll";
+import type { UnityEngine } from "@reactunity/renderer";
 import styles from "./index.module.scss";
 
 function Page() {
@@ -25,6 +26,10 @@ function Page() {
       "",
     [champion, selectedSkinId]
   );
+  const [expandButtonPos, setExpandButtonPos] = useState<{
+    x: number;
+    y: number;
+  } | null>(null);
 
   const Left = (
     <view className={styles.leftSection}>
@@ -111,6 +116,20 @@ function Page() {
           </view>
         </view>
       </view>
+      {/* Expand Button Position*/}
+      <view
+        style={{
+          position: "absolute",
+          right: 0,
+          top: "50%",
+        }}
+        onAttachToPanel={(e) => {
+          const el = e.currentTarget as UnityEngine.UIElements.VisualElement;
+          setTimeout(() => {
+            setExpandButtonPos({ x: el.worldBound.x, y: el.worldBound.y });
+          }, 0);
+        }}
+      ></view>
     </view>
   );
 
@@ -212,6 +231,30 @@ function Page() {
       {Left}
       {Middle}
       {Right}
+
+      {expandButtonPos !== null && (
+        <view
+          style={{
+            position: "absolute",
+            left: `${expandButtonPos.x}px`,
+            top: `${expandButtonPos.y}px`,
+            transform: "translate(0,50%)",
+            width: "30px",
+            height: "60px",
+            backgroundColor: "#152240",
+            justifyContent: "center",
+            alignItems: "center",
+            color: "white",
+            borderTopRightRadius: "20%",
+            borderBottomRightRadius: "20%",
+          }}
+          onClick={() => {
+            console.log("click the expand button");
+          }}
+        >
+          {">"}
+        </view>
+      )}
     </view>
   );
 }
