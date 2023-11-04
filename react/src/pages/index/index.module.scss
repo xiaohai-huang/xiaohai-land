@@ -4,6 +4,7 @@
     padding-top: var(--top-margin);
     padding-left: var(--left-margin);
     padding-right: var(--right-margin);
+    padding-bottom: 1rem;
     .avatar {
       display: flex;
       flex-direction: row;
@@ -14,9 +15,30 @@
   }
   .socialContainer {
     padding-left: var(--left-margin);
+    position: absolute;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     .social {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 80px;
+      height: 250px;
+      color: white;
+      border-radius: 5%;
       scroll::scrollbar {
         visibility: hidden;
+      }
+      .scroll {
+        background-color: #13233c;
+        .list {
+          padding: 0.3rem 0;
+          & > *:not(:last-child) {
+            margin-bottom: 12px;
+          }
+        }
       }
     }
   }

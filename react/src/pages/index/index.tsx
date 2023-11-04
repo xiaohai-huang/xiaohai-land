@@ -7,6 +7,7 @@ import bgImage from "src/assets/images/backgrounds/bg-00.jpg";
 import styles from "./index.module.scss";
 import Avatar from "src/components/Avatar";
 import ScriptSource from "src/components/ScriptSource";
+import Scroll from "src/components/Scroll";
 
 function Page() {
   return (
@@ -29,22 +30,14 @@ function Page() {
       />
       <view className={styles.container}>
         <Top />
-        <view
-          className={styles.socialContainer}
-          style={{
-            position: "absolute",
-            height: "100%",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-          }}
-        >
-          <Social />
-        </view>
+
         <view style={{ marginTop: "auto" }}>
           <Entries />
           <view style={{ marginBottom: "50px" }}></view>
           <Tabs />
+        </view>
+        <view className={styles.socialContainer}>
+          <Social />
         </view>
       </view>
     </view>
@@ -82,19 +75,7 @@ function Top() {
 
 function Social() {
   return (
-    <view
-      class={styles.social}
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        width: "80px",
-        height: "250px",
-        color: "white",
-        borderRadius: "5%",
-        overflow: "hidden",
-      }}
-    >
+    <view class={styles.social}>
       <view
         style={{
           backgroundColor: "#152240",
@@ -112,24 +93,17 @@ function Social() {
           排行
         </text>
       </view>
-      <scroll
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          gap: "1rem",
-          backgroundColor: "#15213B",
-          width: "100%",
-        }}
-      >
-        <Avatar avatar={defaultAvatar} size={50} />
-        <Avatar avatar={defaultAvatar} size={50} />
-        <Avatar avatar={defaultAvatar} size={50} />
-        <Avatar avatar={defaultAvatar} size={50} />
-        <Avatar avatar={defaultAvatar} size={50} />
-        <Avatar avatar={defaultAvatar} size={50} />
-        <Avatar avatar={defaultAvatar} size={50} />
-      </scroll>
+      <Scroll className={styles.scroll} direction="vertical">
+        <view className={styles.list}>
+          <Avatar avatar={defaultAvatar} size={50} />
+          <Avatar avatar={defaultAvatar} size={50} />
+          <Avatar avatar={defaultAvatar} size={50} />
+          <Avatar avatar={defaultAvatar} size={50} />
+          <Avatar avatar={defaultAvatar} size={50} />
+          <Avatar avatar={defaultAvatar} size={50} />
+          <Avatar avatar={defaultAvatar} size={50} />
+        </view>
+      </Scroll>
       <view
         style={{
           backgroundColor: "#152240",
