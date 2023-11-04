@@ -189,7 +189,7 @@ function Tabs() {
         }}
       >
         <button>英雄</button>
-        <button onClick={() => navigate("/test")}>定制</button>
+        <button onClick={() => navigate("/test")}>测试</button>
         <button>备战</button>
         <button>战队</button>
         <button>背包</button>
