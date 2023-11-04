@@ -3,6 +3,7 @@
   height: 100%;
   display: flex;
   flex-direction: row;
+  --right-section-width: 15vw;
   .leftSection {
     background-color: rgb(33, 41, 60, 0.95);
     width: calc(var(--left-margin) + 170px);
@@ -52,10 +53,11 @@
     }
   }
   .rightSection {
-    margin-right: var(--right-margin);
+    padding-right: var(--right-margin);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    width: var(--right-section-width);
     height: 100%;
 
     .selectedList {
@@ -73,5 +75,13 @@
       background-color: #917047;
       color: white;
     }
+  }
+  .championLargeSelectWrapper {
+    padding-left: var(--left-margin);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: calc(100vw - var(--right-section-width));
+    height: 100%;
   }
 }

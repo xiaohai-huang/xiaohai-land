@@ -8,6 +8,7 @@ import useChampions from "src/hooks/useChampions";
 import { type ChampionData } from "src/api/hok";
 import Scroll from "src/components/Scroll";
 import type { UnityEngine } from "@reactunity/renderer";
+import ChampionSelect from "src/components/Champion/ChampionSelect";
 import styles from "./index.module.scss";
 
 function Page() {
@@ -30,6 +31,7 @@ function Page() {
     x: number;
     y: number;
   } | null>(null);
+  const [showLargeList, setShowLargeList] = useState(false);
 
   const Left = (
     <view className={styles.leftSection}>
@@ -63,7 +65,8 @@ function Page() {
               top: 0,
               right: 0,
               height: "100%",
-              visibility: tab === "champion" ? "visible" : "hidden",
+              visibility:
+                tab === "champion" && !showLargeList ? "visible" : "hidden",
             }}
           >
             <Scroll direction="vertical" style={{ flexShrink: 0 }}>
@@ -215,6 +218,30 @@ function Page() {
     </view>
   );
 
+  const ExpandButton = expandButtonPos !== null && tab === "champion" && (
+    <view
+      style={{
+        position: "absolute",
+        left: `${expandButtonPos.x}px`,
+        top: `${expandButtonPos.y}px`,
+        width: "30px",
+        height: "60px",
+        backgroundColor: "#152240",
+        justifyContent: "center",
+        alignItems: "center",
+        color: "white",
+        borderTopRightRadius: "20%",
+        borderBottomRightRadius: "20%",
+      }}
+      onClick={() => {
+        console.log("click the expand button");
+        setShowLargeList(true);
+      }}
+    >
+      {">"}
+    </view>
+  );
+
   return (
     <view className={styles.page}>
       <image
@@ -231,28 +258,10 @@ function Page() {
       {Left}
       {Middle}
       {Right}
-
-      {expandButtonPos !== null && tab === "champion" && (
-        <view
-          style={{
-            position: "absolute",
-            left: `${expandButtonPos.x}px`,
-            top: `${expandButtonPos.y}px`,
-            transform: "translate(0,50%)",
-            width: "30px",
-            height: "60px",
-            backgroundColor: "#152240",
-            justifyContent: "center",
-            alignItems: "center",
-            color: "white",
-            borderTopRightRadius: "20%",
-            borderBottomRightRadius: "20%",
-          }}
-          onClick={() => {
-            console.log("click the expand button");
-          }}
-        >
-          {">"}
+      {ExpandButton}
+      {showLargeList && (
+        <view className={styles.championLargeSelectWrapper}>
+          <ChampionSelect onClose={() => setShowLargeList(false)} />
         </view>
       )}
     </view>
