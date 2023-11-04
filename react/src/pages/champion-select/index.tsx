@@ -232,7 +232,7 @@ function Page() {
       {Middle}
       {Right}
 
-      {expandButtonPos !== null && (
+      {expandButtonPos !== null && tab === "champion" && (
         <view
           style={{
             position: "absolute",
