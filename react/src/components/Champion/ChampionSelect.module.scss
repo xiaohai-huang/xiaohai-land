@@ -3,6 +3,7 @@
   height: 100%;
   background-color: rgb(33, 41, 60, 0.95);
   .tabs {
+    flex-shrink: 0;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -24,6 +25,13 @@
 
   .tabContent {
     flex: 1;
+    .list {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+    }
     .closeButtonWrapper {
       $button-width: 50px;
       position: absolute;

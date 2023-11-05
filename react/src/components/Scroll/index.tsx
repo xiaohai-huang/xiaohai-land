@@ -15,6 +15,7 @@ type ScrollProps = {
   direction?: ScrollDirection;
   showVerticalScroller?: boolean;
   showHorizontalScroller?: boolean;
+  scrollRef?: React.Ref<ReactUnity.UIToolkit.ScrollViewComponent>;
 };
 
 function Scroll({
@@ -26,9 +27,11 @@ function Scroll({
   direction,
   showHorizontalScroller = false,
   showVerticalScroller = false,
+  scrollRef,
 }: ScrollProps) {
   return (
     <scroll
+      ref={scrollRef}
       className={classNames(className, "my-scroll-component")}
       smoothness={smoothness}
       elasticity={elasticity}

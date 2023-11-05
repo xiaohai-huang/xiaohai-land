@@ -1,53 +1,45 @@
-import { useState } from "react";
+import { useState, useTransition } from "react";
 import classNames from "classnames";
 
 import ChampionList from "./ChampionList";
-import { ChampionData } from "src/api/hok";
+import { CHAMPION_CLASS_TO_CHINESE, ChampionClass } from "src/api/hok";
+import useChampions from "src/hooks/useChampions";
 import type { Style } from "@reactunity/renderer";
 import styles from "./ChampionSelect.module.scss";
 
-type Tab =
-  | "ALL"
-  | "TANK"
-  | "WARRIOR"
-  | "ASSASSIN"
-  | "MAGE"
-  | "MARKSMAN"
-  | "SUPPORT";
-
-const CHAMPION_CLASS_MAP: { [key in Tab]: string } = {
-  ALL: "全部",
-  TANK: "坦克",
-  WARRIOR: "战士",
-  MAGE: "法师",
-  ASSASSIN: "刺客",
-  MARKSMAN: "射手",
-  SUPPORT: "辅助",
-};
 type ChampionSelectProps = {
   className?: string;
   style?: Style;
+  visible?: boolean;
+  selectedId?: number;
+  onClick?: (id: number) => void;
   onClose?: () => void;
 };
+
 function ChampionSelect({
   className,
   style = {},
+  visible = true,
+  selectedId,
+  onClick = () => {},
   onClose = () => {},
 }: ChampionSelectProps) {
-  const [champions, setChampions] = useState<ChampionData[]>([]);
-  const [tab, setTab] = useState<Tab>("ALL");
+  const [tab, setTab] = useState<ChampionClass>("ALL");
 
   return (
-    <view style={style} className={classNames(className, styles.container)}>
+    <view
+      style={{ ...style, visibility: visible ? "visible" : "hidden" }}
+      className={classNames(className, styles.container)}
+    >
       {/* Tabs */}
       <view className={styles.tabs}>
-        {Object.entries(CHAMPION_CLASS_MAP).map(([key, value]) => (
+        {Object.entries(CHAMPION_CLASS_TO_CHINESE).map(([key, value]) => (
           <view
             key={key}
             className={classNames(styles.button, {
               [styles.selected]: tab === key,
             })}
-            onClick={() => setTab(key as Tab)}
+            onClick={() => setTab(key as ChampionClass)}
           >
             {value}
           </view>
@@ -55,7 +47,20 @@ function ChampionSelect({
       </view>
       {/* Tab Content */}
       <view className={styles.tabContent}>
-        <ChampionList champions={champions} />
+        {Object.keys(CHAMPION_CLASS_TO_CHINESE).map((key) => (
+          <List
+            key={key}
+            className={styles.list}
+            style={
+              {
+                visibility: visible && key === tab ? "visible" : "hidden",
+              } as Style
+            }
+            championClass={key}
+            selectedId={selectedId}
+            onClick={onClick}
+          />
+        ))}
         <view className={styles.closeButtonWrapper}>
           <view
             className={styles.closeButton}
@@ -67,6 +72,19 @@ function ChampionSelect({
           </view>
         </view>
       </view>
+    </view>
+  );
+}
+
+function List({ style = {}, className, championClass, selectedId, onClick }) {
+  const { champions } = useChampions(championClass);
+  return (
+    <view className={className} style={{ height: "100%", ...style }}>
+      <ChampionList
+        champions={champions}
+        selectedId={selectedId}
+        onClick={onClick}
+      />
     </view>
   );
 }

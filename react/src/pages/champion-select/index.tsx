@@ -14,7 +14,7 @@ import styles from "./index.module.scss";
 function Page() {
   const navigate = useNavigate();
   const [tab, setTab] = useState<"champion" | "skin">("champion");
-  const { champions } = useChampions();
+  const { champions } = useChampions("ALL");
   const [selectedChampionId, setSelectedChampion] = useState(-1);
   const [selectedSkinId, setSelectedSkinId] = useState(1);
   const champion: ChampionData | undefined = useMemo(
@@ -259,14 +259,25 @@ function Page() {
       {Middle}
       {Right}
       {ExpandButton}
-      {showLargeList && (
-        <view className={styles.championLargeSelectWrapper}>
-          <ChampionSelect
-            className={styles.select}
-            onClose={() => setShowLargeList(false)}
-          />
-        </view>
-      )}
+
+      <view
+        className={styles.championLargeSelectWrapper}
+        onAttachToPanel={(e) => {
+          const el = e.currentTarget as UnityEngine.UIElements.VisualElement;
+          el.pickingMode = Interop.UnityEngine.UIElements.PickingMode.Ignore;
+        }}
+      >
+        <ChampionSelect
+          className={styles.select}
+          visible={showLargeList}
+          selectedId={selectedChampionId}
+          onClick={(id) => {
+            setSelectedChampion(id);
+            setSelectedSkinId(1);
+          }}
+          onClose={() => setShowLargeList(false)}
+        />
+      </view>
     </view>
   );
 }
