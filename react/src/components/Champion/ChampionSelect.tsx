@@ -1,7 +1,9 @@
 import { useState } from "react";
+import classNames from "classnames";
 
 import ChampionList from "./ChampionList";
 import { ChampionData } from "src/api/hok";
+import type { Style } from "@reactunity/renderer";
 
 type Tab =
   | "ALL"
@@ -22,9 +24,15 @@ const CHAMPION_CLASS_MAP: { [key in Tab]: string } = {
   SUPPORT: "辅助",
 };
 type ChampionSelectProps = {
+  className?: string;
+  style?: Style;
   onClose?: () => void;
 };
-function ChampionSelect({ onClose = () => {} }: ChampionSelectProps) {
+function ChampionSelect({
+  className,
+  style,
+  onClose = () => {},
+}: ChampionSelectProps) {
   const [champions, setChampions] = useState<ChampionData[]>([]);
   const [tab, setTab] = useState<Tab>("ALL");
 
@@ -34,7 +42,9 @@ function ChampionSelect({ onClose = () => {} }: ChampionSelectProps) {
         width: "100%",
         height: "100%",
         backgroundColor: "rgb(33, 41, 60, 0.95)",
+        ...style,
       }}
+      className={classNames(className, "champion-select")}
     >
       {/* Tabs */}
       <view

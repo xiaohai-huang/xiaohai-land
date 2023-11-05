@@ -261,7 +261,10 @@ function Page() {
       {ExpandButton}
       {showLargeList && (
         <view className={styles.championLargeSelectWrapper}>
-          <ChampionSelect onClose={() => setShowLargeList(false)} />
+          <ChampionSelect
+            className={styles.select}
+            onClose={() => setShowLargeList(false)}
+          />
         </view>
       )}
     </view>

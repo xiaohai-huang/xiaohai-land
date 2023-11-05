@@ -77,7 +77,9 @@
     }
   }
   .championLargeSelectWrapper {
-    padding-left: var(--left-margin);
+    .select {
+      padding-left: var(--left-margin);
+    }
     position: absolute;
     left: 0;
     top: 0;
