@@ -27,14 +27,24 @@ export type ChampionData = {
   skins: ChampionSkinData[];
 };
 
-// enum ChampionClass {
-//   Warrior,
-//   Tank,
-//   Assassin,
-//   Mage,
-//   Archer,
-//   Support,
-// }
+export type ChampionClass =
+  | "ALL"
+  | "TANK"
+  | "WARRIOR"
+  | "MAGE"
+  | "ASSASSIN"
+  | "MARKSMAN"
+  | "SUPPORT";
+
+export const CHAMPION_CLASS_TO_CHINESE: { [key in ChampionClass]: string } = {
+  ALL: "全部",
+  TANK: "坦克",
+  WARRIOR: "战士",
+  MAGE: "法师",
+  ASSASSIN: "刺客",
+  MARKSMAN: "射手",
+  SUPPORT: "辅助",
+};
 
 export async function getChampions(): Promise<ChampionData[]> {
   const data = herosData;

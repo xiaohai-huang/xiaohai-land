@@ -1,9 +1,24 @@
-import { useState, useEffect } from "react";
-import { ChampionData, getChampions } from "src/api/hok";
+import { useState, useEffect, useMemo } from "react";
+import {
+  CHAMPION_CLASS_TO_CHINESE,
+  ChampionClass,
+  ChampionData,
+  getChampions,
+} from "src/api/hok";
 
-export default function useChampions() {
+export default function useChampions(championClass: ChampionClass = "ALL") {
   const [champions, setChampions] = useState([] as ChampionData[]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const filtered = useMemo(
+    () =>
+      championClass === "ALL"
+        ? champions
+        : champions.filter((champion) =>
+            champion.classes.includes(CHAMPION_CLASS_TO_CHINESE[championClass])
+          ),
+    [champions, championClass]
+  );
+
   useEffect(() => {
     setLoading(true);
     let mounted = true;
@@ -12,7 +27,7 @@ export default function useChampions() {
         mounted && setChampions(data);
       })
       .catch((e) =>
-        console.error("error occured when fetching champions data.", e)
+        console.error("error occurred while fetching champions data.", e)
       )
       .finally(() => mounted && setLoading(false));
 
@@ -20,5 +35,6 @@ export default function useChampions() {
       mounted = false;
     };
   }, []);
-  return { loading, champions };
+
+  return { loading, champions: filtered };
 }
