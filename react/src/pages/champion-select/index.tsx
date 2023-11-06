@@ -63,15 +63,24 @@ function Page() {
       </view>
       {/* Champions Tab */}
       <view className={styles.listContainer}>
-        <view style={{ height: "100%" }}>
+        <view
+          style={{
+            position: "absolute",
+            left: 0,
+            top: 0,
+            width: "100%",
+            height: "100%",
+          }}
+        >
           <view
             className="champions"
             style={{
               position: "absolute",
               left: 0,
               top: 0,
-              right: 0,
               height: "100%",
+              width: "100%",
+              paddingLeft: "var(--left-margin)",
               visibility:
                 tab === "champion" && !showChampionsPanel
                   ? "visible"
@@ -103,8 +112,9 @@ function Page() {
               position: "absolute",
               left: 0,
               top: 0,
-              right: 0,
               height: "100%",
+              width: "100%",
+              paddingLeft: "var(--left-margin)",
               visibility: tab === "skin" ? "visible" : "hidden",
             }}
           >
