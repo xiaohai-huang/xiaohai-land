@@ -1,4 +1,4 @@
-import { useState, useTransition } from "react";
+import { useEffect, useState } from "react";
 import classNames from "classnames";
 
 import ChampionList from "./ChampionList";
@@ -25,6 +25,16 @@ function ChampionSelect({
   onClose = () => {},
 }: ChampionSelectProps) {
   const [tab, setTab] = useState<ChampionClass>("ALL");
+  const [tabCache, setTabCache] = useState<ChampionClass[]>([]);
+
+  useEffect(() => {
+    setTabCache((prev) => {
+      if (!prev.includes(tab)) {
+        return [...prev, tab];
+      }
+      return prev;
+    });
+  }, [tab]);
 
   return (
     <view
@@ -47,16 +57,17 @@ function ChampionSelect({
       </view>
       {/* Tab Content */}
       <view className={styles.tabContent}>
-        {Object.keys(CHAMPION_CLASS_TO_CHINESE).map((key) => (
+        {tabCache.map((championClass) => (
           <List
-            key={key}
+            key={championClass}
             className={styles.list}
             style={
               {
-                visibility: visible && key === tab ? "visible" : "hidden",
+                visibility:
+                  visible && championClass === tab ? "visible" : "hidden",
               } as Style
             }
-            championClass={key}
+            championClass={championClass}
             selectedId={selectedId}
             onClick={onClick}
           />

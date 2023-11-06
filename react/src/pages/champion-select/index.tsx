@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import classNames from "classnames";
 import { useNavigate } from "src/components/MiniRouter/index";
 
@@ -31,7 +31,14 @@ function Page() {
     x: number;
     y: number;
   } | null>(null);
-  const [showLargeList, setShowLargeList] = useState(false);
+  const [showChampionsPanel, setShowChampionsPanel] = useState(false);
+  const [championsPanelCached, setChampionsPanelCached] = useState(false);
+
+  useEffect(() => {
+    if (showChampionsPanel) {
+      setChampionsPanelCached(true);
+    }
+  }, [showChampionsPanel]);
 
   const Left = (
     <view className={styles.leftSection}>
@@ -66,7 +73,9 @@ function Page() {
               right: 0,
               height: "100%",
               visibility:
-                tab === "champion" && !showLargeList ? "visible" : "hidden",
+                tab === "champion" && !showChampionsPanel
+                  ? "visible"
+                  : "hidden",
             }}
           >
             <Scroll direction="vertical" style={{ flexShrink: 0 }}>
@@ -234,11 +243,32 @@ function Page() {
         borderBottomRightRadius: "20%",
       }}
       onClick={() => {
-        console.log("click the expand button");
-        setShowLargeList(true);
+        setShowChampionsPanel(true);
       }}
     >
       {">"}
+    </view>
+  );
+
+  const ChampionLargeSelect = championsPanelCached && (
+    <view
+      className={styles.championLargeSelectWrapper}
+      onAttachToPanel={(e) => {
+        // Disable pointer event for this element
+        const el = e.currentTarget as UnityEngine.UIElements.VisualElement;
+        el.pickingMode = Interop.UnityEngine.UIElements.PickingMode.Ignore;
+      }}
+    >
+      <ChampionSelect
+        className={styles.select}
+        visible={showChampionsPanel}
+        selectedId={selectedChampionId}
+        onClick={(id) => {
+          setSelectedChampion(id);
+          setSelectedSkinId(1);
+        }}
+        onClose={() => setShowChampionsPanel(false)}
+      />
     </view>
   );
 
@@ -260,24 +290,7 @@ function Page() {
       {Right}
       {ExpandButton}
 
-      <view
-        className={styles.championLargeSelectWrapper}
-        onAttachToPanel={(e) => {
-          const el = e.currentTarget as UnityEngine.UIElements.VisualElement;
-          el.pickingMode = Interop.UnityEngine.UIElements.PickingMode.Ignore;
-        }}
-      >
-        <ChampionSelect
-          className={styles.select}
-          visible={showLargeList}
-          selectedId={selectedChampionId}
-          onClick={(id) => {
-            setSelectedChampion(id);
-            setSelectedSkinId(1);
-          }}
-          onClose={() => setShowLargeList(false)}
-        />
-      </view>
+      {ChampionLargeSelect}
     </view>
   );
 }
