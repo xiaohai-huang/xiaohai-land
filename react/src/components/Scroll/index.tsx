@@ -5,6 +5,7 @@ import type {
 } from "@reactunity/renderer";
 import type { View } from "@reactunity/renderer/uitoolkit";
 import classNames from "classnames";
+import styles from "./index.module.scss";
 
 type ScrollProps = {
   className?: string;
@@ -32,7 +33,7 @@ function Scroll({
   return (
     <scroll
       ref={scrollRef}
-      className={classNames(className, "my-scroll-component")}
+      className={classNames(className, styles.scroll)}
       smoothness={smoothness}
       elasticity={elasticity}
       style={
