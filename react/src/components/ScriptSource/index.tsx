@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react";
-import MyGlobals from "src/unity-types/MyGlobals";
 
 function ScriptSource() {
   const [source, setSource] = useState("");
   useEffect(() => {
-    const canvas = MyGlobals.Renderer;
-    setSource(canvas.Source.SourcePath);
+    setSource(Context.Source.SourcePath);
   }, []);
   return (
     <view>
