@@ -72,15 +72,16 @@ export async function getChampions(): Promise<ChampionData[]> {
   });
 
   return data.yzzyxs_4880.map((item) => {
+    const id = Number(item.yzzyxi_2602);
     const champion: ChampionData = {
-      id: Number(item.yzzyxi_2602),
+      id,
       name: item.yzzyxm_4588,
       alias: item.yzzyxc_4613,
-      img: skinData[item.yzzyxi_2602][0].smallImage,
+      img: `https://game.gtimg.cn/images/yxzj/img201606/heroimg/${id}/${id}.jpg`,
       region: item.yxqy_9100,
       pinyin: item.yxpy_7753,
       classes: item.yzzyxz_1918,
-      skins: skinData[item.yzzyxi_2602],
+      skins: skinData[id],
     };
 
     return champion;
