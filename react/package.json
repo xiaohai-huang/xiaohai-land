@@ -11,7 +11,7 @@
     "lint": "react-unity-scripts lint"
   },
   "dependencies": {
-    "@reactunity/renderer": "^0.16.2",
+    "@reactunity/renderer": "^0.16.3",
     "classnames": "^2.3.2",
     "react": "^18.2.0"
   },
