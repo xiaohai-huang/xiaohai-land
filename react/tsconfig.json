@@ -2,9 +2,9 @@
   "extends": "@reactunity/scripts",
   "compilerOptions": {
     "baseUrl": "./",
-    "jsxImportSource": "@reactunity/renderer/uitoolkit",
+    "jsxImportSource": "src/unity-types/jsx",
     "types": ["@reactunity/scripts/main"]
   },
   "files": ["./src/index.tsx"],
-  "include": ["./src"]
+  "include": ["./src", "./src/global.d.ts"]
 }

@@ -53,7 +53,7 @@ function FPS() {
   const [fps, setFPS] = useState(0);
 
   useEffect(() => {
-    const counter = Globals.FPSCounter as FPSCounter;
+    const counter = MyGlobals.FPSCounter;
     const timer = setInterval(() => {
       setFPS(counter.FramesPerSec);
     }, 100);
@@ -64,5 +64,9 @@ function FPS() {
   }, []);
   return <text style={{ color: "white" }}>FPS: {fps}</text>;
 }
+
+// Mount global variables
+// @ts-expect-error
+globalThis.MyGlobals = Globals;
 
 render(<App />);
