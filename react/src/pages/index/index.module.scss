@@ -1,16 +1,37 @@
 .container {
+  width: 100%;
   height: 100%;
+  .backgroundImage {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
   .top {
     padding-top: var(--top-margin);
     padding-left: var(--left-margin);
     padding-right: var(--right-margin);
     padding-bottom: 1rem;
+
+    color: white;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
     .avatar {
       display: flex;
       flex-direction: row;
       justify-content: flex-start;
       align-items: center;
       gap: 10px;
+    }
+
+    .right {
+      // background-color: lightblue;
+      height: 100%;
     }
   }
   .socialContainer {

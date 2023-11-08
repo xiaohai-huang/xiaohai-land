@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useNavigate } from "src/components/MiniRouter/index";
 
 import defaultAvatar from "../../assets/images/default-avatar.jpg";
@@ -6,39 +5,23 @@ import bgImage from "src/assets/images/backgrounds/bg-00.jpg";
 
 import styles from "./index.module.scss";
 import Avatar from "src/components/Avatar";
-import ScriptSource from "src/components/ScriptSource";
 import Scroll from "src/components/Scroll";
+import Image from "src/components/Image";
+import SettingsIcon from "src/assets/images/icons/cog.png";
 
 function Page() {
   return (
-    <view
-      style={{
-        width: "100%",
-        height: "100%",
-      }}
-    >
-      <image
-        className="object-fit-cover"
-        style={{
-          position: "absolute",
-          left: 0,
-          top: 0,
-          width: "100%",
-          height: "100%",
-        }}
-        source={bgImage}
-      />
-      <view className={styles.container}>
-        <Top />
+    <view className={styles.container}>
+      <Image className={styles.backgroundImage} src={bgImage} />
+      <Top />
 
-        <view style={{ marginTop: "auto" }}>
-          <Entries />
-          <view style={{ marginBottom: "50px" }}></view>
-          <Tabs />
-        </view>
-        <view className={styles.socialContainer}>
-          <Social />
-        </view>
+      <view style={{ marginTop: "auto" }}>
+        <Entries />
+        <view style={{ marginBottom: "50px" }}></view>
+        <Tabs />
+      </view>
+      <view className={styles.socialContainer}>
+        <Social />
       </view>
     </view>
   );
@@ -50,26 +33,27 @@ function Top() {
     level: 30,
     avatar: defaultAvatar,
   };
-  const [show, setShow] = useState(false);
+  const navigate = useNavigate();
   return (
-    <>
-      <view
-        className={styles.top}
-        style={{
-          color: "white",
-          backgroundColor: "rgba(0,0,0,0.4)",
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "space-between",
-        }}
-      >
-        <Avatar {...user} size={48} />
-        <view onClick={() => setShow((prev) => !prev)}>
-          {show ? <ScriptSource /> : <text>Script Source</text>}
+    <view className={styles.top}>
+      <Avatar {...user} size={32} />
+      <view className={styles.right}>
+        <view
+          style={{
+            width: 64,
+            height: 64,
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+          onClick={(e) => {
+            console.log(e.position);
+            navigate("/settings");
+          }}
+        >
+          <Image style={{ width: 32, height: 32 }} src={SettingsIcon} />
         </view>
       </view>
-    </>
+    </view>
   );
 }
 

@@ -7,6 +7,7 @@ import Index from "./pages/index";
 import ChampionSelect from "./pages/champion-select";
 import Ranking from "./pages/ranking";
 import TestPage from "./pages/test";
+import SettingsPage from "./pages/settings";
 
 import "./index.scss";
 
@@ -31,19 +32,9 @@ function App() {
         <Route path="/" keepAlive element={<Index />} />
         <Route path="/champion-select" element={<ChampionSelect />} />
         <Route path="/ranking" element={<Ranking />} />
+        <Route path="/settings" element={<SettingsPage />} />
         <Route path="/test" element={<TestPage />} />
       </MiniRouter>
-      <view
-        className="fps-container"
-        style={{
-          position: "absolute",
-          right: "var(--right-margin)",
-          top: "var(--top-margin)",
-          zIndex: 10,
-        }}
-      >
-        <FPS />
-      </view>
     </view>
   );
 }
