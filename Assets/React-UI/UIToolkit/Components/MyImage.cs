@@ -1,4 +1,3 @@
-using UnityEngine;
 using ReactUnity.Types;
 using ReactUnity.UIToolkit;
 using System.Collections.Generic;
@@ -13,16 +12,9 @@ namespace XiaohaiLand.UI.UIToolkit
             "object-fit-cover",
             "object-fit-fill"
         };
-        public MyImage(UIToolkitContext context, string tag) : base(context, tag)
-        {
-        }
 
-        public override void SetProperty(string property, object value)
-        {
-            Debug.Log($"{property},{value.GetType()}");
-            if (property == "myProps") Debug.Log("myProps = " + value);
-            else base.SetProperty(property, value);
-        }
+        public MyImage(UIToolkitContext context, string tag) : base(context, tag)
+        { }
 
         protected override void ApplyStylesSelf()
         {
