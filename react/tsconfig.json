@@ -6,5 +6,5 @@
     "types": ["@reactunity/scripts/main"]
   },
   "files": ["./src/index.tsx"],
-  "include": ["./src", "./src/global.d.ts"]
+  "include": ["./src", "./src/unity-types"]
 }
