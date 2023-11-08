@@ -236,8 +236,9 @@ function Page() {
       </button>
     </view>
   );
-
-  const ExpandButton = expandButtonPos !== null && tab === "champion" && (
+  const showExpandButton =
+    !showChampionsPanel && expandButtonPos !== null && tab === "champion";
+  const ExpandButton = showExpandButton && (
     <view
       style={{
         position: "absolute",
