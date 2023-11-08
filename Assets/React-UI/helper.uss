@@ -1,3 +1,0 @@
-.object-fit-cover {
-  --unity-image-size: scale-and-crop;
-}

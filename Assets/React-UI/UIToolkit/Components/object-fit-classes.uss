@@ -1,0 +1,11 @@
+.object-fit-cover {
+    --unity-image-size: scale-and-crop;
+}
+
+.object-fit-fill {
+    --unity-image-size: stretch-to-fill;
+}
+
+.object-fit-contain {
+    --unity-image-size: scale-to-fit;
+}

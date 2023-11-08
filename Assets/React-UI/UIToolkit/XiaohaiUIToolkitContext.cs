@@ -6,7 +6,7 @@ namespace XiaohaiLand.UI.UIToolkit
     {
         public XiaohaiUIToolkitContext(Options options) : base(options)
         {
-            ComponentCreators["my-component"] = (tag, text, context) => { return new MyComponent(context, tag); };
+            ComponentCreators["my-image"] = (tag, text, context) => { return new MyImage(context, tag); };
         }
     }
 }

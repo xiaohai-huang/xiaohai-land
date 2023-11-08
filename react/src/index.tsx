@@ -3,7 +3,6 @@ import { render } from "@reactunity/renderer";
 
 import useSafeArea from "src/hooks/useSafeArea";
 import MiniRouter, { Route } from "./components/MiniRouter";
-import { FPSCounter } from "./unity-types/types";
 import Index from "./pages/index";
 import ChampionSelect from "./pages/champion-select";
 import Ranking from "./pages/ranking";

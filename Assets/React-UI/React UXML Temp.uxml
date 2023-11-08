@@ -1,5 +1,0 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <Style src="project://database/Assets/React-UI/Scroller.uss?fileID=7433441132597879392&amp;guid=04371449664b157418773f23e298e2cc&amp;type=3#Scroller" />
-    <Style src="project://database/Assets/React-UI/helper.uss?fileID=7433441132597879392&amp;guid=d167e71506f8b6041a48b0082778796a&amp;type=3#helper" />
-    <ui:Label tabindex="-1" text="巅峰蛋牌" display-tooltip-when-elided="true" />
-</ui:UXML>
