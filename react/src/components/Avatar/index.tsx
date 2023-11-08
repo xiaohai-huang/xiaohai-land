@@ -21,8 +21,10 @@ function Avatar({ name, level, avatar, size = 64 }: AvatarProps) {
         <image src={avatar} />
       </view>
       {name ? (
-        <view style={{ display: "flex", marginLeft: "10px" }}>
-          <view style={{ marginBottom: "0.1rem" }}>
+        <view
+          style={{ display: "flex", marginLeft: "10px", fontSize: "0.75rem" }}
+        >
+          <view>
             <text>{name}</text>
           </view>
           <view>
