@@ -1,12 +1,3 @@
-@font-face {
-  font-family: SimHei-Font;
-  src: resource("CustomFonts/simhei-SDF");
-}
-
-:root {
-  font-family: SimHei-Font;
-}
-
 .app-container {
   & > * {
     flex-shrink: 0;
