@@ -242,15 +242,15 @@ function Page() {
       style={{
         position: "absolute",
         left: `${expandButtonPos.x}px`,
-        top: `${expandButtonPos.y}px`,
-        width: "30px",
-        height: "60px",
+        top: `${expandButtonPos.y * 0.8}px`,
+        width: "40px",
+        height: "100px",
         backgroundColor: "#152240",
         justifyContent: "center",
         alignItems: "center",
         color: "white",
-        borderTopRightRadius: "20%",
-        borderBottomRightRadius: "20%",
+        borderTopRightRadius: "100%",
+        borderBottomRightRadius: "100%",
       }}
       onClick={() => {
         setShowChampionsPanel(true);
