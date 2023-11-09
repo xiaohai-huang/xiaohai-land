@@ -45,8 +45,7 @@ function Top() {
             justifyContent: "center",
             alignItems: "center",
           }}
-          onClick={(e) => {
-            console.log(e.position);
+          onClick={() => {
             navigate("/settings");
           }}
         >
