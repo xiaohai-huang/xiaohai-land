@@ -4,7 +4,6 @@ import classNames from "classnames";
 import { useNavigate } from "src/components/MiniRouter";
 import Image from "src/components/Image";
 import BackIcon from "src/assets/images/icons/arrow-go-back-line.png";
-import BackIconActive from "src/assets/images/icons/arrow-go-back-line-active.png";
 
 import styles from "./index.module.scss";
 
@@ -35,10 +34,7 @@ function Page() {
             navigate("/");
           }}
         >
-          <Image
-            className={styles.icon}
-            src={hover ? BackIconActive : BackIcon}
-          />
+          <Image className={styles.icon} src={BackIcon} />
         </button>
         {Object.entries(TABS_INFO).map(([tab, label]) => (
           <view
