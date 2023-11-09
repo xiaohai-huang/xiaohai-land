@@ -1,4 +1,4 @@
-import React, { useState, useContext, createContext } from "react";
+import React, { useState, useContext, createContext, useEffect } from "react";
 
 import styles from "./index.module.scss";
 import classNames from "classnames";
@@ -62,9 +62,14 @@ function Option<T>({ value, children }: SelectOptionProps<T>) {
     useContext<ContextType<T>>(SelectContext);
 
   const handleClick = () => {
-    setSelectedOption(children);
     setSelectedValue(value);
   };
+
+  useEffect(() => {
+    if (selectedValue === value) {
+      setSelectedOption(children);
+    }
+  }, [selectedValue, value, setSelectedOption, children]);
 
   return (
     <view
