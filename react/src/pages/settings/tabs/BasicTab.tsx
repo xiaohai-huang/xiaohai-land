@@ -4,6 +4,10 @@ import styles from "./BasicTab.module.scss";
 
 type ScriptSource = "production" | "local";
 
+function HandleRestart(source: ScriptSource) {
+  Renderer.Restart();
+}
+
 function BasicTab() {
   const [scriptSource, setScriptSource] = useState<ScriptSource>("production");
 
@@ -20,7 +24,12 @@ function BasicTab() {
       </view>
       <view className={styles.bottom}>
         <view className={styles.restart}>
-          <button className={styles.btn}>Restart</button>
+          <button
+            className={styles.btn}
+            onClick={() => HandleRestart(scriptSource)}
+          >
+            Restart
+          </button>
         </view>
       </view>
     </view>

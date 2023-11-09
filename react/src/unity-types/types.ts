@@ -1,10 +1,16 @@
 //
 // Types in assemblies: Assembly-CSharp
-// Generated 11/2/2023 2:54:18 AM
+// Generated 11/9/2023 4:25:59 AM
 //
 /* eslint-disable */
 
-import { System, UnityEngine } from "@reactunity/renderer";
+import {
+  Facebook,
+  ReactUnity,
+  System,
+  UnityEngine,
+} from "@reactunity/renderer";
+import { InlineStyleRemap } from "@reactunity/renderer";
 
 export declare class UpdateScriptSource {
   constructor();
@@ -586,10 +592,9 @@ export declare class HelloWorld {
   particleSystem: UnityEngine.Component;
   name: string;
   hideFlags: UnityEngine.HideFlags;
-  UI: UnityEngine.UIElements.UIDocument;
+  UGUI: ReactUnity.UGUI.ReactRendererUGUI;
   BeforeLoadUI(): void;
   AfterLoadUI(): void;
-  SetBackgroundSize(id: string, value: string): void;
   IsInvoking(): boolean;
   CancelInvoke(): void;
   Invoke(methodName: string, time: number): void;
@@ -1524,122 +1529,337 @@ export declare namespace DiffTool {
 }
 export declare namespace XiaohaiLand {
   export namespace UI {
-    export class StyleHelper {
-      constructor();
-      destroyCancellationToken: System.Threading.CancellationToken;
-      useGUILayout: boolean;
-      didStart: boolean;
-      didAwake: boolean;
-      runInEditMode: boolean;
-      enabled: boolean;
-      isActiveAndEnabled: boolean;
-      transform: UnityEngine.Transform;
-      gameObject: UnityEngine.GameObject;
-      tag: string;
-      rigidbody: UnityEngine.Component;
-      rigidbody2D: UnityEngine.Component;
-      camera: UnityEngine.Component;
-      light: UnityEngine.Component;
-      animation: UnityEngine.Component;
-      constantForce: UnityEngine.Component;
-      renderer: UnityEngine.Component;
-      audio: UnityEngine.Component;
-      networkView: UnityEngine.Component;
-      collider: UnityEngine.Component;
-      collider2D: UnityEngine.Component;
-      hingeJoint: UnityEngine.Component;
-      particleSystem: UnityEngine.Component;
-      name: string;
-      hideFlags: UnityEngine.HideFlags;
-      SetBackgroundSize(
-        id: string,
-        value: UnityEngine.UIElements.BackgroundSizeType
-      ): void;
-      IsInvoking(): boolean;
-      CancelInvoke(): void;
-      Invoke(methodName: string, time: number): void;
-      InvokeRepeating(
-        methodName: string,
-        time: number,
-        repeatRate: number
-      ): void;
-      CancelInvoke(methodName: string): void;
-      IsInvoking(methodName: string): boolean;
-      StartCoroutine(methodName: string): UnityEngine.Coroutine;
-      StartCoroutine(methodName: string, value: any): UnityEngine.Coroutine;
-      StartCoroutine(
-        routine: System.Collections.IEnumerator
-      ): UnityEngine.Coroutine;
-      StartCoroutine_Auto(
-        routine: System.Collections.IEnumerator
-      ): UnityEngine.Coroutine;
-      StopCoroutine(routine: System.Collections.IEnumerator): void;
-      StopCoroutine(routine: UnityEngine.Coroutine): void;
-      StopCoroutine(methodName: string): void;
-      StopAllCoroutines(): void;
-      GetComponent(type: System.Type): UnityEngine.Component;
-      GetComponent(type: string): UnityEngine.Component;
-      GetComponentInChildren(
-        t: System.Type,
-        includeInactive: boolean
-      ): UnityEngine.Component;
-      GetComponentInChildren(t: System.Type): UnityEngine.Component;
-      GetComponentsInChildren(
-        t: System.Type,
-        includeInactive: boolean
-      ): UnityEngine.Component[];
-      GetComponentsInChildren(t: System.Type): UnityEngine.Component[];
-      GetComponentInParent(
-        t: System.Type,
-        includeInactive: boolean
-      ): UnityEngine.Component;
-      GetComponentInParent(t: System.Type): UnityEngine.Component;
-      GetComponentsInParent(
-        t: System.Type,
-        includeInactive: boolean
-      ): UnityEngine.Component[];
-      GetComponentsInParent(t: System.Type): UnityEngine.Component[];
-      GetComponents(type: System.Type): UnityEngine.Component[];
-      GetComponents(type: System.Type, results: UnityEngine.Component[]): void;
-      CompareTag(tag: string): boolean;
-      SendMessageUpwards(
-        methodName: string,
-        value: any,
-        options: UnityEngine.SendMessageOptions
-      ): void;
-      SendMessageUpwards(methodName: string, value: any): void;
-      SendMessageUpwards(methodName: string): void;
-      SendMessageUpwards(
-        methodName: string,
-        options: UnityEngine.SendMessageOptions
-      ): void;
-      SendMessage(methodName: string, value: any): void;
-      SendMessage(methodName: string): void;
-      SendMessage(
-        methodName: string,
-        value: any,
-        options: UnityEngine.SendMessageOptions
-      ): void;
-      SendMessage(
-        methodName: string,
-        options: UnityEngine.SendMessageOptions
-      ): void;
-      BroadcastMessage(
-        methodName: string,
-        parameter: any,
-        options: UnityEngine.SendMessageOptions
-      ): void;
-      BroadcastMessage(methodName: string, parameter: any): void;
-      BroadcastMessage(methodName: string): void;
-      BroadcastMessage(
-        methodName: string,
-        options: UnityEngine.SendMessageOptions
-      ): void;
-      GetInstanceID(): number;
-      GetHashCode(): number;
-      Equals(other: any): boolean;
-      ToString(): string;
-      GetType(): System.Type;
+    export namespace UIToolkit {
+      export class MyImage {
+        constructor(
+          context: ReactUnity.UIToolkit.UIToolkitContext,
+          tag: string
+        );
+        Element: UnityEngine.UIElements.Image;
+        TargetElement: UnityEngine.UIElements.VisualElement;
+        ClientWidth: number;
+        ClientHeight: number;
+        Disabled: boolean;
+        Context: ReactUnity.UIToolkit.UIToolkitContext;
+        Parent: ReactUnity.IContainerComponent;
+        Data: ReactUnity.Reactive.ReactiveObjectRecord;
+        Layout: Facebook.Yoga.YogaNode;
+        ComputedStyle: ReactUnity.Styling.NodeStyle;
+        StyleState: ReactUnity.Styling.StyleState;
+        StateStyles: ReactUnity.Styling.StateStyles;
+        Style: InlineStyleRemap;
+        InlineStylesheet: ReactUnity.Styling.StyleSheet;
+        CustomProperties: Record<string, any>;
+        RevertCalculator: ReactUnity.Styling.IRevertCalculator;
+        ParentIndex: number;
+        CurrentOrder: number;
+        Entering: boolean;
+        Leaving: boolean;
+        UpdatedThisFrame: boolean;
+        Destroyed: boolean;
+        Tag: string;
+        TextContent: string;
+        PoolStack: System.Collections.Generic.Stack<ReactUnity.IPoolableComponent>;
+        IsPseudoElement: boolean;
+        ResolvedName: string;
+        ClassName: string;
+        ClassList: ReactUnity.Helpers.ClassList;
+        Id: string;
+        Name: string;
+        RefId: number;
+        InstanceId: number;
+        IsContainer: boolean;
+        Children: ReactUnity.IReactComponent[];
+        BeforeRules: ReactUnity.Styling.Rules.RuleTreeNode<ReactUnity.Styling.Rules.StyleData>[];
+        AfterRules: ReactUnity.Styling.Rules.RuleTreeNode<ReactUnity.Styling.Rules.StyleData>[];
+        BeforePseudo: ReactUnity.IReactComponent;
+        AfterPseudo: ReactUnity.IReactComponent;
+        ScrollLeft: number;
+        ScrollTop: number;
+        ScrollWidth: number;
+        ScrollHeight: number;
+        SetProperty(property: string, value: any): void;
+        Pool(): boolean;
+        AddEventListener(
+          eventName: string,
+          fun: ReactUnity.Helpers.Callback
+        ): () => void;
+        GetComponent(type: System.Type): any;
+        AddComponent(type: System.Type): any;
+        CaptureMouse(): void;
+        ReleaseMouse(): void;
+        HasMouseCapture(): boolean;
+        UpdateOrder(prev: number, current: number): boolean;
+        Activate(): void;
+        Update(): void;
+        MarkForStyleResolving(recursive: boolean): void;
+        Remove(): void;
+        Destroy(recursive?: boolean): void;
+        Revive(): boolean;
+        OnClassChange(): void;
+        SetParent(
+          newParent: ReactUnity.IContainerComponent,
+          relativeTo?: ReactUnity.IReactComponent,
+          insertAfter?: boolean
+        ): void;
+        SetEventListener(
+          eventName: string,
+          fun: ReactUnity.Helpers.Callback
+        ): void;
+        FireEvent(eventName: string, arg: any): void;
+        SetData(propertyName: string, value: any): void;
+        SetCustomProperty(propertyName: string, value: any): void;
+        ResolveStyle(recursive?: boolean): void;
+        MarkForStyleResolvingWithSiblings(recursive: boolean): void;
+        ApplyStyles(): void;
+        ApplyLayoutStyles(): void;
+        Matches(query: string): boolean;
+        Closest(query: string): ReactUnity.IReactComponent;
+        QuerySelector(query: string): ReactUnity.IReactComponent;
+        QuerySelectorAll(query: string): ReactUnity.IReactComponent[];
+        Accept(
+          visitor: ReactUnity.Helpers.Visitors.ReactComponentVisitor,
+          skipSelf?: boolean
+        ): void;
+        AddBefore(): void;
+        RemoveBefore(): void;
+        AddAfter(): void;
+        RemoveAfter(): void;
+        RegisterChild(child: ReactUnity.IReactComponent, index?: number): void;
+        UnregisterChild(child: ReactUnity.IReactComponent): void;
+        Clear(): void;
+        Equals(obj: any): boolean;
+        GetHashCode(): number;
+        GetType(): System.Type;
+        ToString(): string;
+      }
+      export class ActiveStateHandler {
+        constructor();
+        activators: UnityEngine.UIElements.ManipulatorActivationFilter[];
+        target: UnityEngine.UIElements.VisualElement;
+        ClearListeners(): void;
+        OnPointerDown(eventData: UnityEngine.UIElements.MouseDownEvent): void;
+        OnPointerUp(eventData: UnityEngine.UIElements.MouseUpEvent): void;
+        Equals(obj: any): boolean;
+        GetHashCode(): number;
+        GetType(): System.Type;
+        ToString(): string;
+      }
+      export class XiaohaiRendererUIToolkit {
+        constructor();
+        Root: UnityEngine.UIElements.VisualElement;
+        MediaProvider: ReactUnity.Styling.Rules.IMediaProvider;
+        Context: ReactUnity.ReactContext;
+        Timer: ReactUnity.Scheduling.ITimer;
+        destroyCancellationToken: System.Threading.CancellationToken;
+        useGUILayout: boolean;
+        didStart: boolean;
+        didAwake: boolean;
+        runInEditMode: boolean;
+        enabled: boolean;
+        isActiveAndEnabled: boolean;
+        transform: UnityEngine.Transform;
+        gameObject: UnityEngine.GameObject;
+        tag: string;
+        rigidbody: UnityEngine.Component;
+        rigidbody2D: UnityEngine.Component;
+        camera: UnityEngine.Component;
+        light: UnityEngine.Component;
+        animation: UnityEngine.Component;
+        constantForce: UnityEngine.Component;
+        renderer: UnityEngine.Component;
+        audio: UnityEngine.Component;
+        networkView: UnityEngine.Component;
+        collider: UnityEngine.Component;
+        collider2D: UnityEngine.Component;
+        hingeJoint: UnityEngine.Component;
+        particleSystem: UnityEngine.Component;
+        name: string;
+        hideFlags: UnityEngine.HideFlags;
+        Source: ReactUnity.ScriptSource;
+        EngineType: ReactUnity.Scripting.JavascriptEngineType;
+        Globals: ReactUnity.Helpers.SerializableDictionary;
+        AdvancedOptions: ReactUnity.ReactRendererBase_ReactAdvancedOptions;
+        Restart(): void;
+        PlayAudio(clip: UnityEngine.AudioClip): void;
+        Render(): ReactUnity.ReactRendererBase_WaitForRenderToComplete;
+        IsInvoking(): boolean;
+        CancelInvoke(): void;
+        Invoke(methodName: string, time: number): void;
+        InvokeRepeating(
+          methodName: string,
+          time: number,
+          repeatRate: number
+        ): void;
+        CancelInvoke(methodName: string): void;
+        IsInvoking(methodName: string): boolean;
+        StartCoroutine(methodName: string): UnityEngine.Coroutine;
+        StartCoroutine(methodName: string, value: any): UnityEngine.Coroutine;
+        StartCoroutine(
+          routine: System.Collections.IEnumerator
+        ): UnityEngine.Coroutine;
+        StartCoroutine_Auto(
+          routine: System.Collections.IEnumerator
+        ): UnityEngine.Coroutine;
+        StopCoroutine(routine: System.Collections.IEnumerator): void;
+        StopCoroutine(routine: UnityEngine.Coroutine): void;
+        StopCoroutine(methodName: string): void;
+        StopAllCoroutines(): void;
+        GetComponent(type: System.Type): UnityEngine.Component;
+        GetComponent(type: string): UnityEngine.Component;
+        GetComponentInChildren(
+          t: System.Type,
+          includeInactive: boolean
+        ): UnityEngine.Component;
+        GetComponentInChildren(t: System.Type): UnityEngine.Component;
+        GetComponentsInChildren(
+          t: System.Type,
+          includeInactive: boolean
+        ): UnityEngine.Component[];
+        GetComponentsInChildren(t: System.Type): UnityEngine.Component[];
+        GetComponentInParent(
+          t: System.Type,
+          includeInactive: boolean
+        ): UnityEngine.Component;
+        GetComponentInParent(t: System.Type): UnityEngine.Component;
+        GetComponentsInParent(
+          t: System.Type,
+          includeInactive: boolean
+        ): UnityEngine.Component[];
+        GetComponentsInParent(t: System.Type): UnityEngine.Component[];
+        GetComponents(type: System.Type): UnityEngine.Component[];
+        GetComponents(
+          type: System.Type,
+          results: UnityEngine.Component[]
+        ): void;
+        CompareTag(tag: string): boolean;
+        SendMessageUpwards(
+          methodName: string,
+          value: any,
+          options: UnityEngine.SendMessageOptions
+        ): void;
+        SendMessageUpwards(methodName: string, value: any): void;
+        SendMessageUpwards(methodName: string): void;
+        SendMessageUpwards(
+          methodName: string,
+          options: UnityEngine.SendMessageOptions
+        ): void;
+        SendMessage(methodName: string, value: any): void;
+        SendMessage(methodName: string): void;
+        SendMessage(
+          methodName: string,
+          value: any,
+          options: UnityEngine.SendMessageOptions
+        ): void;
+        SendMessage(
+          methodName: string,
+          options: UnityEngine.SendMessageOptions
+        ): void;
+        BroadcastMessage(
+          methodName: string,
+          parameter: any,
+          options: UnityEngine.SendMessageOptions
+        ): void;
+        BroadcastMessage(methodName: string, parameter: any): void;
+        BroadcastMessage(methodName: string): void;
+        BroadcastMessage(
+          methodName: string,
+          options: UnityEngine.SendMessageOptions
+        ): void;
+        GetInstanceID(): number;
+        GetHashCode(): number;
+        Equals(other: any): boolean;
+        ToString(): string;
+        GetType(): System.Type;
+      }
+      export class XiaohaiUIToolkitContext {
+        constructor(options: ReactUnity.UIToolkit.UIToolkitContext_Options);
+        StateHandlers: Record<string, System.Type>;
+        HostElement: UnityEngine.UIElements.VisualElement;
+        CalculatesLayout: boolean;
+        Host: ReactUnity.IHostComponent;
+        DetachedRoots: System.Collections.Generic.HashSet<ReactUnity.IReactComponent>;
+        Globals: ReactUnity.Helpers.GlobalRecord;
+        IsDisposed: boolean;
+        IsEditorContext: boolean;
+        options: ReactUnity.ReactContext_Options;
+        Source: ReactUnity.ScriptSource;
+        Timer: ReactUnity.Scheduling.ITimer;
+        Dispatcher: ReactUnity.Scheduling.IDispatcher;
+        Location: ReactUnity.Scripting.DomProxies.Location;
+        LocalStorage: ReactUnity.Scripting.DomProxies.LocalStorage;
+        MediaProvider: ReactUnity.Styling.Rules.IMediaProvider;
+        OnRestart: () => void;
+        // @ts-expect-error
+        StyleParser: ExCSS.StylesheetParser;
+        Style: ReactUnity.Styling.StyleContext;
+        Script: ReactUnity.Scripting.ScriptContext;
+        Html: ReactUnity.Html.HtmlContext;
+        CursorSet: ReactUnity.Styling.CursorSet;
+        CursorAPI: ReactUnity.Helpers.CursorAPI;
+        Disposables: (() => void)[];
+        Initialize(): void;
+        PlayAudio(clip: UnityEngine.AudioClip): void;
+        UpdateElementsRecursively(): void;
+        LateUpdateElementsRecursively(): void;
+        InsertStyle(style: string): ReactUnity.Styling.StyleSheet;
+        InsertStyle(
+          style: string,
+          importanceOffset: number
+        ): ReactUnity.Styling.StyleSheet;
+        InsertStyle(
+          sheet: ReactUnity.Styling.StyleSheet
+        ): ReactUnity.Styling.StyleSheet;
+        RemoveStyle(sheet: ReactUnity.Styling.StyleSheet): void;
+        ResolvePath(path: string): string;
+        CreateStaticScript(path: string): ReactUnity.ScriptSource;
+        Start(afterStart?: () => void): void;
+        Dispose(): void;
+        HandleUnknownProperty(
+          cmp: ReactUnity.IReactComponent,
+          propertyName: string,
+          value: any
+        ): void;
+        BindCommands(
+          commandsObject: any,
+          callbacksObject: any,
+          getObjectCallback: any,
+          getEventAsObjectCallback: any
+        ): void;
+        SetRef(refId: number, cmp: ReactUnity.IReactComponent): void;
+        GetRef(
+          refId: number,
+          ensureUpdate?: boolean
+        ): ReactUnity.IReactComponent;
+        FlushCommands(serializedCommands?: string): void;
+        CreateText(
+          tag?: string,
+          text?: string,
+          poolKey?: string
+        ): ReactUnity.ITextComponent;
+        CreateDefaultComponent(
+          tag: string,
+          text: string,
+          poolKey?: string
+        ): ReactUnity.IReactComponent;
+        CreateComponent(
+          tag: string,
+          text: string,
+          poolKey?: string
+        ): ReactUnity.IReactComponent;
+        CreatePseudoComponent(
+          tag: string,
+          poolKey?: string
+        ): ReactUnity.IReactComponent;
+        PoolComponent(
+          cmp: ReactUnity.IPoolableComponent,
+          pool: System.Collections.Generic.Stack<ReactUnity.IPoolableComponent>
+        ): void;
+        Equals(obj: any): boolean;
+        GetHashCode(): number;
+        GetType(): System.Type;
+        ToString(): string;
+      }
     }
   }
 }

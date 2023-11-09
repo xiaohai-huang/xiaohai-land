@@ -8,6 +8,11 @@ namespace XiaohaiLand.UI.UIToolkit
     {
         protected override ReactContext CreateContext(ScriptSource script)
         {
+            AdvancedOptions.BeforeStart.AddListener(() =>
+            {
+                Context.Script.Engine.SetGlobal("Renderer", this);
+            });
+
             XiaohaiUIToolkitContext context = new XiaohaiUIToolkitContext(new UIToolkitContext.Options
             {
                 HostElement = Root,
@@ -15,10 +20,7 @@ namespace XiaohaiLand.UI.UIToolkit
                 Source = script,
                 Timer = (base.Timer ?? UnscaledTimer.Instance),
                 MediaProvider = base.MediaProvider,
-                OnRestart = delegate
-                {
-                    Render();
-                },
+                OnRestart = () => Render(),
                 OnAudioPlayback = PlayAudio,
                 EngineType = EngineType,
                 Debug = (AdvancedOptions.DebugMode != DebugMode.None),
@@ -30,6 +32,11 @@ namespace XiaohaiLand.UI.UIToolkit
             });
             context.Initialize();
             return context;
+        }
+
+        public void Restart()
+        {
+            Invoke(nameof(Render), 0f);
         }
     }
 }
