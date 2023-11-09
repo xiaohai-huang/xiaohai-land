@@ -7,6 +7,7 @@ namespace XiaohaiLand.UI.UIToolkit
         public XiaohaiUIToolkitContext(Options options) : base(options)
         {
             ComponentCreators["my-image"] = (tag, text, context) => { return new MyImage(context, tag); };
+            StateHandlers["active"] = typeof(ActiveStateHandler);
         }
     }
 }
