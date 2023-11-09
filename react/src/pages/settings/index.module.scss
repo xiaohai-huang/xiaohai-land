@@ -4,6 +4,7 @@
   background-color: #23334c;
   display: flex;
   flex-direction: row;
+  --label-color: #f0f4f7;
 
   .tabs {
     background-color: #1c2f4d;
@@ -39,10 +40,16 @@
   }
   .content {
     flex: 1;
+    display: flex;
+    flex-direction: column;
     .title {
+      flex-shrink: 0;
       font-size: 1.5rem;
       margin-left: 1rem;
       color: #80a2cf;
+    }
+    .main {
+      flex: 1;
     }
   }
 }
