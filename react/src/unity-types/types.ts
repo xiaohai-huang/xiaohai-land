@@ -1,6 +1,6 @@
 //
 // Types in assemblies: Assembly-CSharp
-// Generated 11/9/2023 6:18:39 PM
+// Generated 11/10/2023 2:48:40 AM
 //
 /* eslint-disable */
 
@@ -12,6 +12,26 @@ import {
 } from "@reactunity/renderer";
 import { InlineStyleRemap } from "@reactunity/renderer";
 
+export declare class StyleHelper {
+  static Instance: StyleHelper;
+  Q(
+    element: UnityEngine.UIElements.VisualElement,
+    name: string
+  ): UnityEngine.UIElements.VisualElement;
+  SetPadding(
+    element: UnityEngine.UIElements.VisualElement,
+    direction: string,
+    value: number
+  ): void;
+  SetAlignItems(
+    element: UnityEngine.UIElements.VisualElement,
+    value: string
+  ): void;
+  Equals(obj: any): boolean;
+  GetHashCode(): number;
+  GetType(): System.Type;
+  ToString(): string;
+}
 export declare class UpdateScriptSource {
   constructor();
   destroyCancellationToken: System.Threading.CancellationToken;
@@ -1680,6 +1700,7 @@ export declare namespace XiaohaiLand {
         EngineType: ReactUnity.Scripting.JavascriptEngineType;
         Globals: ReactUnity.Helpers.SerializableDictionary;
         AdvancedOptions: ReactUnity.ReactRendererBase_ReactAdvancedOptions;
+        SetUseDevServer(value: number): void;
         PlayAudio(clip: UnityEngine.AudioClip): void;
         Render(): ReactUnity.ReactRendererBase_WaitForRenderToComplete;
         IsInvoking(): boolean;

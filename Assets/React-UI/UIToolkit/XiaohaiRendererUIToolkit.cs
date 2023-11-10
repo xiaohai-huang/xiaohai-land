@@ -8,6 +8,11 @@ namespace XiaohaiLand.UI.UIToolkit
     {
         protected override ReactContext CreateContext(ScriptSource script)
         {
+            AdvancedOptions.BeforeStart.AddListener(() =>
+            {
+                Context.Script.Engine.SetGlobal("StyleHelper", StyleHelper.Instance);
+            });
+
             XiaohaiUIToolkitContext context = new XiaohaiUIToolkitContext(new UIToolkitContext.Options
             {
                 HostElement = Root,
@@ -27,6 +32,11 @@ namespace XiaohaiLand.UI.UIToolkit
             });
             context.Initialize();
             return context;
+        }
+
+        public void SetUseDevServer(int value)
+        {
+            Source.UseDevServer = (ScriptSource.DevServerType)value;
         }
     }
 }

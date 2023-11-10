@@ -59,5 +59,6 @@ function FPS() {
 // @ts-expect-error
 globalThis.MyGlobals = Globals;
 globalThis.Renderer = MyGlobals.Renderer;
+globalThis.Q = (...args) => StyleHelper.Q(...args);
 
 render(<App />);
