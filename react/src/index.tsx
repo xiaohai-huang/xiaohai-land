@@ -58,5 +58,6 @@ function FPS() {
 // Mount global variables
 // @ts-expect-error
 globalThis.MyGlobals = Globals;
+globalThis.Renderer = MyGlobals.Renderer;
 
 render(<App />);

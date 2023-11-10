@@ -1,6 +1,6 @@
 //
 // Types in assemblies: Assembly-CSharp
-// Generated 11/9/2023 4:25:59 AM
+// Generated 11/9/2023 6:18:39 PM
 //
 /* eslint-disable */
 
@@ -1680,7 +1680,6 @@ export declare namespace XiaohaiLand {
         EngineType: ReactUnity.Scripting.JavascriptEngineType;
         Globals: ReactUnity.Helpers.SerializableDictionary;
         AdvancedOptions: ReactUnity.ReactRendererBase_ReactAdvancedOptions;
-        Restart(): void;
         PlayAudio(clip: UnityEngine.AudioClip): void;
         Render(): ReactUnity.ReactRendererBase_WaitForRenderToComplete;
         IsInvoking(): boolean;

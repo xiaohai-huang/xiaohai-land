@@ -205,6 +205,8 @@ MonoBehaviour:
   EngineType: 3
   Globals:
     Entries:
+    - Key: Renderer
+      Value: {fileID: 6512671326541057861}
     - Key: FPSCounter
       Value: {fileID: 7821922643155492794}
   AdvancedOptions:

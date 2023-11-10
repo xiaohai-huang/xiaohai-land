@@ -5,7 +5,7 @@ import styles from "./BasicTab.module.scss";
 type ScriptSource = "production" | "local";
 
 function HandleRestart(source: ScriptSource) {
-  Renderer.Restart();
+  Renderer.Invoke("Render", 0);
 }
 
 function BasicTab() {
