@@ -1,6 +1,5 @@
 import { useState } from "react";
 import classNames from "classnames";
-import type { UnityEngine } from "@reactunity/renderer";
 
 import Select from "src/components/Select";
 import styles from "./BasicTab.module.scss";
@@ -30,7 +29,7 @@ function BasicTab() {
     Context.Source.SourcePath === PRODUCTION_URL ? "production" : "local"
   );
   const [localScriptSource, setLocalScriptSource] = useState(
-    "http://192.168.31.224:8080/index.js"
+    "http://192.168.31.224:3000/index.js"
   );
 
   return (
@@ -54,9 +53,9 @@ function BasicTab() {
               onChange={(e) => {
                 setLocalScriptSource(e.newValue);
               }}
-              onAttachToPanel={(e) => {
-                const element =
-                  e.currentTarget as UnityEngine.UIElements.TextField;
+              onAttachToPanel={(_, sender) => {
+                const element = sender.Element;
+                element.hideMobileInput = true;
                 const textInput = element.ElementAt(0);
                 StyleHelper.SetPadding(textInput, "all", 0);
                 StyleHelper.SetAlignItems(textInput, "center");

@@ -37,7 +37,11 @@ export default function Editor() {
       <input
         style={{ height: "100px" }}
         value={code}
+        multiline
         onChange={(v) => setCode(v.newValue)}
+        onAttachToPanel={(_, sender) => {
+          sender.Element.hideMobileInput = true;
+        }}
       />
       <button onClick={run} style={{ marginTop: "1rem" }}>
         run
