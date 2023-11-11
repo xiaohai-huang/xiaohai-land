@@ -16,7 +16,6 @@
     "react": "^18.2.0"
   },
   "devDependencies": {
-    "@reactunity/previewer": "^0.15.0",
     "@reactunity/scripts": "^0.16.3",
     "image-minimizer-webpack-plugin": "^3.8.3",
     "sharp": "^0.32.6",
