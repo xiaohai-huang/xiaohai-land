@@ -1,8 +1,23 @@
 {
+  "herosSource": "https://pvp.qq.com/zlkdatasys/yuzhouzhan/list/heroList.json",
+  "skinsSource": "https://pvp.qq.com/web201605/js/herolist.json",
   "yzzyxs_4880": [
     {
-      "zyyx_9680": "海都",
+      "zyyx_9680": "祝福水域",
       "yxrd_2744": "1",
+      "yzzyxi_2602": "159",
+      "yzzyxm_4588": "朵莉亚",
+      "yzzyxc_4613": "人鱼之歌",
+      "yzzyxz_1918": "辅助",
+      "yxqy_9100": "日落海",
+      "yxpy_7753": "duoliya",
+      "yxlbfm_9398": "//game.gtimg.cn/images/yxzj/zlkdatasys/images/image/20231102/16989390368686.jpg",
+      "yxlbfm_5325": "//game.gtimg.cn/images/yxzj/zlkdatasys/images/image/20231102/16989390413474.jpg",
+      "yxlbfm_8678": "//game.gtimg.cn/images/yxzj/zlkdatasys/images/image/20231102/16989390384000.jpg"
+    },
+    {
+      "zyyx_9680": "海都",
+      "yxrd_2744": "",
       "yzzyxi_2602": "514",
       "yzzyxm_4588": "亚连",
       "yzzyxc_4613": "追忆之刃",

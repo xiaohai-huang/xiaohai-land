@@ -961,7 +961,7 @@
     "title": "玫瑰剑士",
     "new_type": 0,
     "hero_type": 1,
-    "skin_name": "玫瑰剑士|永昼|",
+    "skin_name": "玫瑰剑士|永昼|浮生妄",
     "moss_id": 3802
   },
   {
@@ -1083,5 +1083,14 @@
     "hero_type": 1,
     "skin_name": "追忆之刃",
     "moss_id": 5560
+  },
+  {
+    "ename": 159,
+    "cname": "朵莉亚",
+    "title": "人鱼之歌",
+    "new_type": 1,
+    "hero_type": 6,
+    "skin_name": "人鱼之歌",
+    "moss_id": 6177
   }
 ]
