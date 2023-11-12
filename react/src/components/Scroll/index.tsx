@@ -19,7 +19,7 @@ function Scroll({
   className,
   children,
   style,
-  smoothness = 0.05,
+  smoothness = 0.01,
   elasticity = 0.05,
   direction,
   showHorizontalScroller = false,
