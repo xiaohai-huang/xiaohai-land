@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { ChampionData } from "src/api/hok";
 import Scroll from "../Scroll";
 import ChampionIcon from "./ChampionIcon";
@@ -14,6 +15,12 @@ function ChampionList({
   selectedId,
   onClick = () => {},
 }: ChampionListProps) {
+  // Need this hack to force it to render
+  const [, render] = useState(false);
+  useEffect(() => {
+    render((prev) => !prev);
+  }, [champions.length]);
+
   return (
     <view className={styles.container}>
       <view className={styles.scrollWrapper}>

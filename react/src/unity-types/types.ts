@@ -1,16 +1,10 @@
 //
 // Types in assemblies: Assembly-CSharp
-// Generated 11/10/2023 2:48:40 AM
+// Generated 11/11/2023 7:56:37 PM
 //
 /* eslint-disable */
 
-import {
-  Facebook,
-  ReactUnity,
-  System,
-  UnityEngine,
-} from "@reactunity/renderer";
-import { InlineStyleRemap } from "@reactunity/renderer";
+import { ReactUnity, System, UnityEngine } from "@reactunity/renderer";
 
 export declare class StyleHelper {
   static Instance: StyleHelper;
@@ -725,7 +719,6 @@ export declare class InAppUpdate {
   name: string;
   hideFlags: UnityEngine.HideFlags;
   UpdateServer: string;
-  // @ts-expect-error
   OnStartDownload: UnityEngine.Events.UnityEvent<UnityEngine.Networking.UnityWebRequest>;
   CheckUpdates(): void;
   OnDownloadPatchClick(): void;
@@ -1550,121 +1543,6 @@ export declare namespace DiffTool {
 export declare namespace XiaohaiLand {
   export namespace UI {
     export namespace UIToolkit {
-      export class MyImage {
-        constructor(
-          context: ReactUnity.UIToolkit.UIToolkitContext,
-          tag: string
-        );
-        Element: UnityEngine.UIElements.Image;
-        TargetElement: UnityEngine.UIElements.VisualElement;
-        ClientWidth: number;
-        ClientHeight: number;
-        Disabled: boolean;
-        Context: ReactUnity.UIToolkit.UIToolkitContext;
-        Parent: ReactUnity.IContainerComponent;
-        Data: ReactUnity.Reactive.ReactiveObjectRecord;
-        Layout: Facebook.Yoga.YogaNode;
-        ComputedStyle: ReactUnity.Styling.NodeStyle;
-        StyleState: ReactUnity.Styling.StyleState;
-        StateStyles: ReactUnity.Styling.StateStyles;
-        Style: InlineStyleRemap;
-        InlineStylesheet: ReactUnity.Styling.StyleSheet;
-        CustomProperties: Record<string, any>;
-        RevertCalculator: ReactUnity.Styling.IRevertCalculator;
-        ParentIndex: number;
-        CurrentOrder: number;
-        Entering: boolean;
-        Leaving: boolean;
-        UpdatedThisFrame: boolean;
-        Destroyed: boolean;
-        Tag: string;
-        TextContent: string;
-        PoolStack: System.Collections.Generic.Stack<ReactUnity.IPoolableComponent>;
-        IsPseudoElement: boolean;
-        ResolvedName: string;
-        ClassName: string;
-        ClassList: ReactUnity.Helpers.ClassList;
-        Id: string;
-        Name: string;
-        RefId: number;
-        InstanceId: number;
-        IsContainer: boolean;
-        Children: ReactUnity.IReactComponent[];
-        BeforeRules: ReactUnity.Styling.Rules.RuleTreeNode<ReactUnity.Styling.Rules.StyleData>[];
-        AfterRules: ReactUnity.Styling.Rules.RuleTreeNode<ReactUnity.Styling.Rules.StyleData>[];
-        BeforePseudo: ReactUnity.IReactComponent;
-        AfterPseudo: ReactUnity.IReactComponent;
-        ScrollLeft: number;
-        ScrollTop: number;
-        ScrollWidth: number;
-        ScrollHeight: number;
-        SetProperty(property: string, value: any): void;
-        Pool(): boolean;
-        AddEventListener(
-          eventName: string,
-          fun: ReactUnity.Helpers.Callback
-        ): () => void;
-        GetComponent(type: System.Type): any;
-        AddComponent(type: System.Type): any;
-        CaptureMouse(): void;
-        ReleaseMouse(): void;
-        HasMouseCapture(): boolean;
-        UpdateOrder(prev: number, current: number): boolean;
-        Activate(): void;
-        Update(): void;
-        MarkForStyleResolving(recursive: boolean): void;
-        Remove(): void;
-        Destroy(recursive?: boolean): void;
-        Revive(): boolean;
-        OnClassChange(): void;
-        SetParent(
-          newParent: ReactUnity.IContainerComponent,
-          relativeTo?: ReactUnity.IReactComponent,
-          insertAfter?: boolean
-        ): void;
-        SetEventListener(
-          eventName: string,
-          fun: ReactUnity.Helpers.Callback
-        ): void;
-        FireEvent(eventName: string, arg: any): void;
-        SetData(propertyName: string, value: any): void;
-        SetCustomProperty(propertyName: string, value: any): void;
-        ResolveStyle(recursive?: boolean): void;
-        MarkForStyleResolvingWithSiblings(recursive: boolean): void;
-        ApplyStyles(): void;
-        ApplyLayoutStyles(): void;
-        Matches(query: string): boolean;
-        Closest(query: string): ReactUnity.IReactComponent;
-        QuerySelector(query: string): ReactUnity.IReactComponent;
-        QuerySelectorAll(query: string): ReactUnity.IReactComponent[];
-        Accept(
-          visitor: ReactUnity.Helpers.Visitors.ReactComponentVisitor,
-          skipSelf?: boolean
-        ): void;
-        AddBefore(): void;
-        RemoveBefore(): void;
-        AddAfter(): void;
-        RemoveAfter(): void;
-        RegisterChild(child: ReactUnity.IReactComponent, index?: number): void;
-        UnregisterChild(child: ReactUnity.IReactComponent): void;
-        Clear(): void;
-        Equals(obj: any): boolean;
-        GetHashCode(): number;
-        GetType(): System.Type;
-        ToString(): string;
-      }
-      export class ActiveStateHandler {
-        constructor();
-        activators: UnityEngine.UIElements.ManipulatorActivationFilter[];
-        target: UnityEngine.UIElements.VisualElement;
-        ClearListeners(): void;
-        OnPointerDown(eventData: UnityEngine.UIElements.MouseDownEvent): void;
-        OnPointerUp(eventData: UnityEngine.UIElements.MouseUpEvent): void;
-        Equals(obj: any): boolean;
-        GetHashCode(): number;
-        GetType(): System.Type;
-        ToString(): string;
-      }
       export class XiaohaiRendererUIToolkit {
         constructor();
         Root: UnityEngine.UIElements.VisualElement;
@@ -1810,8 +1688,7 @@ export declare namespace XiaohaiLand {
         LocalStorage: ReactUnity.Scripting.DomProxies.LocalStorage;
         MediaProvider: ReactUnity.Styling.Rules.IMediaProvider;
         OnRestart: () => void;
-        // @ts-expect-error
-        StyleParser: ExCSS.StylesheetParser;
+        StyleParser: any;
         Style: ReactUnity.Styling.StyleContext;
         Script: ReactUnity.Scripting.ScriptContext;
         Html: ReactUnity.Html.HtmlContext;

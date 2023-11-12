@@ -1,5 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/React-UI/UIToolkit/main.uss?fileID=7433441132597879392&amp;guid=6b909c3a07c082a4193ebbce61e429b0&amp;type=3#main" />
-    <Style src="project://database/Assets/React-UI/UIToolkit/Components/object-fit-classes.uss?fileID=7433441132597879392&amp;guid=d167e71506f8b6041a48b0082778796a&amp;type=3#object-fit-classes" />
-    <ui:Label tabindex="-1" text="巅峰蛋牌" display-tooltip-when-elided="true" class="a" style="-unity-text-align: middle-center; height: 100%; width: 100%;" />
+    <ui:VisualElement style="flex-grow: 1; background-image: url(&apos;project://database/Assets/React-UI/UIToolkit/Assets/single-blue-pixel.png?fileID=2800000&amp;guid=4c54955f3969fea49a0d3402b5360456&amp;type=3#single-blue-pixel&apos;); flex-direction: column; align-items: center; justify-content: center;">
+        <ui:Label tabindex="-1" text="巅峰蛋牌" display-tooltip-when-elided="true" class="a" style="-unity-text-align: middle-center; height: auto; width: auto; color: rgb(255, 255, 255); font-size: 32px; -unity-font-style: bold;" />
+    </ui:VisualElement>
 </ui:UXML>

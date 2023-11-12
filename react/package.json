@@ -11,12 +11,12 @@
     "lint": "react-unity-scripts lint"
   },
   "dependencies": {
-    "@reactunity/renderer": "^0.16.3",
+    "@reactunity/renderer": "^0.16.4",
     "classnames": "^2.3.2",
     "react": "^18.2.0"
   },
   "devDependencies": {
-    "@reactunity/scripts": "^0.16.3",
+    "@reactunity/scripts": "^0.16.4",
     "image-minimizer-webpack-plugin": "^3.8.3",
     "sharp": "^0.32.6",
     "typescript": "^5.2.2",

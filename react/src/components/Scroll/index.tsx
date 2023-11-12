@@ -1,8 +1,4 @@
-import type {
-  UnityEngine,
-  ReactUnity,
-  ScrollDirection,
-} from "@reactunity/renderer";
+import type { ReactUnity, ScrollDirection } from "@reactunity/renderer";
 import type { View } from "@reactunity/renderer/uitoolkit";
 import classNames from "classnames";
 import styles from "./index.module.scss";
@@ -42,10 +38,9 @@ function Scroll({
           : { width: "100%", height: "100%", margin: 0, ...style }
       }
       direction={direction}
-      onAttachToPanel={(event) => {
+      onAttachToPanel={(_, sender) => {
         // Hide the scroll bar
-        const element =
-          event.currentTarget as UnityEngine.UIElements.ScrollView;
+        const element = sender.Element;
         if (!showVerticalScroller) {
           element.verticalScrollerVisibility =
             Interop.UnityEngine.UIElements.ScrollerVisibility.Hidden;

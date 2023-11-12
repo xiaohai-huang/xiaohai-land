@@ -7,7 +7,6 @@ import ChampionIcon from "src/components/Champion/ChampionIcon";
 import useChampions from "src/hooks/useChampions";
 import { type ChampionData } from "src/api/hok";
 import Scroll from "src/components/Scroll";
-import type { UnityEngine } from "@reactunity/renderer";
 import ChampionSelect from "src/components/Champion/ChampionSelect";
 import styles from "./index.module.scss";
 
@@ -145,10 +144,12 @@ function Page() {
           right: 0,
           top: "50%",
         }}
-        onAttachToPanel={(e) => {
-          const el = e.currentTarget as UnityEngine.UIElements.VisualElement;
+        onAttachToPanel={(_, { Element }) => {
           setTimeout(() => {
-            setExpandButtonPos({ x: el.worldBound.x, y: el.worldBound.y });
+            setExpandButtonPos({
+              x: Element.worldBound.x,
+              y: Element.worldBound.y,
+            });
           }, 0);
         }}
       ></view>
@@ -175,8 +176,8 @@ function Page() {
           <>
             {/* Champion's Background Image */}
             <image
-              className="object-fit-cover"
               style={{
+                objectFit: "cover",
                 position: "absolute",
                 left: 0,
                 top: 0,
@@ -264,10 +265,9 @@ function Page() {
   const ChampionLargeSelect = championsPanelCached && (
     <view
       className={styles.championLargeSelectWrapper}
-      onAttachToPanel={(e) => {
+      onAttachToPanel={(_, { Element }) => {
         // Disable pointer event for this element
-        const el = e.currentTarget as UnityEngine.UIElements.VisualElement;
-        el.pickingMode = Interop.UnityEngine.UIElements.PickingMode.Ignore;
+        Element.pickingMode = Interop.UnityEngine.UIElements.PickingMode.Ignore;
       }}
     >
       <ChampionSelect
@@ -286,8 +286,8 @@ function Page() {
   return (
     <view className={styles.page}>
       <image
-        className="object-fit-cover"
         style={{
+          objectFit: "cover",
           position: "absolute",
           left: 0,
           top: 0,

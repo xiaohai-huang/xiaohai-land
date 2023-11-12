@@ -7,7 +7,6 @@ type Children<T = any> = { children?: T };
 
 interface XiaohaiUIToolkitElements extends UIToolkitElements {
   // Add custom elements here
-  "my-image": UIToolkitElements["image"];
 }
 
 export namespace JSX {
