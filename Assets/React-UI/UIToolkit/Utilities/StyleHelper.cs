@@ -25,6 +25,23 @@ public class StyleHelper
         return result;
     }
 
+    public void SetFlex(VisualElement element, string property, string value)
+    {
+        switch (property)
+        {
+            case "flex-wrap":
+                element.style.flexWrap = value == "wrap" ? Wrap.Wrap :
+                                         value == "nowrap" ? Wrap.NoWrap :
+                                         Wrap.NoWrap;
+                return;
+            case "flex-direction":
+                element.style.flexDirection = value == "row" ? FlexDirection.Row :
+                                              value == "column" ? FlexDirection.Column :
+                                              FlexDirection.Row;
+                return;
+        }
+    }
+
     public void SetPadding(VisualElement element, string direction, float value)
     {
         switch (direction)
@@ -49,6 +66,34 @@ public class StyleHelper
                 break;
             default:
                 Debug.LogWarning("Invalid property name for SetPadding. Use 'top', 'right', 'bottom', or 'left'.");
+                break;
+        }
+    }
+
+    public void SetMargin(VisualElement element, string direction, float value)
+    {
+        switch (direction)
+        {
+            case "top":
+                element.style.marginTop = value;
+                break;
+            case "right":
+                element.style.marginRight = value;
+                break;
+            case "bottom":
+                element.style.marginBottom = value;
+                break;
+            case "left":
+                element.style.marginLeft = value;
+                break;
+            case "all":
+                element.style.marginTop = value;
+                element.style.marginRight = value;
+                element.style.marginBottom = value;
+                element.style.marginLeft = value;
+                break;
+            default:
+                Debug.LogWarning("Invalid property name for SetMargin. Use 'top', 'right', 'bottom', or 'left'.");
                 break;
         }
     }
