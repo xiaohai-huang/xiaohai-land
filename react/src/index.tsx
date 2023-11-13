@@ -3,7 +3,7 @@ import { render } from "@reactunity/renderer";
 
 import useSafeArea from "src/hooks/useSafeArea";
 import MiniRouter, { Route } from "./components/MiniRouter";
-import Index from "./pages/index";
+import Home from "./pages/home";
 import ChampionSelect from "./pages/champion-select";
 import Ranking from "./pages/ranking";
 import TestPage from "./pages/test";
@@ -29,7 +29,7 @@ function App() {
       }}
     >
       <MiniRouter>
-        <Route path="/" keepAlive element={<Index />} />
+        <Route path="/" keepAlive element={<Home />} />
         <Route path="/champion-select" element={<ChampionSelect />} />
         <Route path="/ranking" element={<Ranking />} />
         <Route path="/settings" element={<SettingsPage />} />
