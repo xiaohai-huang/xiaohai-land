@@ -8,6 +8,10 @@ import Avatar from "src/components/Avatar";
 import Scroll from "src/components/Scroll";
 import Image from "src/components/Image";
 import SettingsIcon from "src/assets/images/icons/cog.png";
+import BattleIcon from "src/assets/images/icons/battle.png";
+import RankingIcon from "src/assets/images/icons/ranking.png";
+import RankingBadgeIcon from "src/assets/images/icons/ranking-badge.png";
+import RankingBadgeCircleIcon from "src/assets/images/icons/ranking-badge-number-circle.png";
 
 function Page() {
   return (
@@ -111,41 +115,60 @@ function Social() {
 function Entries() {
   const navigate = useNavigate();
   return (
-    <view>
+    <view
+      className={styles.entries}
+      style={{
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "center",
+        margin: "0 auto",
+        height: "110px",
+      }}
+    >
+      <Image src={BattleIcon} />
+
+      <Image src={RankingIcon} />
+
+      {/* Ranking Badge */}
       <view
         style={{
-          width: "70%",
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "center",
-          margin: "0 auto",
-          gap: "1rem",
+          position: "absolute",
+          height: "140px",
+          width: "140px",
+          transform: "translate(0, 10px)",
         }}
       >
-        <button
+        <Image
           style={{
-            fontSize: "4rem",
-            paddingLeft: "2rem",
-            paddingRight: "1rem",
+            objectFit: "contain",
           }}
-          onClick={() => {
-            navigate("/champion-select");
+          src={RankingBadgeIcon}
+        />
+        <view
+          style={{
+            position: "absolute",
+            left: "50%",
+            bottom: 0,
+            transform: "translate(-50%, 100%)",
+            justifyContent: "center",
+            alignItems: "center",
           }}
         >
-          对战
-        </button>
-        <button
-          style={{
-            fontSize: "4rem",
-            paddingRight: "2rem",
-            paddingLeft: "1rem",
-          }}
-          onClick={() => {
-            navigate("/ranking");
-          }}
-        >
-          排位
-        </button>
+          <Image
+            style={{
+              position: "absolute",
+              objectFit: "contain",
+              width: "30px",
+              height: "30px",
+            }}
+            src={RankingBadgeCircleIcon}
+          />
+          <text
+            style={{ color: "#FAF0DD", fontSize: "14px", fontWeight: "bold" }}
+          >
+            5
+          </text>
+        </view>
       </view>
     </view>
   );
