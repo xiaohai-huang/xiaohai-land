@@ -87,4 +87,17 @@
     width: calc(100vw - var(--right-section-width));
     height: 100%;
   }
+  .expandButton {
+    width: 40px;
+    height: 100px;
+    background-color: #152240;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border-top-right-radius: 40%;
+    border-bottom-right-radius: 40%;
+    &:hover {
+      opacity: 0.98;
+    }
+  }
 }

@@ -42,6 +42,9 @@
         color: white;
         border-top-right-radius: 40%;
         border-bottom-right-radius: 40%;
+        &:hover {
+          opacity: 0.98;
+        }
       }
     }
   }

@@ -241,18 +241,11 @@ function Page() {
     !showChampionsPanel && expandButtonPos !== null && tab === "champion";
   const ExpandButton = showExpandButton && (
     <view
+      className={styles.expandButton}
       style={{
         position: "absolute",
         left: `${expandButtonPos.x}px`,
         top: `${expandButtonPos.y * 0.8}px`,
-        width: "40px",
-        height: "100px",
-        backgroundColor: "#152240",
-        justifyContent: "center",
-        alignItems: "center",
-        color: "white",
-        borderTopRightRadius: "100%",
-        borderBottomRightRadius: "100%",
       }}
       onClick={() => {
         setShowChampionsPanel(true);
