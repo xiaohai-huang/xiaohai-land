@@ -43,7 +43,7 @@ function ChampionIcon<T>({
           overflow: "hidden",
         }}
       >
-        <image source={img} />
+        {img && <image source={img} />}
       </view>
       {selected && selectedEffect}
       <text
@@ -60,5 +60,11 @@ function ChampionIcon<T>({
     </view>
   );
 }
+
+function Placeholder({ size = 64 }: { size?: number }) {
+  return <ChampionIcon id={-1} img="" name="" size={size} />;
+}
+
+ChampionIcon.Placeholder = Placeholder;
 
 export default ChampionIcon;

@@ -32,6 +32,9 @@ function Page() {
   } | null>(null);
   const [showChampionsPanel, setShowChampionsPanel] = useState(false);
   const [championsPanelCached, setChampionsPanelCached] = useState(false);
+  const championsRows = useMemo(() => {
+    return groupBySize(champions, 2);
+  }, [champions]);
 
   useEffect(() => {
     if (showChampionsPanel) {
@@ -60,99 +63,95 @@ function Page() {
           皮肤
         </view>
       </view>
-      {/* Champions Tab */}
       <view className={styles.listContainer}>
-        <view
-          style={{
-            position: "absolute",
-            left: 0,
-            top: 0,
-            width: "100%",
-            height: "100%",
-          }}
-        >
-          <view
-            className="champions"
-            style={{
-              position: "absolute",
-              left: 0,
-              top: 0,
-              height: "100%",
-              width: "100%",
-              paddingLeft: "var(--left-margin)",
-              visibility:
-                tab === "champion" && !showChampionsPanel
-                  ? "visible"
-                  : "hidden",
-            }}
-          >
-            <Scroll direction="vertical" style={{ flexShrink: 0 }}>
-              <view className={styles.list}>
-                {champions.slice(0, 19).map((champion, i) => (
-                  <ChampionIcon
-                    key={champion.id}
-                    id={champion.id}
-                    name={champion.name}
-                    img={champion.img}
-                    size={64}
-                    selected={champion.id === selectedChampionId}
-                    onClick={(id) => {
-                      setSelectedChampion(id);
-                      setSelectedSkinId(1);
-                    }}
-                  />
-                ))}
-              </view>
-            </Scroll>
-          </view>
-          <view
-            className="skins"
-            style={{
-              position: "absolute",
-              left: 0,
-              top: 0,
-              height: "100%",
-              width: "100%",
-              paddingLeft: "var(--left-margin)",
-              visibility: tab === "skin" ? "visible" : "hidden",
-            }}
-          >
-            <Scroll direction="vertical" style={{ flexShrink: 0 }}>
-              <view className={styles.list}>
-                {champion?.skins.map((skin, i) => (
-                  <ChampionIcon
-                    key={skin.id}
-                    id={skin.id}
-                    name={i === 0 ? "经典" : skin.name}
-                    img={skin.smallImage}
-                    size={64}
-                    selected={skin.id === selectedSkinId}
-                    onClick={(id) => {
-                      setSelectedSkinId(id);
-                    }}
-                  />
-                ))}
-              </view>
-            </Scroll>
+        {/* Placeholder */}
+        <view className={classNames(styles.list, styles["place-holder"])}>
+          <view className={styles.row}>
+            <ChampionIcon.Placeholder />
+            <ChampionIcon.Placeholder />
           </view>
         </view>
+        {/* Champions Tab */}
+        <view
+          className={classNames(styles.listWrapper, "champions")}
+          style={{
+            visibility:
+              tab === "champion" && !showChampionsPanel ? "visible" : "hidden",
+          }}
+        >
+          <Scroll direction="vertical">
+            <view className={styles.list}>
+              {championsRows.map((row, i) => (
+                <view key={i} className={styles.row}>
+                  {row.map((champion) => (
+                    <ChampionIcon
+                      key={champion.id}
+                      id={champion.id}
+                      name={champion.name}
+                      img={champion.img}
+                      size={64}
+                      selected={champion.id === selectedChampionId}
+                      onClick={(id) => {
+                        setSelectedChampion(id);
+                        setSelectedSkinId(1);
+                      }}
+                    />
+                  ))}
+                </view>
+              ))}
+            </view>
+          </Scroll>
+        </view>
+        {/* Skins Tab */}
+        <view
+          className={classNames(styles.listWrapper, "skins")}
+          style={{
+            visibility: tab === "skin" ? "visible" : "hidden",
+          }}
+        >
+          <Scroll direction="vertical">
+            <view className={styles.list}>
+              {groupBySize(champion?.skins ?? [], 2).map((row) => {
+                return (
+                  <view className={styles.row}>
+                    {row.map((skin, i) => (
+                      <ChampionIcon
+                        key={skin.id}
+                        id={skin.id}
+                        name={i === 0 ? "经典" : skin.name}
+                        img={skin.smallImage}
+                        size={64}
+                        selected={skin.id === selectedSkinId}
+                        onClick={(id) => {
+                          setSelectedSkinId(id);
+                        }}
+                      />
+                    ))}
+                  </view>
+                );
+              })}
+            </view>
+          </Scroll>
+        </view>
+
+        {/* Expand Button Position*/}
+        <view
+          className="expand-button-position-ref"
+          style={{
+            position: "absolute",
+            right: 0,
+            top: "50%",
+          }}
+          onAttachToPanel={(_, { Element }) => {
+            setTimeout(() => {
+              setExpandButtonPos({
+                x: Element.worldBound.x,
+                y: Element.worldBound.y,
+              });
+            }, 0);
+          }}
+        ></view>
       </view>
-      {/* Expand Button Position*/}
-      <view
-        style={{
-          position: "absolute",
-          right: 0,
-          top: "50%",
-        }}
-        onAttachToPanel={(_, { Element }) => {
-          setTimeout(() => {
-            setExpandButtonPos({
-              x: Element.worldBound.x,
-              y: Element.worldBound.y,
-            });
-          }, 0);
-        }}
-      ></view>
     </view>
   );
 
@@ -297,6 +296,18 @@ function Page() {
       {ChampionLargeSelect}
     </view>
   );
+}
+
+function groupBySize<T>(array: T[], size: number): T[][] {
+  return array.reduce((resultArray, item, index) => {
+    const chunkIndex = Math.floor(index / size);
+    if (!resultArray[chunkIndex]) {
+      resultArray[chunkIndex] = [];
+    }
+    resultArray[chunkIndex].push(item);
+
+    return resultArray;
+  }, []);
 }
 
 export default Page;

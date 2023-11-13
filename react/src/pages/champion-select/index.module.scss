@@ -7,7 +7,8 @@
   background-color: pink;
   .leftSection {
     background-color: rgb(33, 41, 60, 0.95);
-    width: calc(var(--left-margin) + 170px);
+    padding-left: var(--left-margin);
+
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -18,7 +19,6 @@
       display: flex;
       flex-direction: row;
       border-bottom: 1px solid #2c394a;
-      padding-left: var(--left-margin);
       .button {
         flex: 1;
         display: flex;
@@ -33,14 +33,26 @@
       }
     }
     .listContainer {
-      // padding-left: var(--left-margin);
       flex: 1;
+      flex-basis: 0;
+      .place-holder {
+        visibility: hidden;
+      }
+      .listWrapper {
+        position: absolute;
+        height: 100%;
+      }
       .list {
         display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        & > * {
-          margin: 0.4rem 0.5rem;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        .row {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: nowrap;
+          & > * {
+            margin: 0.4rem 0.5rem;
+          }
         }
       }
     }
