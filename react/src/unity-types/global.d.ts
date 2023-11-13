@@ -7,12 +7,12 @@ import type { ReactUnity, UnityEngine } from "@reactunity/renderer";
 
 export type MyGlobalsType = {
   FPSCounter: FPSCounter;
-  Renderer: XiaohaiLand.UI.UIToolkit.XiaohaiRendererUIToolkit;
+  Renderer: ReactUnity.ReactRendererBase;
 };
 
 export declare global {
   var MyGlobals: MyGlobalsType;
-  var Renderer: XiaohaiLand.UI.UIToolkit.XiaohaiRendererUIToolkit;
+  var Renderer: ReactUnity.ReactRendererBase;
   var StyleHelper: StyleHelper;
   var Q: StyleHelper["Q"];
 }

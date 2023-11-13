@@ -1,9 +1,11 @@
 using ReactUnity;
 using ReactUnity.Scheduling;
 using ReactUnity.UIToolkit;
+using ReactUnity.Helpers.TypescriptUtils;
 
 namespace XiaohaiLand.UI.UIToolkit
 {
+    [TypescriptExclude]
     public class XiaohaiRendererUIToolkit : ReactRendererUIToolkit
     {
         protected override ReactContext CreateContext(ScriptSource script)
