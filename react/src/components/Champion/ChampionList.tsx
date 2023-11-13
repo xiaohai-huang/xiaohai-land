@@ -1,47 +1,62 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
+import classNames from "classnames";
+import type { ReactUnity } from "@reactunity/renderer";
+
 import { ChampionData } from "src/api/hok";
 import Scroll from "../Scroll";
 import ChampionIcon from "./ChampionIcon";
 import styles from "./ChampionList.module.scss";
 
 type ChampionListProps = {
+  className?: string;
   champions: ChampionData[];
   selectedId?: number;
   onClick?: (id: number) => void;
 };
 
+const DEFAULT_SMOOTHNESS = 0.05;
+
 function ChampionList({
+  className = "",
   champions,
   selectedId,
   onClick = () => {},
 }: ChampionListProps) {
-  // Need this hack to force it to render
-  const [, render] = useState(false);
+  const scrollRef = useRef<ReactUnity.UIToolkit.ScrollViewComponent>(null);
+  // Scroll to the top & Disable smoothness temporarily
   useEffect(() => {
-    render((prev) => !prev);
+    if (scrollRef.current) {
+      scrollRef.current.Element.scrollDecelerationRate = 0;
+      scrollRef.current.ScrollTop = 0;
+    }
+    const timer = setTimeout(() => {
+      if (scrollRef.current) {
+        scrollRef.current.Element.scrollDecelerationRate = DEFAULT_SMOOTHNESS;
+      }
+    }, 0);
+
+    return () => clearTimeout(timer);
   }, [champions.length]);
 
   return (
-    <view className={styles.container}>
-      <view className={styles.scrollWrapper}>
-        <Scroll direction="vertical">
-          <view className={styles.list}>
-            {champions.map((champion) => (
-              <ChampionIcon
-                key={champion.id}
-                id={champion.id}
-                name={champion.name}
-                img={champion.img}
-                size={64}
-                selected={champion.id === selectedId}
-                onClick={(id) => {
-                  onClick(id);
-                }}
-              />
-            ))}
-          </view>
-        </Scroll>
-      </view>
+    <view className={classNames(styles.container, className)}>
+      <Scroll scrollRef={scrollRef} direction="vertical">
+        <view className={styles.list}>
+          {champions.map((champion) => (
+            <ChampionIcon
+              key={champion.id}
+              id={champion.id}
+              name={champion.name}
+              img={champion.img}
+              size={64}
+              selected={champion.id === selectedId}
+              onClick={(id) => {
+                onClick(id);
+              }}
+            />
+          ))}
+        </view>
+      </Scroll>
     </view>
   );
 }

@@ -1,19 +1,12 @@
 .container {
   height: 100%;
-  .scrollWrapper {
-    position: absolute;
-    left: 0;
-    top: 0;
+  .list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     height: 100%;
-    width: 100%;
-    .list {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      height: 100%;
-      & > * {
-        margin: 0.4rem 0.5rem;
-      }
+    & > * {
+      margin: 0.4rem 0.5rem;
     }
   }
 }

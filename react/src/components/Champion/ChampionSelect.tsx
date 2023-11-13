@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import classNames from "classnames";
 
 import ChampionList from "./ChampionList";
@@ -25,17 +25,7 @@ function ChampionSelect({
   onClose = () => {},
 }: ChampionSelectProps) {
   const [tab, setTab] = useState<ChampionClass>("ALL");
-  const [tabCache, setTabCache] = useState<ChampionClass[]>([]);
-
-  useEffect(() => {
-    setTabCache((prev) => {
-      if (!prev.includes(tab)) {
-        return [...prev, tab];
-      }
-      return prev;
-    });
-  }, [tab]);
-
+  const { champions } = useChampions(tab);
   return (
     <view
       style={{ ...style, visibility: visible ? "visible" : "hidden" }}
@@ -57,21 +47,11 @@ function ChampionSelect({
       </view>
       {/* Tab Content */}
       <view className={styles.tabContent}>
-        {tabCache.map((championClass) => (
-          <List
-            key={championClass}
-            className={styles.list}
-            style={
-              {
-                visibility:
-                  visible && championClass === tab ? "visible" : "hidden",
-              } as Style
-            }
-            championClass={championClass}
-            selectedId={selectedId}
-            onClick={onClick}
-          />
-        ))}
+        <ChampionList
+          champions={champions}
+          selectedId={selectedId}
+          onClick={onClick}
+        />
         <view className={styles.closeButtonWrapper}>
           <view
             className={styles.closeButton}
@@ -83,19 +63,6 @@ function ChampionSelect({
           </view>
         </view>
       </view>
-    </view>
-  );
-}
-
-function List({ style = {}, className, championClass, selectedId, onClick }) {
-  const { champions } = useChampions(championClass);
-  return (
-    <view className={className} style={{ height: "100%", ...style }}>
-      <ChampionList
-        champions={champions}
-        selectedId={selectedId}
-        onClick={onClick}
-      />
     </view>
   );
 }
