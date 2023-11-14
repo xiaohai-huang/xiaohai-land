@@ -63,4 +63,52 @@
       }
     }
   }
+
+  .entries {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: "0 auto";
+    $container-height: 70px;
+    height: $container-height;
+    .button {
+      // aspect ratio is 256/100 == width/height
+      height: $container-height;
+      width: 2.56 * $container-height;
+      &:hover {
+        opacity: 0.9;
+      }
+    }
+    .badge {
+      position: absolute;
+      height: 100px;
+      width: 100px;
+      transform: translate(0, 20px);
+      &:hover {
+        opacity: 0.9;
+      }
+      .image {
+        object-fit: contain;
+        width: 100%;
+        height: 100%;
+      }
+      .number-circle {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, 50%);
+        width: 24px;
+        height: 24px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .number {
+          color: #faf0dd;
+          font-size: 8px;
+          font-weight: bold;
+        }
+      }
+    }
+  }
 }

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useNavigate } from "src/components/MiniRouter/index";
 
 import defaultAvatar from "../../assets/images/default-avatar.jpg";
@@ -7,6 +8,7 @@ import styles from "./index.module.scss";
 import Avatar from "src/components/Avatar";
 import Scroll from "src/components/Scroll";
 import Image from "src/components/Image";
+import Delay from "src/components/Delay";
 import SettingsIcon from "src/assets/images/icons/cog.png";
 import BattleIcon from "src/assets/images/icons/battle.png";
 import RankingIcon from "src/assets/images/icons/ranking.png";
@@ -115,61 +117,49 @@ function Social() {
 function Entries() {
   const navigate = useNavigate();
   return (
-    <view
-      className={styles.entries}
-      style={{
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "center",
-        margin: "0 auto",
-        height: "110px",
-      }}
-    >
-      <Image src={BattleIcon} />
-
-      <Image src={RankingIcon} />
-
+    <view className={styles.entries}>
+      <Image
+        className={styles.button}
+        src={BattleIcon}
+        onClick={() => navigate("/champion-select")}
+      />
+      <Image
+        className={styles.button}
+        src={RankingIcon}
+        onClick={() => navigate("/ranking")}
+      />
       {/* Ranking Badge */}
-      <view
-        style={{
-          position: "absolute",
-          height: "140px",
-          width: "140px",
-          transform: "translate(0, 10px)",
-        }}
-      >
-        <Image
-          style={{
-            objectFit: "contain",
-          }}
-          src={RankingBadgeIcon}
-        />
-        <view
-          style={{
-            position: "absolute",
-            left: "50%",
-            bottom: 0,
-            transform: "translate(-50%, 100%)",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <Image
-            style={{
-              position: "absolute",
-              objectFit: "contain",
-              width: "30px",
-              height: "30px",
-            }}
-            src={RankingBadgeCircleIcon}
-          />
-          <text
-            style={{ color: "#FAF0DD", fontSize: "14px", fontWeight: "bold" }}
+      <RankingBadge num={15} onClick={() => navigate("/ranking")} />
+    </view>
+  );
+}
+
+type RankingBadgeProps = {
+  num: number;
+  onClick?: () => void;
+};
+
+function RankingBadge({ num, onClick = () => {} }: RankingBadgeProps) {
+  const [show, setShow] = useState(false);
+  return (
+    <view className={styles.badge} onClick={onClick}>
+      {/* Badge */}
+      <Image
+        className={styles.image}
+        src={RankingBadgeIcon}
+        onLoad={() => setShow(true)}
+      />
+      {/* Badge Number */}
+      {show && (
+        <Delay delay={0}>
+          <view
+            className={styles["number-circle"]}
+            style={{ backgroundImage: `url(${RankingBadgeCircleIcon})` }}
           >
-            5
-          </text>
-        </view>
-      </view>
+            <text className={styles.number}>{num}</text>
+          </view>
+        </Delay>
+      )}
     </view>
   );
 }
