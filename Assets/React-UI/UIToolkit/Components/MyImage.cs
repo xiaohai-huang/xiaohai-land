@@ -2,9 +2,12 @@ using UnityEngine;
 using ReactUnity.Types;
 using ReactUnity.Styling.Converters;
 using ReactUnity.UIToolkit;
+using ReactUnity.Helpers.TypescriptUtils;
+
 
 namespace XiaohaiLand.UI.UIToolkit
 {
+    [TypescriptExclude]
     public class MyImage : ImageComponent
     {
         public MyImage(UIToolkitContext context, string tag) : base(context, tag)

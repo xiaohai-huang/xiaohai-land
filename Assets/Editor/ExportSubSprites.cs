@@ -1,9 +1,10 @@
 using UnityEngine;
 using UnityEditor;
+using ReactUnity.Helpers.TypescriptUtils;
 
+[TypescriptExclude]
 public class ExportSubSprites : Editor
 {
-
     [MenuItem("Assets/Export Sub-Sprites")]
     public static void DoExportSubSprites()
     {
