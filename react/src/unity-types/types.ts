@@ -1,6 +1,6 @@
 //
 // Types in assemblies: Assembly-CSharp
-// Generated 11/12/2023 6:33:21 PM
+// Generated 11/14/2023 10:23:34 PM
 //
 /* eslint-disable */
 
@@ -30,6 +30,10 @@ export declare class StyleHelper {
   SetAlignItems(
     element: UnityEngine.UIElements.VisualElement,
     value: string
+  ): void;
+  SetTextSelectable(
+    element: UnityEngine.UIElements.TextField,
+    selectable: boolean
   ): void;
   Equals(obj: any): boolean;
   GetHashCode(): number;
