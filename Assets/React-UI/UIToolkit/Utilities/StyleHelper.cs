@@ -120,13 +120,4 @@ public class StyleHelper
         }
     }
 
-    public void SetTextSelectable(TextField element, bool selectable)
-    {
-        element.selectAllOnFocus = false;
-        element.selectAllOnMouseUp = false;
-        element.doubleClickSelectsWord = false;
-        element.tripleClickSelectsLine = false;
-        element.SelectNone();
-        // element.textSelection.isSelectable = selectable;
-    }
 }
