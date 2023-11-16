@@ -14,6 +14,14 @@ import BattleIcon from "src/assets/images/icons/battle.png";
 import RankingIcon from "src/assets/images/icons/ranking.png";
 import RankingBadgeIcon from "src/assets/images/icons/ranking-badge.png";
 import RankingBadgeCircleIcon from "src/assets/images/icons/ranking-badge-number-circle.png";
+// Tabs
+import TabsBackground from "src/assets/images/icons/bottom-bar.png";
+import ChampionTabIcon from "src/assets/images/icons/champion-icon.png";
+import CustomizeTabIcon from "src/assets/images/icons/customize-icon.png";
+import PrepareTabIcon from "src/assets/images/icons/prepare-icon.png";
+import TeamTabIcon from "src/assets/images/icons/team-icon.png";
+import QuestTabIcon from "src/assets/images/icons/quest-icon.png";
+import BackpackTabIcon from "src/assets/images/icons/backpack-icon.png";
 
 function Page() {
   return (
@@ -23,7 +31,7 @@ function Page() {
 
       <view style={{ marginTop: "auto" }}>
         <Entries />
-        <view style={{ marginBottom: "50px" }}></view>
+        <view style={{ marginBottom: "25px" }}></view>
         <Tabs />
       </view>
       <view className={styles.socialContainer}>
@@ -164,31 +172,48 @@ function RankingBadge({ num, onClick = () => {} }: RankingBadgeProps) {
   );
 }
 
+type IconButtonProps = {
+  icon: string;
+  label: string;
+  onClick?: () => void;
+  hideBar?: boolean;
+};
+
+function IconButton({
+  icon,
+  label,
+  hideBar = false,
+  onClick = () => {},
+}: IconButtonProps) {
+  return (
+    <view className={styles.tab}>
+      <view className={styles.content} onClick={onClick}>
+        <Image className={styles.icon} src={icon} />
+        <text className={styles.label}>{label}</text>
+      </view>
+      {!hideBar && <view className={styles.verticalBar} />}
+    </view>
+  );
+}
+
 function Tabs() {
   const navigate = useNavigate();
   return (
     <view
-      style={{
-        backgroundColor: "#203148",
-        paddingBottom: "var(--bottom-margin)",
-      }}
+      className={styles.tabs}
+      style={{ backgroundImage: `url(${TabsBackground})` }}
     >
-      <view
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-between",
-          width: "80%",
-          margin: "0 auto",
-          fontSize: "1.5rem",
-          padding: "0.5rem 0",
-        }}
-      >
-        <button>英雄</button>
-        <button onClick={() => navigate("/test")}>测试</button>
-        <button>备战</button>
-        <button>战队</button>
-        <button>背包</button>
+      <view className={styles.wrapper}>
+        <IconButton icon={ChampionTabIcon} label="英雄" />
+        <IconButton
+          icon={CustomizeTabIcon}
+          label="定制"
+          onClick={() => navigate("/test")}
+        />
+        <IconButton icon={PrepareTabIcon} label="备战" />
+        <IconButton icon={TeamTabIcon} label="战队" />
+        <IconButton icon={QuestTabIcon} label="任务" />
+        <IconButton icon={BackpackTabIcon} label="背包" hideBar />
       </view>
     </view>
   );
