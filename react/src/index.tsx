@@ -22,8 +22,8 @@ function App() {
         "--safe-bottom": `${area.bottom}vh`,
         "--safe-left": `${area.left}vw`,
         "--safe-right": `${area.right}vw`,
-        "--top-margin": `${area.top + 1}vh`,
-        "--bottom-margin": `${area.bottom + 1}vh`,
+        "--top-margin": `${area.top + 0.5}vh`,
+        "--bottom-margin": `${area.bottom + 0.5}vh`,
         "--left-margin": `${Math.max(5, area.left + 2)}vw`,
         "--right-margin": `${Math.max(5, area.right + 2)}vw`,
       }}
