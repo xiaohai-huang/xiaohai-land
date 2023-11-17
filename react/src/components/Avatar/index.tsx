@@ -14,7 +14,6 @@ function Avatar({ name, level, avatar, size = 64 }: AvatarProps) {
         style={{
           width: `${size}px`,
           height: `${size}px`,
-          borderRadius: "10%",
           overflow: "hidden",
         }}
       >
@@ -25,10 +24,12 @@ function Avatar({ name, level, avatar, size = 64 }: AvatarProps) {
           style={{ display: "flex", marginLeft: "10px", fontSize: "0.75rem" }}
         >
           <view>
-            <text>{name}</text>
+            <text style={{ color: "#FEFFFF" }}>{name}</text>
           </view>
           <view>
-            <text>{`Lv.<b>${level}</b>`}</text>
+            <text
+              style={{ color: "#D9EAF2", fontSize: "0.625rem" }}
+            >{`Lv.<b>${level}</b>`}</text>
           </view>
         </view>
       ) : null}
