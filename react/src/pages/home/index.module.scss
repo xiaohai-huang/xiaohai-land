@@ -13,10 +13,7 @@
     padding-top: var(--top-margin);
     padding-left: var(--left-margin);
     padding-right: var(--right-margin);
-    padding-bottom: 1rem;
 
-    color: white;
-    background-color: rgba(0, 0, 0, 0.4);
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -54,28 +51,59 @@
   .socialContainer {
     padding-left: var(--left-margin);
     position: absolute;
-    height: 100%;
+    top: 50%;
+    transform: translate(0, 50%);
     display: flex;
     flex-direction: column;
     justify-content: center;
     .social {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      width: 80px;
-      height: 250px;
+      align-items: stretch;
+      height: 260px;
       color: white;
       border-radius: 5%;
       scroll::scrollbar {
         visibility: hidden;
       }
+      .title {
+        flex-shrink: 0;
+        background-color: #14263e;
+        border: 1px solid #2d476c;
+        border-radius: 4px;
+        padding: 0.3rem auto;
+        color: #7996c0;
+        text {
+          text-align: center;
+          vertical-align: middle;
+        }
+      }
       .scroll {
         background-color: #13233c;
         .list {
-          padding: 0.3rem 0;
-          & > *:not(:last-child) {
-            margin-bottom: 12px;
+          & > * {
+            padding: 0.3rem 0.8rem;
           }
+          & > *:not(:last-child) {
+            margin-bottom: 6px;
+          }
+        }
+      }
+      .expand {
+        background-color: #152240;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-top: 1px solid #293c5c;
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 4px;
+        padding: 0.4rem 0;
+        &:active {
+          background-color: #36466b;
+        }
+        .icon {
+          width: 28px;
+          height: 28px;
         }
       }
     }

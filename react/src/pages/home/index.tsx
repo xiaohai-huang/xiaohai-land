@@ -21,6 +21,10 @@ import GoldIcon from "src/assets/images/icons/gold-icon.png";
 import DiamondIcon from "src/assets/images/icons/diamond-icon.png";
 import VoucherIcon from "src/assets/images/icons/voucher-icon.png";
 
+// Socials
+import RightArrowIcon from "src/assets/images/icons/right-arrow-icon.png";
+import PlaceholderAvatar from "src/assets/images/icons/default-avatar.png";
+
 // Tabs
 import TabsBackground from "src/assets/images/icons/bottom-bar.png";
 import ChampionTabIcon from "src/assets/images/icons/champion-icon.png";
@@ -99,7 +103,7 @@ function Top() {
   const navigate = useNavigate();
   return (
     <view className={styles.top}>
-      <Avatar {...user} size={32} />
+      <Avatar {...user} size={38} />
       <view className={styles.right}>
         <view className={styles.balances}>
           <Balance type="gold" value={1312} />
@@ -120,50 +124,22 @@ function Top() {
 function Social() {
   return (
     <view class={styles.social}>
-      <view
-        style={{
-          backgroundColor: "#152240",
-          width: "100%",
-          height: "30px",
-        }}
-      >
-        <text
-          style={{
-            height: "100%",
-            textAlign: "center",
-            verticalAlign: "middle",
-          }}
-        >
-          排行
-        </text>
+      <view className={styles.title}>
+        <text>排行</text>
       </view>
       <Scroll className={styles.scroll} direction="vertical">
         <view className={styles.list}>
-          <Avatar avatar={defaultAvatar} size={50} />
-          <Avatar avatar={defaultAvatar} size={50} />
-          <Avatar avatar={defaultAvatar} size={50} />
-          <Avatar avatar={defaultAvatar} size={50} />
-          <Avatar avatar={defaultAvatar} size={50} />
-          <Avatar avatar={defaultAvatar} size={50} />
-          <Avatar avatar={defaultAvatar} size={50} />
+          <Avatar avatar={PlaceholderAvatar} size={45} />
+          <Avatar avatar={PlaceholderAvatar} size={45} />
+          <Avatar avatar={PlaceholderAvatar} size={45} />
+          <Avatar avatar={PlaceholderAvatar} size={45} />
+          <Avatar avatar={PlaceholderAvatar} size={45} />
+          <Avatar avatar={PlaceholderAvatar} size={45} />
+          <Avatar avatar={PlaceholderAvatar} size={45} />
         </view>
       </Scroll>
-      <view
-        style={{
-          backgroundColor: "#152240",
-          width: "100%",
-          height: "30px",
-        }}
-      >
-        <text
-          style={{
-            height: "100%",
-            textAlign: "center",
-            verticalAlign: "middle",
-          }}
-        >
-          {`·>`}
-        </text>
+      <view className={styles.expand}>
+        <Image className={styles.icon} src={RightArrowIcon} />
       </view>
     </view>
   );
