@@ -1,4 +1,5 @@
 import { useState } from "react";
+import classNames from "classnames";
 import { useNavigate } from "src/components/MiniRouter/index";
 
 import defaultAvatar from "../../assets/images/default-avatar.jpg";
@@ -16,6 +17,9 @@ import RankingBadgeCircleIcon from "src/assets/images/icons/ranking-badge-number
 // Top
 import Settings from "src/assets/images/icons/settings-icon.png";
 import MailIcon from "src/assets/images/icons/mail-icon.png";
+import GoldIcon from "src/assets/images/icons/gold-icon.png";
+import DiamondIcon from "src/assets/images/icons/diamond-icon.png";
+import VoucherIcon from "src/assets/images/icons/voucher-icon.png";
 
 // Tabs
 import TabsBackground from "src/assets/images/icons/bottom-bar.png";
@@ -61,6 +65,31 @@ function SimpleIconButton({
   );
 }
 
+type BalanceProps = {
+  className?: string;
+  type: "gold" | "diamond" | "voucher";
+  value: number;
+};
+
+const BALANCE_ICONS: Record<BalanceProps["type"], string> = {
+  gold: GoldIcon,
+  diamond: DiamondIcon,
+  voucher: VoucherIcon,
+};
+
+function getIcon(type: BalanceProps["type"]) {
+  return BALANCE_ICONS[type];
+}
+
+function Balance({ className = "", type, value }: BalanceProps) {
+  return (
+    <view className={classNames(styles.balance, className)}>
+      <Image className={styles.image} src={getIcon(type)} />
+      <view className={styles.value}>{value}</view>
+    </view>
+  );
+}
+
 function Top() {
   const user = {
     name: "巅峰小蛋",
@@ -72,6 +101,12 @@ function Top() {
     <view className={styles.top}>
       <Avatar {...user} size={32} />
       <view className={styles.right}>
+        <view className={styles.balances}>
+          <Balance type="gold" value={1312} />
+          <Balance type="diamond" value={4238} />
+          <Balance type="voucher" value={251} />
+        </view>
+
         <SimpleIconButton icon={MailIcon} />
         <SimpleIconButton
           icon={Settings}

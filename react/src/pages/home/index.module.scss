@@ -35,6 +35,15 @@
       display: flex;
       flex-direction: row;
       align-items: center;
+      .balances {
+        display: flex;
+        flex-direction: row;
+        margin-right: 1rem;
+        & > *:not(:last-child) {
+          margin-right: 12px;
+        }
+      }
+
       .button {
         padding: 0.5rem;
         &:active {
@@ -164,6 +173,25 @@
         height: 32px;
         margin-right: 0.5rem;
       }
+    }
+  }
+
+  .balance {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(0, 0, 0, 0.4);
+    // background-color: red;
+    border-radius: 4px;
+    padding: 2px;
+    width: 90px;
+    .image {
+      width: 24px;
+      height: 24px;
+    }
+    .value {
+      color: #feffff;
     }
   }
 }
