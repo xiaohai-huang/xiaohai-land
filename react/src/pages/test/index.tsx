@@ -4,6 +4,7 @@ import Image from "src/components/Image";
 
 import styles from "./index.module.scss";
 import type { ReactUnity } from "@reactunity/renderer";
+import GradientTexture from "src/assets/images/backgrounds/gradient-texture.png";
 
 function Page() {
   const navigate = useNavigate();
@@ -16,6 +17,7 @@ function Page() {
       style={{
         width: "100%",
         height: "100%",
+        backgroundImage: `url(${GradientTexture})`,
       }}
     >
       <button
