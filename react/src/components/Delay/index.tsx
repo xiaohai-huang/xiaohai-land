@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
+import type { UIToolkitElements } from "@reactunity/renderer/uitoolkit";
 
 type DelayProps = {
+  className?: string;
+  style?: UIToolkitElements["view"]["style"];
   delay?: number;
   children: React.ReactNode;
 };
 
-function Delay({ delay = 500, children }: DelayProps) {
+function Delay({ className, style, delay = 500, children }: DelayProps) {
   const [show, setShow] = useState(false);
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -15,7 +18,19 @@ function Delay({ delay = 500, children }: DelayProps) {
       clearTimeout(timer);
     };
   }, [delay]);
-  return <view style={{ opacity: show ? 1 : 0 }}>{show && children}</view>;
+
+  if (typeof style === "string") {
+    style = {};
+  }
+
+  return (
+    <view
+      className={className}
+      style={{ visibility: show ? "visible" : "hidden", ...style }}
+    >
+      {show && children}
+    </view>
+  );
 }
 
 export default Delay;
