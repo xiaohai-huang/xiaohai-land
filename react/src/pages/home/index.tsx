@@ -45,9 +45,9 @@ function Page() {
         <view style={{ marginBottom: "25px" }}></view>
         <Tabs />
       </view>
-      <view className={styles.socialContainer}>
+      <Delay className={styles.socialContainer} delay={0}>
         <Social />
-      </view>
+      </Delay>
     </view>
   );
 }
