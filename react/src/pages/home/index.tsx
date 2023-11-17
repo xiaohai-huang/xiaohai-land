@@ -9,11 +9,14 @@ import Avatar from "src/components/Avatar";
 import Scroll from "src/components/Scroll";
 import Image from "src/components/Image";
 import Delay from "src/components/Delay";
-import SettingsIcon from "src/assets/images/icons/cog.png";
 import BattleIcon from "src/assets/images/icons/battle.png";
 import RankingIcon from "src/assets/images/icons/ranking.png";
 import RankingBadgeIcon from "src/assets/images/icons/ranking-badge.png";
 import RankingBadgeCircleIcon from "src/assets/images/icons/ranking-badge-number-circle.png";
+// Top
+import Settings from "src/assets/images/icons/settings-icon.png";
+import MailIcon from "src/assets/images/icons/mail-icon.png";
+
 // Tabs
 import TabsBackground from "src/assets/images/icons/bottom-bar.png";
 import ChampionTabIcon from "src/assets/images/icons/champion-icon.png";
@@ -41,6 +44,23 @@ function Page() {
   );
 }
 
+function SimpleIconButton({
+  icon,
+  onClick,
+}: {
+  icon: string;
+  onClick?: () => void;
+}) {
+  return (
+    <view className={styles.button} onClick={onClick}>
+      <Image
+        style={{ width: "28px", height: "28px", objectFit: "contain" }}
+        src={icon}
+      />
+    </view>
+  );
+}
+
 function Top() {
   const user = {
     name: "巅峰小蛋",
@@ -52,19 +72,11 @@ function Top() {
     <view className={styles.top}>
       <Avatar {...user} size={32} />
       <view className={styles.right}>
-        <view
-          style={{
-            width: 64,
-            height: 64,
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-          onClick={() => {
-            navigate("/settings");
-          }}
-        >
-          <Image style={{ width: 32, height: 32 }} src={SettingsIcon} />
-        </view>
+        <SimpleIconButton icon={MailIcon} />
+        <SimpleIconButton
+          icon={Settings}
+          onClick={() => navigate("/settings")}
+        />
       </view>
     </view>
   );
