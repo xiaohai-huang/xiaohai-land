@@ -1,12 +1,14 @@
-import { UIToolkitElements, View } from "@reactunity/renderer/uitoolkit";
+import { UIToolkitElements } from "@reactunity/renderer/uitoolkit";
 import { ReactUnity } from "@reactunity/renderer";
 
 import Cmp = ReactUnity.UIToolkit;
 
 type Children<T = any> = { children?: T };
 
-interface XiaohaiUIToolkitElements extends UIToolkitElements {
+export interface XiaohaiUIToolkitElements extends UIToolkitElements {
   // Add custom elements here
+  background: UIToolkitElements["view"];
+  "my-image": UIToolkitElements["image"];
 }
 
 export namespace JSX {

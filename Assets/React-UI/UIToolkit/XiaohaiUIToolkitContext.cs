@@ -11,6 +11,7 @@ namespace XiaohaiLand.UI.UIToolkit
         public XiaohaiUIToolkitContext(Options options) : base(options)
         {
             ComponentCreators["my-image"] = (tag, text, context) => new MyImage(context, tag);
+            ComponentCreators["background"] = (tag, text, context) => new Background(context, tag);
         }
 
         [Preserve]
