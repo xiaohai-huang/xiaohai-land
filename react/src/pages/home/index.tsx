@@ -2,18 +2,22 @@ import { useState } from "react";
 import classNames from "classnames";
 import { useNavigate } from "src/components/MiniRouter/index";
 
-import defaultAvatar from "../../assets/images/default-avatar.jpg";
-import bgImage from "src/assets/images/backgrounds/bg-00.jpg";
-
 import styles from "./index.module.scss";
 import Avatar from "src/components/Avatar";
 import Scroll from "src/components/Scroll";
 import Image from "src/components/Image";
-import Delay from "src/components/Delay";
+import Background from "src/components/Background";
+
+import defaultAvatar from "../../assets/images/default-avatar.jpg";
+import bgImage from "src/assets/images/backgrounds/bg-00.jpg";
+import GradientTexture from "src/assets/images/backgrounds/gradient.png";
+
+// Entries
 import BattleIcon from "src/assets/images/icons/battle.png";
 import RankingIcon from "src/assets/images/icons/ranking.png";
 import RankingBadgeIcon from "src/assets/images/icons/ranking-badge.png";
 import RankingBadgeCircleIcon from "src/assets/images/icons/ranking-badge-number-circle.png";
+
 // Top
 import Settings from "src/assets/images/icons/settings-icon.png";
 import MailIcon from "src/assets/images/icons/mail-icon.png";
@@ -38,6 +42,9 @@ function Page() {
   return (
     <view className={styles.container}>
       <Image className={styles.backgroundImage} src={bgImage} />
+      <Shadow position="top" />
+      <Shadow position="left" />
+      <Shadow position="right" />
       <Top />
 
       <view style={{ marginTop: "auto" }}>
@@ -45,13 +52,28 @@ function Page() {
         <view style={{ marginBottom: "25px" }}></view>
         <Tabs />
       </view>
-      <Delay className={styles.socialContainer} delay={0}>
+      <view className={styles.socialContainer}>
         <Social />
-      </Delay>
+      </view>
     </view>
   );
 }
 
+type ShadowProps = { position: "left" | "top" | "right" };
+function Shadow({ position }: ShadowProps) {
+  return (
+    <view className={classNames(styles.shadow, styles[`shadow-${position}`])}>
+      <Background
+        className={styles.image}
+        tintColor="black"
+        style={{
+          backgroundImage: `url(${GradientTexture})`,
+          backgroundRepeat: "no-repeat",
+        }}
+      />
+    </view>
+  );
+}
 function SimpleIconButton({
   icon,
   onClick,
@@ -182,14 +204,12 @@ function RankingBadge({ num, onClick = () => {} }: RankingBadgeProps) {
       />
       {/* Badge Number */}
       {show && (
-        <Delay delay={0}>
-          <view
-            className={styles["number-circle"]}
-            style={{ backgroundImage: `url(${RankingBadgeCircleIcon})` }}
-          >
-            <text className={styles.number}>{num}</text>
-          </view>
-        </Delay>
+        <view
+          className={styles["number-circle"]}
+          style={{ backgroundImage: `url(${RankingBadgeCircleIcon})` }}
+        >
+          <text className={styles.number}>{num}</text>
+        </view>
       )}
     </view>
   );

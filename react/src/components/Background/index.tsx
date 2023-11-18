@@ -7,7 +7,7 @@ type BackgroundProps = XiaohaiUIToolkitElements["background"] & {
 
 function Background({ tintColor, style, ...rest }: BackgroundProps) {
   return (
-    <background
+    <view
       style={typeof style === "string" ? style : { ...style, color: tintColor }}
       {...rest}
     />
