@@ -21,6 +21,7 @@ import RankingBadgeCircleIcon from "src/assets/images/icons/ranking-badge-number
 // Top
 import Settings from "src/assets/images/icons/settings-icon.png";
 import MailIcon from "src/assets/images/icons/mail-icon.png";
+import FriendsIcon from "src/assets/images/icons/friends-icon.png";
 import GoldIcon from "src/assets/images/icons/gold-icon.png";
 import DiamondIcon from "src/assets/images/icons/diamond-icon.png";
 import VoucherIcon from "src/assets/images/icons/voucher-icon.png";
@@ -84,7 +85,12 @@ function SimpleIconButton({
   return (
     <view className={styles.button} onClick={onClick}>
       <Image
-        style={{ width: "28px", height: "28px", objectFit: "contain" }}
+        style={{
+          width: "28px",
+          height: "28px",
+          objectFit: "contain",
+          flexShrink: 0,
+        }}
         src={icon}
       />
     </view>
@@ -133,6 +139,7 @@ function Top() {
           <Balance type="voucher" value={251} />
         </view>
 
+        <SimpleIconButton icon={FriendsIcon} />
         <SimpleIconButton icon={MailIcon} />
         <SimpleIconButton
           icon={Settings}
