@@ -65,7 +65,7 @@ function Shadow({ position }: ShadowProps) {
     <view className={classNames(styles.shadow, styles[`shadow-${position}`])}>
       <Background
         className={styles.image}
-        tintColor="black"
+        tintColor="rgba(0,0,0,0.8)"
         style={{
           backgroundImage: `url(${GradientTexture})`,
           backgroundRepeat: "no-repeat",
