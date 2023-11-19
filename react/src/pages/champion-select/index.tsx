@@ -13,12 +13,13 @@ import styles from "./index.module.scss";
 function Page() {
   const navigate = useNavigate();
   const [tab, setTab] = useState<"champion" | "skin">("champion");
-  const { champions } = useChampions("ALL");
+  const { champions } = useChampions();
+  const allChampions = champions["ALL"];
   const [selectedChampionId, setSelectedChampion] = useState(-1);
   const [selectedSkinId, setSelectedSkinId] = useState(1);
   const champion: ChampionData | undefined = useMemo(
-    () => champions.find((champ) => champ.id === selectedChampionId),
-    [champions, selectedChampionId]
+    () => allChampions.find((champ) => champ.id === selectedChampionId),
+    [allChampions, selectedChampionId]
   );
   const championBackgroundImage = useMemo(
     () =>
@@ -33,8 +34,8 @@ function Page() {
   const [showChampionsPanel, setShowChampionsPanel] = useState(false);
   const [championsPanelCached, setChampionsPanelCached] = useState(false);
   const championsRows = useMemo(() => {
-    return groupBySize(champions, 2);
-  }, [champions]);
+    return groupBySize(allChampions, 2);
+  }, [allChampions]);
 
   useEffect(() => {
     if (showChampionsPanel) {
