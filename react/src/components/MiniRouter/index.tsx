@@ -43,7 +43,7 @@ export function Route({ path, element, keepAlive = false }: RouteProps) {
     <view
       className="mini-router-route"
       style={{
-        visibility: path === location ? "visible" : "hidden",
+        display: match ? "flex" : "none",
         position: "absolute",
         left: 0,
         top: 0,

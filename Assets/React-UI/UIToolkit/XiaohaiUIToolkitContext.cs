@@ -9,7 +9,11 @@ namespace XiaohaiLand.UI.UIToolkit
     public class XiaohaiUIToolkitContext : UIToolkitContext
     {
         public XiaohaiUIToolkitContext(Options options) : base(options)
-        { }
+        {
+            ComponentCreators["my-image"] = (tag, text, context) => new MyImage(context, tag);
+            ComponentCreators["background"] = (tag, text, context) => new Background(context, tag);
+            ComponentCreators["view"] = (tag, text, context) => new MyView(context, tag);
+        }
 
         [Preserve]
         void Keep()
