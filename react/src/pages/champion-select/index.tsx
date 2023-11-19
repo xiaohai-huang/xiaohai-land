@@ -142,13 +142,11 @@ function Page() {
             right: 0,
             top: "50%",
           }}
-          onAttachToPanel={(_, { Element }) => {
-            setTimeout(() => {
-              setExpandButtonPos({
-                x: Element.worldBound.x,
-                y: Element.worldBound.y,
-              });
-            }, 0);
+          onGeometryChanged={(_, { Element }) => {
+            setExpandButtonPos({
+              x: Element.worldBound.x,
+              y: Element.worldBound.y,
+            });
           }}
         ></view>
       </view>
@@ -205,6 +203,7 @@ function Page() {
         onClick={() => {
           setSelectedChampion(-1);
           setSelectedSkinId(1);
+          setShowChampionsPanel(false);
           navigate("/");
         }}
       >
