@@ -229,8 +229,8 @@ function IconButton({
   onClick = () => {},
 }: IconButtonProps) {
   return (
-    <view className={styles.tab}>
-      <view className={styles.content} onClick={onClick}>
+    <view className={styles.tab} onClick={onClick}>
+      <view className={styles.content}>
         <Image className={styles.icon} src={icon} />
         <text className={styles.label}>{label}</text>
       </view>
