@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "com.github-glitchenzo.nugetforunity": "4.0.2",
-    "com.reactunity.core": "0.16.3",
+    "com.reactunity.core": "https://github.com/xiaohai-huang/core.git#fix-2023-2-0-f1-errors",
     "com.reactunity.quickjs": "0.16.0",
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.device-simulator.devices": "1.0.0",

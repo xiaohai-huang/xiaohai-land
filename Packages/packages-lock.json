@@ -8,14 +8,14 @@
       "url": "https://package.openupm.com"
     },
     "com.reactunity.core": {
-      "version": "0.16.3",
+      "version": "https://github.com/xiaohai-huang/core.git#fix-2023-2-0-f1-errors",
       "depth": 0,
-      "source": "registry",
+      "source": "git",
       "dependencies": {
         "com.unity.editorcoroutines": "1.0.0",
         "com.unity.nuget.newtonsoft-json": "3.0.2"
       },
-      "url": "https://package.openupm.com"
+      "hash": "5b72a8c35e607015e115ef4e42ad217ffa047897"
     },
     "com.reactunity.quickjs": {
       "version": "0.16.0",
