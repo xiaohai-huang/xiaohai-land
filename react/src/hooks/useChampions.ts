@@ -6,18 +6,30 @@ import {
   getChampions,
 } from "src/api/hok";
 
-export default function useChampions(championClass: ChampionClass = "ALL") {
+const ALL_CLASSES = Object.entries(CHAMPION_CLASS_TO_CHINESE);
+
+export default function useChampions() {
   const [champions, setChampions] = useState([] as ChampionData[]);
   const [loading, setLoading] = useState(true);
-  const filtered = useMemo(
-    () =>
-      championClass === "ALL"
-        ? champions
-        : champions.filter((champion) =>
-            champion.classes.includes(CHAMPION_CLASS_TO_CHINESE[championClass])
-          ),
-    [champions, championClass]
-  );
+  const grouped = useMemo(() => {
+    const data: Record<ChampionClass, ChampionData[]> = {
+      ALL: champions,
+      ASSASSIN: [],
+      MAGE: [],
+      MARKSMAN: [],
+      SUPPORT: [],
+      TANK: [],
+      WARRIOR: [],
+    };
+    champions.forEach((champion) => {
+      ALL_CLASSES.forEach(([key, value]) => {
+        if (champion.classes.includes(value)) {
+          data[key].push(champion);
+        }
+      });
+    });
+    return data;
+  }, [champions]);
 
   useEffect(() => {
     setLoading(true);
@@ -36,5 +48,8 @@ export default function useChampions(championClass: ChampionClass = "ALL") {
     };
   }, []);
 
-  return { loading, champions: filtered };
+  return {
+    loading,
+    champions: grouped,
+  };
 }

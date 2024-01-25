@@ -5,6 +5,7 @@ plugins {
 android {
     namespace 'com.example.myappupdatemanager'
     compileSdk 33
+    buildToolsVersion "32.0.0"
 
     defaultConfig {
         minSdk 28

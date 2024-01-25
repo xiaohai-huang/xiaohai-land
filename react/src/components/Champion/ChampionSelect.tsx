@@ -25,7 +25,7 @@ function ChampionSelect({
   onClose = () => {},
 }: ChampionSelectProps) {
   const [tab, setTab] = useState<ChampionClass>("ALL");
-  const { champions } = useChampions(tab);
+  const { champions } = useChampions();
   return (
     <view
       style={{ ...style, visibility: visible ? "visible" : "hidden" }}
@@ -48,7 +48,7 @@ function ChampionSelect({
       {/* Tab Content */}
       <view className={styles.tabContent}>
         <ChampionList
-          champions={champions}
+          champions={champions[tab]}
           selectedId={selectedId}
           onClick={onClick}
         />
