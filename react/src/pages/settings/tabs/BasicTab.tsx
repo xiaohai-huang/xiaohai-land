@@ -55,7 +55,6 @@ function BasicTab() {
               }}
               onAttachToPanel={(_, sender) => {
                 const element = sender.Element;
-                element.hideMobileInput = true;
                 const textInput = element.ElementAt(0);
                 StyleHelper.SetPadding(textInput, "all", 0);
                 StyleHelper.SetAlignItems(textInput, "center");

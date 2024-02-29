@@ -30,6 +30,9 @@ function Page() {
       <input
         ref={inputRef}
         label="normal"
+        onBlur={() => {
+          setShow(false);
+        }}
         onKeyDownCapture={(e) => {
           console.log("keydown");
         }}
