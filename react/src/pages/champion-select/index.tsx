@@ -9,6 +9,7 @@ import { type ChampionData } from "src/api/hok";
 import Scroll from "src/components/Scroll";
 import ChampionSelect from "src/components/Champion/ChampionSelect";
 import styles from "./index.module.scss";
+import Delay from "src/components/Delay";
 
 function Page() {
   const navigate = useNavigate();
@@ -276,7 +277,7 @@ function Page() {
   );
 
   return (
-    <view className={styles.page}>
+    <Delay delay={0} className={styles.page}>
       <image
         style={{
           objectFit: "cover",
@@ -294,7 +295,7 @@ function Page() {
       {ExpandButton}
 
       {ChampionLargeSelect}
-    </view>
+    </Delay>
   );
 }
 
