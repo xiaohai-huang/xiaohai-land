@@ -186,11 +186,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: React UIToolkit UI
       objectReference: {fileID: 0}
-    - target: {fileID: 6512671326541057861, guid: 6d249fb77ce19584ebc069c09f96b428,
-        type: 3}
-      propertyPath: Source.SourcePath
-      value: https://supabase.zhengxing.asia/storage/v1/object/public/websites/xiaohai-land/index.js
-      objectReference: {fileID: 0}
     - target: {fileID: 8679627806955421419, guid: 6d249fb77ce19584ebc069c09f96b428,
         type: 3}
       propertyPath: m_LocalPosition.x

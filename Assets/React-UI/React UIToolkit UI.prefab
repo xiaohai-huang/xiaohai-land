@@ -84,6 +84,9 @@ MonoBehaviour:
   sourceAsset: {fileID: 9197481963319205126, guid: 5b6f411cf9472a6438fd9dbd63d0ba94,
     type: 3}
   m_SortingOrder: 0
+  m_WorldSpaceSizeMode: 1
+  m_WorldSpaceWidth: 1920
+  m_WorldSpaceHeight: 1080
 --- !u!82 &5621036369145819854
 AudioSource:
   m_ObjectHideFlags: 0
@@ -95,6 +98,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -197,13 +201,13 @@ MonoBehaviour:
     Language: 0
     SourceAsset: {fileID: 0}
     Watch: 1
-    SourcePath: https://storage.xiaohai-huang.net/unity-demo/react-unity-playground/build/index.js
+    SourcePath: https://supabase.zhengxing.asia/storage/v1/object/public/websites/xiaohai-land/build/index.js
     SourceText: 
     ResourcesPath: 
     UseDevServer: 1
     DevServer: http://localhost:3000
   EngineType: 3
-  Globals:
+  globals:
     Entries:
     - Key: Renderer
       Value: {fileID: 6512671326541057861}
