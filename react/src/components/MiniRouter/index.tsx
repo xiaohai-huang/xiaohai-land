@@ -41,7 +41,7 @@ export function Route({ path, element, keepAlive = false }: RouteProps) {
   if (!match && !keepAlive) return null;
   return (
     <view
-      className="mini-router-route"
+      className={`mini-router-route-${path}`}
       style={{
         display: match ? "flex" : "none",
         position: "absolute",
