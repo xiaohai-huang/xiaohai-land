@@ -1,0 +1,23 @@
+.logo-initial {
+  scale: 0.5;
+  opacity: 0.1;
+  transition: all 2s ease-in-out;
+}
+
+.logo-final {
+  opacity: 1;
+  scale: 1;
+  width: 256px;
+  height: 256px;
+}
+
+.title-initial {
+  opacity: 0;
+  translate: 0 100%;
+  transition: all 1s ease-in-out;
+}
+
+.title-final {
+  opacity: 1;
+  translate: 0 0%;
+}

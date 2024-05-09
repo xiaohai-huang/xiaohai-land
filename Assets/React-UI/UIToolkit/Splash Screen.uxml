@@ -1,0 +1,9 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/React-UI/UIToolkit/splash-screen.uss?fileID=7433441132597879392&amp;guid=f13e41a1d66d7ff45b731715ce0ca3fd&amp;type=3#splash-screen" />
+    <engine:VisualElement name="container" style="flex-grow: 1; -unity-font-definition: url(&quot;project://database/Assets/React-UI/UIToolkit/Assets/Fonts/NotoSansSC-Regular.ttf?fileID=12800000&amp;guid=12c9e0c449d2c3c43b9b6ff108cd2061&amp;type=3#NotoSansSC-Regular&quot;); background-color: rgb(0, 0, 0); align-items: center; justify-content: flex-start;">
+        <engine:VisualElement name="logo" class="logo-initial" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/React-UI/UIToolkit/Assets/logo.jpg?fileID=2800000&amp;guid=dd6c61391e3193c4a932e3d6e3fca082&amp;type=3#logo&quot;); -unity-background-scale-mode: scale-to-fit;" />
+        <engine:VisualElement name="title-wrapper" style="flex-grow: 1; justify-content: center;">
+            <engine:Label text="Xiaohai Land" enable-rich-text="false" name="title" class="title-initial" style="color: rgb(255, 255, 255); font-size: 50px; -unity-text-align: middle-center;" />
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>
