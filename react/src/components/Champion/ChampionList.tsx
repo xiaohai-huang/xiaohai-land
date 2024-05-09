@@ -48,7 +48,7 @@ function ChampionList({
               id={champion.id}
               name={champion.name}
               img={champion.img}
-              size={64}
+              size={80}
               selected={champion.id === selectedId}
               onClick={(id) => {
                 onClick(id);

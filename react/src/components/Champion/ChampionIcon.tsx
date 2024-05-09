@@ -8,7 +8,7 @@ type ChampionIconProps<T> = {
   onClick?: (id: T) => void;
 };
 
-const borderRadius = "10%";
+const borderRadius = "4%";
 
 function ChampionIcon<T>({
   id,
@@ -39,7 +39,6 @@ function ChampionIcon<T>({
         style={{
           width: `${size}px`,
           height: `${size}px`,
-          borderRadius,
           overflow: "hidden",
         }}
       >

@@ -7,7 +7,7 @@
   // background-color: pink;
   .leftSection {
     background-color: rgb(33, 41, 60, 0.95);
-    padding-left: var(--left-margin);
+    padding-left: var(--safe-left);
 
     height: 100%;
     display: flex;
@@ -46,6 +46,7 @@
         display: flex;
         flex-direction: column;
         flex-wrap: nowrap;
+        padding-top: 0.3rem;
         .row {
           display: flex;
           flex-direction: row;
@@ -66,7 +67,7 @@
     }
   }
   .rightSection {
-    padding-right: var(--right-margin);
+    padding-right: var(--safe-right);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -91,7 +92,7 @@
   }
   .championLargeSelectWrapper {
     .select {
-      padding-left: var(--left-margin);
+      padding-left: var(--safe-left);
     }
     position: absolute;
     left: 0;

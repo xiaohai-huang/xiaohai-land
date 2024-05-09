@@ -69,8 +69,8 @@ function Page() {
         {/* Placeholder */}
         <view className={classNames(styles.list, styles["place-holder"])}>
           <view className={styles.row}>
-            <ChampionIcon.Placeholder />
-            <ChampionIcon.Placeholder />
+            <ChampionIcon.Placeholder size={80} />
+            <ChampionIcon.Placeholder size={80} />
           </view>
         </view>
         {/* Champions Tab */}
@@ -91,7 +91,7 @@ function Page() {
                       id={champion.id}
                       name={champion.name}
                       img={champion.img}
-                      size={64}
+                      size={80}
                       selected={champion.id === selectedChampionId}
                       onClick={(id) => {
                         setSelectedChampion(id);
@@ -122,7 +122,7 @@ function Page() {
                         id={skin.id}
                         name={i === 0 ? "经典" : skin.name}
                         img={skin.smallImage}
-                        size={64}
+                        size={80}
                         selected={skin.id === selectedSkinId}
                         onClick={(id) => {
                           setSelectedSkinId(id);
@@ -198,8 +198,7 @@ function Page() {
     <view className={styles.rightSection}>
       <button
         style={{
-          marginTop: "var(--top-margin)",
-          width: "100px",
+          margin: 0,
           backgroundColor: "lightblue",
         }}
         onClick={() => {
