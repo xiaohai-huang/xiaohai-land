@@ -11,6 +11,7 @@ type ChampionListProps = {
   className?: string;
   champions: ChampionData[];
   selectedId?: number;
+  disabled?: boolean;
   onClick?: (id: number) => void;
 };
 
@@ -20,6 +21,7 @@ function ChampionList({
   className = "",
   champions,
   selectedId,
+  disabled,
   onClick = () => {},
 }: ChampionListProps) {
   const scrollRef = useRef<ReactUnity.UIToolkit.ScrollViewComponent>(null);
@@ -50,6 +52,7 @@ function ChampionList({
               img={champion.img}
               size={80}
               selected={champion.id === selectedId}
+              disabled={disabled && champion.id !== selectedId}
               onClick={(id) => {
                 onClick(id);
               }}

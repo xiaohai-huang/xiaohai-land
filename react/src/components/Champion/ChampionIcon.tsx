@@ -4,11 +4,12 @@ type ChampionIconProps<T> = {
   img: string;
   size: number;
   selected?: boolean;
+  disabled?: boolean;
   showBorder?: boolean;
   onClick?: (id: T) => void;
 };
 
-const borderRadius = "4%";
+const borderRadius = 4;
 
 function ChampionIcon<T>({
   id,
@@ -16,6 +17,7 @@ function ChampionIcon<T>({
   img,
   size,
   selected,
+  disabled = false,
   showBorder = true,
   onClick = () => {},
 }: ChampionIconProps<T>) {
@@ -28,8 +30,21 @@ function ChampionIcon<T>({
         position: "absolute",
         left: 0,
         top: 0,
-        borderRadius,
+        borderRadius: `${borderRadius}%`,
         backgroundColor: showBorder ? "rgba(255,242,0,0.03)" : "unset",
+      }}
+    />
+  );
+  const disabledEffect = (
+    <view
+      style={{
+        width: `${size}px`,
+        height: `${size}px`,
+        position: "absolute",
+        left: 0,
+        top: 0,
+        borderRadius: `${borderRadius}%`,
+        backgroundColor: "rgba(0,0,0,0.8)",
       }}
     />
   );
@@ -40,6 +55,7 @@ function ChampionIcon<T>({
           width: `${size}px`,
           height: `${size}px`,
           overflow: "hidden",
+          borderRadius: `${borderRadius + 0.5}%`,
         }}
       >
         {img && (
@@ -47,6 +63,7 @@ function ChampionIcon<T>({
         )}
       </view>
       {selected && selectedEffect}
+      {disabled && disabledEffect}
       <text
         style={{
           textAlign: "center",

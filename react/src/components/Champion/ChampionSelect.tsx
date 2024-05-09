@@ -12,6 +12,7 @@ type ChampionSelectProps = {
   style?: Style;
   visible?: boolean;
   selectedId?: number;
+  disabled?: boolean;
   onClick?: (id: number) => void;
   onClose?: () => void;
 };
@@ -21,6 +22,7 @@ function ChampionSelect({
   style = {},
   visible = true,
   selectedId,
+  disabled = false,
   onClick = () => {},
   onClose = () => {},
 }: ChampionSelectProps) {
@@ -50,6 +52,7 @@ function ChampionSelect({
         <ChampionList
           champions={champions[tab]}
           selectedId={selectedId}
+          disabled={disabled}
           onClick={onClick}
         />
         <view className={styles.closeButtonWrapper}>

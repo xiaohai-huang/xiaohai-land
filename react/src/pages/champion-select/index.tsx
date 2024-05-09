@@ -18,6 +18,7 @@ function Page() {
   const allChampions = champions["ALL"];
   const [selectedChampionId, setSelectedChampion] = useState(-1);
   const [selectedSkinId, setSelectedSkinId] = useState(1);
+  const [confirmed, setConfirmed] = useState(false);
   const champion: ChampionData | undefined = useMemo(
     () => allChampions.find((champ) => champ.id === selectedChampionId),
     [allChampions, selectedChampionId]
@@ -93,7 +94,9 @@ function Page() {
                       img={champion.img}
                       size={80}
                       selected={champion.id === selectedChampionId}
+                      disabled={confirmed && champion.id !== selectedChampionId}
                       onClick={(id) => {
+                        if (confirmed) return;
                         setSelectedChampion(id);
                         setSelectedSkinId(1);
                       }}
@@ -206,9 +209,12 @@ function Page() {
         style={{
           padding: "0.5rem",
         }}
-        // disabled={selectedChampionId === -1}
+        disabled={selectedChampionId === -1 || confirmed}
         onClick={() => {
           console.log("click confirm");
+          setTab("skin");
+          setShowChampionsPanel(false);
+          setConfirmed(true);
         }}
       >
         确定
@@ -245,7 +251,9 @@ function Page() {
         className={styles.select}
         visible={showChampionsPanel}
         selectedId={selectedChampionId}
+        disabled={confirmed}
         onClick={(id) => {
+          if (confirmed) return;
           setSelectedChampion(id);
           setSelectedSkinId(1);
         }}
