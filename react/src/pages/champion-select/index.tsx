@@ -159,32 +159,11 @@ function Page() {
     <view className={styles.previewSection}>
       <view className={styles.container}>
         {selectedChampionId === -1 ? (
-          <view
-            style={{
-              fontSize: "2.5rem",
-              color: "white",
-              margin: "auto 0",
-              textAlign: "center",
-              verticalAlign: "middle",
-              backgroundColor: "rgba(0,0,0,0.8)",
-            }}
-          >
-            请选择您的出战英雄
+          <view className={styles.pickChampionText}>
+            <view>请选择您的出战英雄</view>
           </view>
         ) : (
           <>
-            {/* Champion's Background Image */}
-            <image
-              style={{
-                objectFit: "cover",
-                position: "absolute",
-                left: 0,
-                top: 0,
-                width: "105%",
-                height: "105%",
-              }}
-              source={championBackgroundImage}
-            />
             <text style={{ marginTop: "var(--top-margin)", color: "white" }}>
               {champion.name}
             </text>
@@ -227,7 +206,7 @@ function Page() {
         style={{
           padding: "0.5rem",
         }}
-        disabled={selectedChampionId === -1}
+        // disabled={selectedChampionId === -1}
         onClick={() => {
           console.log("click confirm");
         }}
@@ -286,7 +265,7 @@ function Page() {
           width: "100%",
           height: "100%",
         }}
-        source={myImage1}
+        source={championBackgroundImage ? championBackgroundImage : myImage1}
       />
       {Left}
       {Middle}

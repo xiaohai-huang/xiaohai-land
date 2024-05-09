@@ -64,8 +64,32 @@
     .container {
       height: 100%;
       padding: 0 1rem;
+      .pickChampionText {
+        font-size: 2.5rem;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        animation: fade 1.5s ease-in-out alternate infinite;
+        & > view {
+          background-color: rgba(0, 0, 0, 0.8);
+          padding: 0.3rem;
+          border-radius: 30%;
+        }
+      }
     }
   }
+
+  @keyframes fade {
+    from {
+      opacity: 0.2;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
   .rightSection {
     padding-right: var(--safe-right);
     display: flex;
